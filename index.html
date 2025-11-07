@@ -10,39 +10,34 @@
 <meta name="keywords" content="AI, Artificial Intelligence, NLP, Machine Learning, Automation, Multimodal AI, Productivity AI, AI Startup">
 <meta name="author" content="Vineeth Reddy">
 
-<!-- Open Graph -->
-<meta property="og:title" content="Avios AI | Intelligent AI Solutions">
-<meta property="og:description" content="Avios AI develops intelligent solutions using advanced AI, NLP, and multimodal intelligence to simplify tasks and enhance productivity.">
-<meta property="og:image" content="assets/hero-image.png">
-<meta property="og:url" content="https://avios-ai.netlify.app">
-<meta property="og:type" content="website">
-
-<!-- Favicon -->
-<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
 
-<!-- Particles.js CDN -->
+<!-- Particles.js -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <style>
 body { font-family: 'Inter', sans-serif; background: #0d1b2a; color: #fff; margin:0; }
 .fade-up { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
+.scale-up { transform: scale(0.95); opacity:0; transition: all 0.8s ease-out; }
+.scale-up.visible { transform: scale(1); opacity:1; }
 header { position: fixed; width: 100%; z-index: 100; background: rgba(13,27,42,0.9); backdrop-filter: blur(10px); }
 nav a { margin-left: 20px; font-weight:600; color:#fff; transition:0.3s; }
 nav a:hover { color:#fca311; }
 .hero { position: relative; height: 100vh; display:flex; justify-content:center; align-items:center; text-align:center; overflow:hidden; background: url('assets/hero-image.png') center center/cover no-repeat; }
-#particles-js { position:absolute; width:100%; height:100%; top:0; left:0; z-index:0; }
-.hero-content { position:relative; z-index:1; max-width:700px; }
-button.cta { background:#fca311; color:#fff; padding:15px 35px; border-radius:8px; font-weight:600; transition:0.3s; }
-button.cta:hover { background:#ffb347; }
+.hero-overlay { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.45); z-index:0; }
+.hero-content { position: relative; z-index:1; max-width:700px; padding:0 20px; }
+button.cta { background: linear-gradient(90deg, #fca311, #ffb347); color:#fff; padding:15px 35px; border-radius:12px; font-weight:600; font-size:1.1rem; cursor:pointer; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+button.cta:hover { transform: translateY(-3px) scale(1.05); box-shadow:0 12px 25px rgba(0,0,0,0.3); background: linear-gradient(90deg,#ffb347,#fca311); }
+button.cta:active { transform: translateY(0) scale(1); box-shadow:0 8px 20px rgba(0,0,0,0.2); }
 section { padding-top:80px; }
-input, textarea { width: 100%; }
+input, textarea { width:100%; }
+h1 { font-size:2.5rem; }
+@media(min-width:768px){ h1{ font-size:5rem; } p{ font-size:1.25rem; } }
 </style>
 </head>
 <body>
@@ -60,8 +55,11 @@ input, textarea { width: 100%; }
 <!-- Hero Section -->
 <section class="hero">
   <div id="particles-js"></div>
-  <div class="hero-content fade-up">
-    <h1 class="text-5xl font-bold mb-4">Intelligent AI Solutions for Everyone</h1>
+  <div class="hero-overlay"></div>
+  <div class="hero-content fade-up scale-up">
+    <h1>
+      <span id="typing-text"></span>
+    </h1>
     <p class="mb-6 text-lg">We simplify complex tasks for businesses and individuals using advanced AI models, NLP, and multimodal intelligence to boost productivity and provide actionable insights.</p>
     <button class="cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
   </div>
@@ -101,17 +99,14 @@ input, textarea { width: 100%; }
   </div>
 </section>
 
-<!-- Contact Section with EmailJS Form -->
+<!-- Contact Section -->
 <section id="contact" class="py-20 px-5 max-w-7xl mx-auto bg-gray-900 rounded-xl my-10">
   <h2 class="text-4xl font-bold text-center mb-12 fade-up">Contact Us</h2>
   <div class="max-w-3xl mx-auto fade-up">
     <form id="contact-form" class="grid gap-6">
-      <input type="text" name="from_name" placeholder="Your Name" required
-        class="p-4 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
-      <input type="email" name="from_email" placeholder="Your Email" required
-        class="p-4 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
-      <textarea name="message" placeholder="Your Message" rows="5" required
-        class="p-4 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
+      <input type="text" name="name" placeholder="Your Name" required class="p-4 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
+      <input type="email" name="email" placeholder="Your Email" required class="p-4 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
+      <textarea name="message" placeholder="Your Message" rows="5" required class="p-4 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
       <button type="submit" class="cta w-full">Send Message</button>
       <p id="form-status" class="text-center mt-2"></p>
     </form>
@@ -124,7 +119,7 @@ input, textarea { width: 100%; }
 
 <!-- Scripts -->
 <script>
-  // Scroll fade-in animation
+  // Scroll fade-in
   const faders = document.querySelectorAll('.fade-up');
   const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
   const appearOnScroll = new IntersectionObserver((entries, observer)=>{
@@ -136,44 +131,56 @@ input, textarea { width: 100%; }
   }, appearOptions);
   faders.forEach(fader => appearOnScroll.observe(fader));
 
-  // Particles.js configuration
+  // Particles.js
   particlesJS("particles-js", {
     "particles": {
-      "number": { "value": 60, "density": {"enable": true,"value_area":800} },
+      "number": { "value": 50, "density": {"enable": true,"value_area":800} },
       "color": { "value": "#fca311" },
       "shape": { "type":"circle" },
-      "opacity": { "value":0.5 },
+      "opacity": { "value":0.4 },
       "size": { "value":3 },
-      "line_linked": { "enable":true, "distance":150, "color":"#fca311", "opacity":0.4, "width":1 },
-      "move": { "enable": true, "speed":2, "direction":"none", "random":false, "straight":false, "out_mode":"out" }
+      "line_linked": { "enable":true, "distance":120, "color":"#fca311", "opacity":0.3, "width":1 },
+      "move": { "enable": true, "speed":1.5, "direction":"none", "random":false, "straight":false, "out_mode":"out" }
     },
     "interactivity": {
       "detect_on":"canvas",
-      "events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true}
+      "events":{"onhover":{"enable":true,"mode":"grab"},"onclick":{"enable":true,"mode":"push"},"resize":true}
     },
     "retina_detect": true
   });
+
+  // Typing effect
+  const text = "Intelligent AI Solutions for Everyone";
+  let index = 0;
+  const typingElement = document.getElementById("typing-text");
+  function typeText() {
+    if(index < text.length){
+      typingElement.innerHTML += text.charAt(index);
+      index++;
+      setTimeout(typeText, 80);
+    }
+  }
+  window.addEventListener('load', typeText);
 </script>
 
-<!-- EmailJS Script -->
+<!-- EmailJS -->
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-  (function(){
-    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
-  })();
+  (function(){ emailjs.init("user_ABC123XYZ"); })(); // <-- Your EmailJS Public Key
 
   const form = document.getElementById('contact-form');
   const status = document.getElementById('form-status');
 
   form.addEventListener('submit', function(event){
     event.preventDefault();
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-      .then(() => {
-        status.innerHTML = "✅ Message sent successfully!";
-        form.reset();
-      }, (err) => {
-        status.innerHTML = "❌ Error sending message. Try again.";
-        console.error('EmailJS Error:', err);
+    emailjs.sendForm('service_u3yyjeb', 'template_contact', this)
+      .then(() => { 
+          status.innerHTML = "✅ Message sent successfully!"; 
+          form.reset(); 
+      })
+      .catch((err) => { 
+          status.innerHTML = "❌ Error sending message. Try again."; 
+          console.error(err); 
       });
   });
 </script>

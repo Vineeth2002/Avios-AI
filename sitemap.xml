@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://avios.ai/</loc>
-    <lastmod>2025-11-07</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://vineeth2002.github.io/Avios-AI/</loc>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://avios.ai/#about</loc>
-    <lastmod>2025-11-07</lastmod>
+    <loc>https://vineeth2002.github.io/Avios-AI/#about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://avios.ai/#features</loc>
-    <lastmod>2025-11-07</lastmod>
+    <loc>https://vineeth2002.github.io/Avios-AI/#features</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://avios.ai/#contact</loc>
-    <lastmod>2025-11-07</lastmod>
+    <loc>https://vineeth2002.github.io/Avios-AI/#contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

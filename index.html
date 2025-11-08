@@ -20,7 +20,11 @@
 
 <!-- Fonts & CSS -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Swiper -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
 <style>
@@ -44,12 +48,12 @@
   .card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(0,0,0,.35); }
 
   /* Buttons */
-  .btn-primary { background: linear-gradient(90deg,#fca311,#ffb347); color:#111; font-weight:700; padding:14px 28px; border-radius:12px; }
+  .btn-primary { background: linear-gradient(90deg,#fca311,#ffb347); color:#111; font-weight:700; padding:14px 28px; border-radius:12px; text-align:center; display:inline-block; }
   .btn-primary:hover { filter: brightness(1.05); transform: translateY(-2px); }
-  .btn-secondary { background: linear-gradient(90deg,#374151,#4B5563); color:#fff; font-weight:700; padding:14px 28px; border-radius:12px; }
+  .btn-secondary { background: linear-gradient(90deg,#374151,#4B5563); color:#fff; font-weight:700; padding:14px 28px; border-radius:12px; text-align:center; display:inline-block; }
   .btn-secondary:hover { filter: brightness(1.05); transform: translateY(-2px); }
 
-  /* Testimonials (Swiper) */
+  /* Testimonials */
   .swiper { width: 100%; }
   .swiper-slide { display:flex; justify-content:center; align-items:center; }
   .testimonial-card { background:#111827; padding:30px; border-radius:20px; max-width:560px; text-align:center; }
@@ -111,7 +115,7 @@
     </div>
     <div class="card">
       <h3 class="text-2xl font-semibold mb-2">Our Approach</h3>
-      <p>Start focused, measure ROI in weeks, then scale. We combine ML, NLP, and multimodal AI with robust MLOps.</p>
+      <p>Start focused, measure ROI fast, then scale. We combine ML, NLP, and multimodal AI with robust MLOps.</p>
     </div>
   </div>
 </section>
@@ -121,11 +125,11 @@
   <h2 class="text-4xl font-bold text-center mb-12">Our Services</h2>
   <div class="grid md:grid-cols-3 gap-8">
     <div class="card text-center"><h3 class="text-2xl font-semibold mb-1">AI Automation</h3><p>Remove repetitive work and reduce errors with secure, auditable workflows.</p></div>
-    <div class="card text-center"><h3 class="text-2xl font-semibold mb-1">Predictive Analytics</h3><p>Forecast demand, risk, and churn with explainable models and dashboards.</p></div>
+    <div class="card text-center"><h3 class="text-2xl font-semibold mb-1">Predictive Analytics</h3><p>Forecast demand, risk, and churn with explainable models.</p></div>
     <div class="card text-center"><h3 class="text-2xl font-semibold mb-1">Multimodal AI</h3><p>Blend text, images, and speech for assistants, copilots, and smart search.</p></div>
     <div class="card text-center"><h3 class="text-2xl font-semibold mb-1">Productivity Tools</h3><p>Embed AI in your apps to accelerate content, ops, and support.</p></div>
     <div class="card text-center"><h3 class="text-2xl font-semibold mb-1">Intelligent Insights</h3><p>Real-time analytics with alerts, summaries, and recommendations.</p></div>
-    <div class="card text-center"><h3 class="text-2xl font-semibold mb-1">Custom Solutions</h3><p>Tailored architectures, from PoC to scaled production with SLAs.</p></div>
+    <div class="card text-center"><h3 class="text-2xl font-semibold mb-1">Custom Solutions</h3><p>Tailored architectures from PoC to production with SLAs.</p></div>
   </div>
 </section>
 
@@ -133,39 +137,39 @@
 <section id="features" class="max-w-7xl mx-auto my-10 p-10 fade-up">
   <h2 class="text-4xl font-bold text-center mb-12">Why Choose Avios AI</h2>
   <div class="grid md:grid-cols-3 gap-8">
-    <div class="card text-center"><h3 class="text-xl font-semibold mb-2">Scalable</h3><p>Built to grow with your users, data, and compliance needs.</p></div>
-    <div class="card text-center"><h3 class="text-xl font-semibold mb-2">Expert Team</h3><p>Engineers and researchers with deep production experience.</p></div>
+    <div class="card text-center"><h3 class="text-xl font-semibold mb-2">Scalable</h3><p>Built to grow with business needs.</p></div>
+    <div class="card text-center"><h3 class="text-xl font-semibold mb-2">Expert Team</h3><p>Engineers and researchers with deep experience.</p></div>
     <div class="card text-center"><h3 class="text-xl font-semibold mb-2">Reliable Support</h3><p>Monitoring, model updates, and on-call assistance.</p></div>
   </div>
 </section>
 
-<!-- Testimonials (centered on screen, auto-scroll) -->
+<!-- Testimonials -->
 <section id="testimonials" class="min-h-screen flex items-center justify-center px-4">
   <div class="w-full max-w-4xl">
     <h2 class="text-4xl font-bold text-center mb-10">Testimonials</h2>
 
-    <div class="swiper" aria-label="Client testimonials slider">
+    <div class="swiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <div class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Testimonial 1">
+          <div class="testimonial-card">
             <p>"Avios AI transformed our workflow with intelligent automation."</p>
             <strong>- John Doe</strong>
           </div>
         </div>
         <div class="swiper-slide">
-          <div class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Testimonial 2">
+          <div class="testimonial-card">
             <p>"Their predictive analytics shaved weeks off our planning cycles."</p>
             <strong>- Jane Smith</strong>
           </div>
         </div>
         <div class="swiper-slide">
-          <div class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Testimonial 3">
+          <div class="testimonial-card">
             <p>"Amazing team—fast delivery and production-grade quality."</p>
             <strong>- Mike Johnson</strong>
           </div>
         </div>
       </div>
-      <div class="swiper-pagination" aria-label="Testimonials pagination"></div>
+      <div class="swiper-pagination"></div>
     </div>
   </div>
 </section>
@@ -177,19 +181,19 @@
     <div class="faq-item">
       <div class="faq-q">What is Avios AI?</div>
       <div class="faq-answer">
-        Avios AI builds practical, production-ready AI—automation, NLP, and multimodal systems—that deliver measurable results, not just demos.
+        Avios AI builds practical, production-ready AI—automation, NLP, and multimodal systems—that deliver measurable results.
       </div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Can I integrate AI into my business?</div>
       <div class="faq-answer">
-        Absolutely. We design solutions that fit your stack and processes. Start small (one workflow), prove ROI in weeks, then scale across teams.
+        Yes — start with one workflow, prove ROI in weeks, then scale across teams.
       </div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Do you provide support?</div>
       <div class="faq-answer">
-        Yes. From implementation to MLOps, we provide monitoring, model updates, and SLAs—keeping your AI accurate and reliable in production.
+        Yes — monitoring, model updates, and SLAs to keep your AI reliable.
       </div>
     </div>
   </div>
@@ -199,11 +203,16 @@
 <section id="contact" class="max-w-7xl mx-auto bg-gray-800 rounded-xl my-10 p-10 fade-up">
   <h2 class="text-4xl font-bold text-center mb-12">Contact Us</h2>
   <div class="max-w-3xl mx-auto">
-    <!-- IMPORTANT: names match your EmailJS template ({{name}}, {{email}}, {{message}}) -->
     <form id="contact-form" class="grid gap-6">
-      <input type="text"   name="name"    placeholder="Your Name"   required class="p-4 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
-      <input type="email"  name="email"   placeholder="Your Email"  required class="p-4 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
-      <textarea            name="message" placeholder="Your Message" rows="5" required class="p-4 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
+      <input type="text"   name="name"    placeholder="Your Name"   required 
+             class="p-4 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
+
+      <input type="email"  name="email"   placeholder="Your Email"  required 
+             class="p-4 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
+
+      <textarea name="message" placeholder="Your Message" rows="5" required 
+                class="p-4 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
+
       <button id="contact-submit" type="submit" class="btn-primary w-full">Send Message</button>
       <p id="form-status" class="text-center mt-2"></p>
     </form>
@@ -223,10 +232,14 @@
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
 <script>
-  // === EmailJS SETUP ===
-  // Replace with your real PUBLIC key (Dashboard → Account → API Keys)
-  emailjs.init("PUBLIC_KEY_HERE");
+  /* ✅ EmailJS config */
+  const PUBLIC_KEY  = "gf3Q5jLBYPf1ZOUko";
+  const SERVICE_ID  = "service_4ytq1ph";
+  const TEMPLATE_ID = "template_71vcpfp";
+
+  emailjs.init(PUBLIC_KEY);
 
   const form   = document.getElementById('contact-form');
   const status = document.getElementById('form-status');
@@ -234,43 +247,47 @@
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    status.textContent = "Sending…";
+    status.textContent = "Sending...";
     submit.disabled = true;
 
-    // Uses your Service ID and Template ID
-    emailjs.sendForm('service_4ytq1ph', '1agv3m5', this)
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, this, PUBLIC_KEY)
       .then(() => {
         status.textContent = "✅ Message sent successfully!";
         form.reset();
       })
       .catch((err) => {
-        console.error("EmailJS error:", err);
-        status.textContent = "❌ Error sending message. Check Public Key / Allowed Domain / Template fields.";
+        console.error("EmailJS Error →", err);
+        status.textContent = "❌ Unable to send. Check allowed domains.";
       })
       .finally(() => {
         submit.disabled = false;
       });
   });
 
-  // Swiper (centered, auto-scrolling testimonials)
+  /* Swiper */
   const swiper = new Swiper('.swiper', {
     loop: true,
     centeredSlides: true,
     slidesPerView: 1,
-    spaceBetween: 24,
     autoplay: { delay: 3000, disableOnInteraction: false },
     pagination: { el: '.swiper-pagination', clickable: true },
-    speed: 700
+    speed: 700,
+    spaceBetween: 24
   });
 
-  // Scroll fade-in
+  /* Fade-in */
   const faders = document.querySelectorAll('.fade-up');
   const io = new IntersectionObserver((entries, obs) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
-  }, { threshold: 0.2, rootMargin: "0px 0px -50px 0px" });
+    entries.forEach(e => { 
+      if (e.isIntersecting) { 
+        e.target.classList.add('visible'); 
+        obs.unobserve(e.target); 
+      }
+    });
+  }, { threshold: 0.2 });
   faders.forEach(el => io.observe(el));
 
-  // FAQ toggle
+  /* FAQ */
   document.querySelectorAll('.faq-item').forEach(item => {
     item.addEventListener('click', () => {
       const ans = item.querySelector('.faq-answer');
@@ -278,5 +295,6 @@
     });
   });
 </script>
+
 </body>
 </html>

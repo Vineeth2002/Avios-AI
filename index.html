@@ -33,7 +33,6 @@
   .fade-up { opacity:0; transform: translateY(16px); transition: all .6s ease-out; }
   .fade-up.visible { opacity:1; transform:none; }
 
-  /* HERO */
   .hero {
     position: relative;
     min-height: 100vh;
@@ -43,23 +42,19 @@
   .hero::after { content:""; position:absolute; inset:0; background: linear-gradient(90deg, rgba(0,0,0,.65), rgba(0,0,0,.25)); }
   .hero-content { position: relative; z-index: 1; text-align: center; padding: 0 1rem; }
 
-  /* Cards */
   .card { background: linear-gradient(135deg, #1f2937, #111827); padding: 24px; border-radius: 16px; transition: transform .25s ease, box-shadow .25s ease; }
   .card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(0,0,0,.35); }
 
-  /* Buttons */
-  .btn-primary { background: linear-gradient(90deg,#fca311,#ffb347); color:#111; font-weight:700; padding:14px 28px; border-radius:12px; text-align:center; display:inline-block; }
+  .btn-primary { background: linear-gradient(90deg,#fca311,#ffb347); color:#111; font-weight:700; padding:14px 28px; border-radius:12px; display:inline-block; text-align:center; }
   .btn-primary:hover { filter: brightness(1.05); transform: translateY(-2px); }
-  .btn-secondary { background: linear-gradient(90deg,#374151,#4B5563); color:#fff; font-weight:700; padding:14px 28px; border-radius:12px; text-align:center; display:inline-block; }
+  .btn-secondary { background: linear-gradient(90deg,#374151,#4B5563); color:#fff; font-weight:700; padding:14px 28px; border-radius:12px; display:inline-block; text-align:center; }
   .btn-secondary:hover { filter: brightness(1.05); transform: translateY(-2px); }
 
-  /* Testimonials */
   .swiper { width: 100%; }
   .swiper-slide { display:flex; justify-content:center; align-items:center; }
   .testimonial-card { background:#111827; padding:30px; border-radius:20px; max-width:560px; text-align:center; }
   .testimonial-card p { font-style: italic; margin-bottom: 12px; color:#e5e7eb; }
 
-  /* FAQ */
   .faq-item { border-bottom:1px solid #374151; padding:16px 0; cursor:pointer; }
   .faq-q { font-weight:700; }
   .faq-answer { display:none; padding-top:10px; color:#9ca3af; }
@@ -134,7 +129,7 @@
 </section>
 
 <!-- Features -->
-<section id="features" class="max-w-7xl mx-auto my-10 p-10 fade-up">
+<section id="features" class="max-w-7xl mx_auto my-10 p-10 fade-up">
   <h2 class="text-4xl font-bold text-center mb-12">Why Choose Avios AI</h2>
   <div class="grid md:grid-cols-3 gap-8">
     <div class="card text-center"><h3 class="text-xl font-semibold mb-2">Scalable</h3><p>Built to grow with business needs.</p></div>
@@ -158,13 +153,13 @@
         </div>
         <div class="swiper-slide">
           <div class="testimonial-card">
-            <p>"Their predictive analytics shaved weeks off our planning cycles."</p>
+            <p>"Their predictive analytics shaved weeks off planning cycles."</p>
             <strong>- Jane Smith</strong>
           </div>
         </div>
         <div class="swiper-slide">
           <div class="testimonial-card">
-            <p>"Amazing team—fast delivery and production-grade quality."</p>
+            <p>"Amazing team — fast delivery & production-grade quality."</p>
             <strong>- Mike Johnson</strong>
           </div>
         </div>
@@ -181,7 +176,7 @@
     <div class="faq-item">
       <div class="faq-q">What is Avios AI?</div>
       <div class="faq-answer">
-        Avios AI builds practical, production-ready AI—automation, NLP, and multimodal systems—that deliver measurable results.
+        Avios AI builds production-ready AI — automation, NLP, and multimodal systems — that deliver measurable results.
       </div>
     </div>
     <div class="faq-item">
@@ -235,7 +230,7 @@
 
 <script>
   /* ✅ EmailJS config */
-  const PUBLIC_KEY  = "gf3Q5jLBYPf1ZOUko";
+  const PUBLIC_KEY  = "public_gf3Q5jLBYPf1ZOUko";
   const SERVICE_ID  = "service_4ytq1ph";
   const TEMPLATE_ID = "template_71vcpfp";
 
@@ -257,7 +252,7 @@
       })
       .catch((err) => {
         console.error("EmailJS Error →", err);
-        status.textContent = "❌ Unable to send. Check allowed domains.";
+        status.textContent = "❌ Unable to send. Check Allowed Origins.";
       })
       .finally(() => {
         submit.disabled = false;

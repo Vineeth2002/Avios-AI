@@ -1,179 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Avios AI | Intelligent AI Solutions</title>
-<meta name="description" content="Avios AI develops intelligent solutions using advanced AI, NLP, and multimodal intelligence to simplify tasks and enhance productivity.">
-<meta name="keywords" content="AI, Artificial Intelligence, NLP, Machine Learning, Automation, Multimodal AI, Productivity AI, AI Startup">
-<meta name="author" content="Vineeth Reddy">
+<meta name="description" content="Avios AI delivers practical, production-ready AI solutions—automation, NLP, and multimodal intelligence—to drive real business outcomes." />
+<meta name="keywords" content="AI, Artificial Intelligence, NLP, Machine Learning, Automation, Multimodal AI, Productivity" />
+<meta name="author" content="Vineeth Reddy" />
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- Open Graph / Social -->
+<meta property="og:title" content="Avios AI | Intelligent AI Solutions" />
+<meta property="og:description" content="Production-ready AI that delivers measurable results—automation, NLP, and multimodal intelligence." />
+<meta property="og:image" content="assets/hero-image_v2.png" />
+<meta property="og:type" content="website" />
+<meta property="twitter:card" content="summary_large_image" />
 
-<!-- Tailwind CSS -->
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+<!-- Fonts & CSS -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
-<!-- Particles.js -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
 <style>
-body { font-family: 'Inter', sans-serif; margin:0; background:#0d1b2a; color:#fff; scroll-behavior:smooth; }
-.fade-up { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
-.fade-up.visible { opacity: 1; transform: translateY(0); }
-.hero { position:relative; display:flex; align-items:center; justify-content:center; min-height:100vh; background: url('assets/hero-image.png') center center/cover no-repeat; }
-.hero-overlay { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:0; }
-.hero-content { position:relative; z-index:10; text-align:center; padding:0 20px; }
-button.cta { background: linear-gradient(90deg, #fca311, #ffb347); color:#fff; padding:15px 35px; border-radius:12px; font-weight:600; font-size:1.1rem; cursor:pointer; transition: all 0.3s; box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
-button.cta:hover { transform: translateY(-3px) scale(1.05); box-shadow:0 12px 25px rgba(0,0,0,0.3); background: linear-gradient(90deg,#ffb347,#fca311); }
-a.btn-secondary { background: linear-gradient(90deg, #374151, #4B5563); padding:15px 35px; border-radius:12px; font-weight:600; transition:all 0.3s; display:inline-block; }
-a.btn-secondary:hover { background: linear-gradient(90deg,#4B5563,#6B7280); transform:translateY(-2px) scale(1.03);}
-section { padding:100px 20px; }
-h1,h2,h3{margin:0 0 20px 0;}
-p { margin-bottom:15px; }
-.card { background:linear-gradient(135deg, #1f2937, #111827); padding:25px; border-radius:16px; transition:all 0.4s; }
-.card:hover { transform:translateY(-5px) scale(1.03); box-shadow:0 15px 30px rgba(0,0,0,0.4); }
+  :root { color-scheme: dark; }
+  body { font-family: 'Inter', sans-serif; background:#0b1220; color:#fff; margin:0; scroll-behavior:smooth; }
+  .fade-up { opacity:0; transform: translateY(16px); transition: all .6s ease-out; }
+  .fade-up.visible { opacity:1; transform:none; }
 
-/* Testimonials */
-.swiper { width: 100%; padding: 50px 0; }
-.swiper-slide { display:flex; justify-content:center; align-items:center; }
-.testimonial-card { background:#111827; padding:30px; border-radius:20px; max-width:400px; text-align:center; }
-.testimonial-card p { font-style:italic; margin-bottom:15px; }
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    background: url('assets/hero-image_v2.png') center/cover no-repeat;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero::after { /* extra overlay for contrast */
+    content:""; position:absolute; inset:0; background: linear-gradient(90deg, rgba(0,0,0,.65), rgba(0,0,0,.25));
+  }
+  .hero-content { position: relative; z-index: 1; text-align: center; padding: 0 1rem; }
 
-/* FAQ */
-.faq-item { border-bottom:1px solid #374151; padding:15px 0; cursor:pointer; }
-.faq-answer { display:none; padding-top:10px; color:#9ca3af; }
+  /* Cards */
+  .card { background: linear-gradient(135deg, #1f2937, #111827); padding: 24px; border-radius: 16px; transition: transform .25s ease, box-shadow .25s ease; }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(0,0,0,.35); }
 
-@media(min-width:768px){ .hero-content h1{ font-size:4rem; } .hero-content p{ font-size:1.25rem; } }
+  /* Buttons */
+  .btn-primary { background: linear-gradient(90deg,#fca311,#ffb347); color:#111; font-weight:700; padding:14px 28px; border-radius:12px; }
+  .btn-primary:hover { filter: brightness(1.05); transform: translateY(-2px); }
+  .btn-secondary { background: linear-gradient(90deg,#374151,#4B5563); color:#fff; font-weight:700; padding:14px 28px; border-radius:12px; }
+  .btn-secondary:hover { filter: brightness(1.05); transform: translateY(-2px); }
+
+  /* Testimonials (Swiper) */
+  .swiper { width: 100%; }
+  .swiper-slide { display:flex; justify-content:center; align-items:center; }
+  .testimonial-card { background:#111827; padding:30px; border-radius:20px; max-width:560px; text-align:center; }
+  .testimonial-card p { font-style: italic; margin-bottom: 12px; color:#e5e7eb; }
+
+  /* FAQ */
+  .faq-item { border-bottom:1px solid #374151; padding:16px 0; cursor:pointer; }
+  .faq-q { font-weight:700; }
+  .faq-answer { display:none; padding-top:10px; color:#9ca3af; }
+
+  header.nav { position:fixed; top:0; left:0; right:0; z-index:50; background: rgba(0,0,0,.6); backdrop-filter: blur(8px); }
 </style>
-
-<!-- Swiper CSS for testimonials -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 </head>
 <body>
 
 <!-- Header -->
-<header class="fixed top-0 left-0 w-full bg-black bg-opacity-70 backdrop-blur z-50 p-5 flex justify-between items-center max-w-7xl mx-auto">
-  <h1 class="text-2xl font-bold text-white">Avios AI</h1>
-  <nav>
-    <a href="#about" class="ml-5 font-semibold text-white hover:text-yellow-400">About</a>
-    <a href="#services" class="ml-5 font-semibold text-white hover:text-yellow-400">Services</a>
-    <a href="#features" class="ml-5 font-semibold text-white hover:text-yellow-400">Features</a>
-    <a href="#testimonials" class="ml-5 font-semibold text-white hover:text-yellow-400">Testimonials</a>
-    <a href="#faq" class="ml-5 font-semibold text-white hover:text-yellow-400">FAQ</a>
-    <a href="#contact" class="ml-5 font-semibold text-white hover:text-yellow-400">Contact</a>
-  </nav>
+<header class="nav">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-5 py-4">
+    <a href="#" class="text-xl font-extrabold">Avios AI</a>
+    <nav class="hidden md:flex items-center gap-6">
+      <a href="#about" class="hover:text-yellow-400">About</a>
+      <a href="#services" class="hover:text-yellow-400">Services</a>
+      <a href="#features" class="hover:text-yellow-400">Features</a>
+      <a href="#testimonials" class="hover:text-yellow-400">Testimonials</a>
+      <a href="#faq" class="hover:text-yellow-400">FAQ</a>
+      <a href="#contact" class="hover:text-yellow-400">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<!-- Hero Section -->
-<section class="hero relative flex items-center justify-center min-h-screen bg-cover bg-center" style="background-image: url('assets/hero-image.png');">
-  <div class="hero-overlay absolute inset-0 bg-black bg-opacity-60"></div>
-  <div class="hero-content relative z-10 text-center px-4 max-w-3xl">
-    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-snug mb-6">
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content max-w-3xl mx-auto">
+    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
       Intelligent AI Solutions for Everyone
     </h1>
-    <p class="text-md md:text-lg text-gray-200 mb-6">
-      We leverage advanced AI, NLP, and multimodal intelligence to automate tasks, provide insights, and make AI accessible for businesses and individuals.
+    <p class="text-lg md:text-xl text-gray-200 mb-8">
+      We build production-ready automation, NLP, and multimodal AI that delivers measurable business results—fast.
     </p>
-    <p class="text-gray-400 text-sm">
-      Trusted by innovators and AI enthusiasts worldwide
-    </p>
+    <div class="flex items-center justify-center gap-4">
+      <a href="#contact" class="btn-primary">Get in Touch</a>
+      <a href="#services" class="btn-secondary">Explore Services</a>
+    </div>
+    <p class="text-gray-400 mt-6 text-sm">Trusted by innovators and AI enthusiasts worldwide</p>
   </div>
 </section>
 
-<!-- About Section -->
+<!-- About -->
 <section id="about" class="max-w-7xl mx-auto bg-gray-900 rounded-xl my-10 p-10 fade-up">
   <h2 class="text-4xl font-bold text-center mb-12">About Avios AI</h2>
-  <div class="grid md:grid-cols-3 gap-10">
+  <div class="grid md:grid-cols-3 gap-8">
     <div class="card">
-      <h3 class="text-2xl font-semibold mb-3">Our Mission</h3>
-      <p>Bridge the gap between cutting-edge AI research and real-world applications, making AI accessible and impactful for everyone.</p>
+      <h3 class="text-2xl font-semibold mb-2">Our Mission</h3>
+      <p>Bridge cutting-edge research and real business value by shipping AI that is reliable, secure, and cost-effective.</p>
     </div>
     <div class="card">
-      <h3 class="text-2xl font-semibold mb-3">Our Vision</h3>
-      <p>Empower businesses and individuals with intelligent AI tools to enhance productivity and innovation.</p>
+      <h3 class="text-2xl font-semibold mb-2">Our Vision</h3>
+      <p>Empower teams with intelligent systems that automate work, surface insights, and unlock new products and services.</p>
     </div>
     <div class="card">
-      <h3 class="text-2xl font-semibold mb-3">Our Approach</h3>
-      <p>We combine ML, NLP, and multimodal AI to deliver scalable, reliable, and actionable solutions.</p>
+      <h3 class="text-2xl font-semibold mb-2">Our Approach</h3>
+      <p>Start focused, measure ROI in weeks, then scale. We combine ML, NLP, and multimodal AI with robust MLOps.</p>
     </div>
   </div>
 </section>
 
-<!-- Services Section -->
+<!-- Services -->
 <section id="services" class="max-w-7xl mx-auto my-10 p-10 fade-up">
   <h2 class="text-4xl font-bold text-center mb-12">Our Services</h2>
   <div class="grid md:grid-cols-3 gap-8">
-    <div class="card text-center">
-      <h3 class="text-2xl font-semibold mb-2">AI Automation</h3>
-      <p>Automate repetitive tasks to save time and reduce errors.</p>
-    </div>
-    <div class="card text-center">
-      <h3 class="text-2xl font-semibold mb-2">Predictive Analytics</h3>
-      <p>Data-driven insights for smarter business decisions.</p>
-    </div>
-    <div class="card text-center">
-      <h3 class="text-2xl font-semibold mb-2">Multimodal AI</h3>
-      <p>Integrate text, image, and voice AI into seamless applications.</p>
-    </div>
-    <div class="card text-center">
-      <h3 class="text-2xl font-semibold mb-2">Business Productivity</h3>
-      <p>Tools designed to boost efficiency across workflows.</p>
-    </div>
-    <div class="card text-center">
-      <h3 class="text-2xl font-semibold mb-2">Intelligent Insights</h3>
-      <p>Real-time analytics and actionable recommendations.</p>
-    </div>
-    <div class="card text-center">
-      <h3 class="text-2xl font-semibold mb-2">Custom AI Solutions</h3>
-      <p>Tailored AI solutions to fit your business needs.</p>
-    </div>
+    <div class="card text-center"><h3 class="text-2xl font-semibold mb-1">AI Automation</h3><p>Remove repetitive work and reduce errors with secure, auditable workflows.</p></div>
+    <div class="card text-center"><h3 class="text-2xl font-semibold mb-1">Predictive Analytics</h3><p>Forecast demand, risk, and churn with explainable models and dashboards.</p></div>
+    <div class="card text-center"><h3 class="text-2xl font-semibold mb-1">Multimodal AI</h3><p>Blend text, images, and speech for assistants, copilots, and smart search.</p></div>
+    <div class="card text-center"><h3 class="text-2xl font-semibold mb-1">Productivity Tools</h3><p>Embed AI in your apps to accelerate content, ops, and support.</p></div>
+    <div class="card text-center"><h3 class="text-2xl font-semibold mb-1">Intelligent Insights</h3><p>Real-time analytics with alerts, summaries, and recommendations.</p></div>
+    <div class="card text-center"><h3 class="text-2xl font-semibold mb-1">Custom Solutions</h3><p>Tailored architectures, from PoC to scaled production with SLAs.</p></div>
   </div>
 </section>
 
-<!-- Features Section -->
+<!-- Features -->
 <section id="features" class="max-w-7xl mx-auto my-10 p-10 fade-up">
   <h2 class="text-4xl font-bold text-center mb-12">Why Choose Avios AI</h2>
   <div class="grid md:grid-cols-3 gap-8">
-    <div class="card text-center">
-      <h3 class="text-xl font-semibold mb-2">Scalable Solutions</h3>
-      <p>Our AI grows with your business needs.</p>
-    </div>
-    <div class="card text-center">
-      <h3 class="text-xl font-semibold mb-2">Expert Team</h3>
-      <p>Experienced engineers and AI researchers at your service.</p>
-    </div>
-    <div class="card text-center">
-      <h3 class="text-xl font-semibold mb-2">Reliable Support</h3>
-      <p>Dedicated support to ensure smooth AI integration.</p>
+    <div class="card text-center"><h3 class="text-xl font-semibold mb-2">Scalable</h3><p>Built to grow with your users, data, and compliance needs.</p></div>
+    <div class="card text-center"><h3 class="text-xl font-semibold mb-2">Expert Team</h3><p>Engineers and researchers with deep production experience.</p></div>
+    <div class="card text-center"><h3 class="text-xl font-semibold mb-2">Reliable Support</h3><p>Monitoring, model updates, and on-call assistance.</p></div>
+  </div>
+</section>
+
+<!-- Testimonials (centered on screen, auto-scroll) -->
+<section id="testimonials" class="min-h-screen flex items-center justify-center px-4">
+  <div class="w-full max-w-4xl">
+    <h2 class="text-4xl font-bold text-center mb-10">Testimonials</h2>
+
+    <div class="swiper" aria-label="Client testimonials slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Testimonial 1">
+            <p>"Avios AI transformed our workflow with intelligent automation."</p>
+            <strong>- John Doe</strong>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Testimonial 2">
+            <p>"Their predictive analytics shaved weeks off our planning cycles."</p>
+            <strong>- Jane Smith</strong>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Testimonial 3">
+            <p>"Amazing team—fast delivery and production-grade quality."</p>
+            <strong>- Mike Johnson</strong>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination" aria-label="Testimonials pagination"></div>
     </div>
   </div>
 </section>
 
-<!-- Testimonials Section -->
-<section id="testimonials" class="max-w-7xl mx-auto my-10 p-10 fade-up">
-  <h2 class="text-4xl font-bold text-center mb-12">Testimonials</h2>
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><div class="testimonial-card"><p>"Avios AI transformed our workflow with intelligent automation!"</p><strong>- John Doe</strong></div></div>
-      <div class="swiper-slide"><div class="testimonial-card"><p>"The predictive analytics saved us countless hours in decision-making."</p><strong>- Jane Smith</strong></div></div>
-      <div class="swiper-slide"><div class="testimonial-card"><p>"Amazing team and incredible AI solutions!"</p><strong>- Mike Johnson</strong></div></div>
-    </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
-  </div>
-</section>
-
-<!-- FAQ Section -->
+<!-- FAQ (improved copy) -->
 <section id="faq" class="max-w-7xl mx-auto my-10 p-10 fade-up">
   <h2 class="text-4xl font-bold text-center mb-12">FAQ</h2>
   <div class="max-w-3xl mx-auto">
-    <div class="faq-item">What is Avios AI? <div class="faq-answer">Avios AI develops intelligent AI solutions for businesses and individuals.</div></div>
-    <div class="faq-item">Can I integrate AI into my business? <div class="faq-answer">Yes, our solutions are scalable and customizable for any industry.</div></div>
-    <div class="faq-item">Do you provide support? <div class="faq-answer">We offer dedicated support for all our clients to ensure smooth integration.</div></div>
+    <div class="faq-item">
+      <div class="faq-q">What is Avios AI?</div>
+      <div class="faq-answer">
+        Avios AI builds practical, production-ready AI—automation, NLP, and multimodal systems—that deliver measurable results, not just demos.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I integrate AI into my business?</div>
+      <div class="faq-answer">
+        Absolutely. We design solutions that fit your stack and processes. Start small (one workflow), prove ROI in weeks, then scale across teams.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you provide support?</div>
+      <div class="faq-answer">
+        Yes. From implementation to MLOps, we provide monitoring, model updates, and SLAs—keeping your AI accurate and reliable in production.
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Contact Section -->
+<!-- Contact -->
 <section id="contact" class="max-w-7xl mx-auto bg-gray-800 rounded-xl my-10 p-10 fade-up">
   <h2 class="text-4xl font-bold text-center mb-12">Contact Us</h2>
   <div class="max-w-3xl mx-auto">
@@ -181,7 +205,7 @@ p { margin-bottom:15px; }
       <input type="text" name="name" placeholder="Your Name" required class="p-4 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
       <input type="email" name="email" placeholder="Your Email" required class="p-4 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
       <textarea name="message" placeholder="Your Message" rows="5" required class="p-4 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
-      <button type="submit" class="cta w-full">Send Message</button>
+      <button type="submit" class="btn-primary w-full">Send Message</button>
       <p id="form-status" class="text-center mt-2"></p>
     </form>
   </div>
@@ -198,60 +222,44 @@ p { margin-bottom:15px; }
 </footer>
 
 <!-- Scripts -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-  emailjs.init("user_ABC123XYZ"); // EmailJS Public Key
+  // EmailJS (replace with your real public key/service/template IDs)
+  emailjs.init("user_ABC123XYZ");
   const form = document.getElementById('contact-form');
   const status = document.getElementById('form-status');
   form.addEventListener('submit', function(event){
     event.preventDefault();
     emailjs.sendForm('service_u3yyjeb', 'template_contact', this)
-      .then(() => { 
-          status.innerHTML = "✅ Message sent successfully!"; 
-          form.reset(); 
-      })
-      .catch((err) => { 
-          status.innerHTML = "❌ Error sending message. Try again."; 
-          console.error(err); 
-      });
+      .then(() => { status.textContent = "✅ Message sent successfully!"; form.reset(); })
+      .catch((err) => { status.textContent = "❌ Error sending message. Try again."; console.error(err); });
   });
 
-  // Particles.js
-  particlesJS("particles-js", {
-    "particles": { "number":{"value":50,"density":{"enable":true,"value_area":800}},"color":{"value":"#fca311"},"shape":{"type":"circle"},"opacity":{"value":0.4},"size":{"value":3},"line_linked":{"enable":true,"distance":120,"color":"#fca311","opacity":0.3,"width":1},"move":{"enable":true,"speed":1.5,"direction":"none","random":false,"straight":false,"out_mode":"out"} },
-    "interactivity": {"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"grab"},"onclick":{"enable":true,"mode":"push"},"resize":true}},
-    "retina_detect":true
-  });
-
-  // Hero Typing Effect
-  const text = "Intelligent AI Solutions for Everyone";
-  let index=0;
-  const typingElement=document.getElementById("typing-text");
-  function typeText(){ if(index<text.length){ typingElement.innerHTML+=text.charAt(index); index++; setTimeout(typeText,80);} }
-  window.addEventListener('load', typeText);
-
-  // Scroll Fade In
-  const faders = document.querySelectorAll('.fade-up');
-  const appearOptions = { threshold:0.2, rootMargin:"0px 0px -50px 0px" };
-  const appearOnScroll = new IntersectionObserver((entries, observer)=>{
-    entries.forEach(entry => { if(!entry.isIntersecting) return; entry.target.classList.add('visible'); observer.unobserve(entry.target); });
-  }, appearOptions);
-  faders.forEach(fader => appearOnScroll.observe(fader));
-
-  // FAQ Toggle
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.addEventListener('click', () => {
-      const answer = item.querySelector('.faq-answer');
-      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-    });
-  });
-
-  // Swiper (Testimonials)
+  // Swiper (centered, auto-scrolling testimonials)
   const swiper = new Swiper('.swiper', {
     loop: true,
-    autoplay: { delay:5000 },
-    pagination: { el: '.swiper-pagination', clickable:true }
+    centeredSlides: true,
+    slidesPerView: 1,
+    spaceBetween: 24,
+    autoplay: { delay: 3000, disableOnInteraction: false },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    speed: 700
+  });
+
+  // Scroll fade-in
+  const faders = document.querySelectorAll('.fade-up');
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+  }, { threshold: 0.2, rootMargin: "0px 0px -50px 0px" });
+  faders.forEach(el => io.observe(el));
+
+  // FAQ toggle
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const ans = item.querySelector('.faq-answer');
+      ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
+    });
   });
 </script>
 </body>

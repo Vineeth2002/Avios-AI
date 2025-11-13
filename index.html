@@ -4,506 +4,623 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Avios AI | Intelligent AI Solutions</title>
-<meta name="description" content="Avios AI builds production-ready automation, NLP copilots and multimodal systems that reduce manual work and deliver measurable outcomes." />
-<meta name="author" content="Vineeth Reddy" />
+<meta name="description" content="Avios AI - build production-ready automation, NLP copilots and multimodal AI to reduce manual work and deliver measurable outcomes." />
+<link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
 
-<meta property="og:title" content="Avios AI | Intelligent AI Solutions" />
-<meta property="og:description" content="Production-ready AI — automation, NLP and multimodal intelligence." />
-<meta property="og:image" content="assets/hero-image.png" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary_large_image" />
-
-<link rel="icon" href="/favicon.ico" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!-- Swiper CSS for testimonials -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
+<!-- Google font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-:root{
-  --bg-1:#051823; --bg-2:#07232b; --muted:#9fb0b9;
-  --accent-1:#27c6ff; --accent-2:#0ea5ff; --white:#f5fbff; --content-max:1200px;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0; font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
-  background:linear-gradient(180deg,var(--bg-1),#03171c 140%); color:var(--white);
-  -webkit-font-smoothing:antialiased; line-height:1.45;
-}
+  :root{
+    --bg:#07161a;            /* deep blue background */
+    --panel:#071b1f;         /* panels */
+    --muted:#9fb0b8;         /* muted text */
+    --accent1:#2dd4ff;       /* cyan */
+    --accent2:#0ea5a3;       /* teal */
+    --white:#ffffff;
+    --card: rgba(255,255,255,0.02);
+  }
+  html,body{height:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+    color:var(--white);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    overflow-x:hidden;
+  }
 
-/* header */
-header.nav{ position:sticky; top:0; z-index:60;
-  background: linear-gradient(180deg, rgba(3,9,12,0.95), rgba(3,9,12,0.85));
-  border-bottom:1px solid rgba(255,255,255,0.03); backdrop-filter: blur(6px);
-}
-.nav-inner{ max-width:var(--content-max); margin:0 auto; padding:14px 20px;
-  display:flex; align-items:center; justify-content:space-between; gap:16px;
-}
-.brand{display:flex; align-items:center; gap:12px}
-.logo{ width:46px; height:46px; border-radius:10px;
-  display:flex; align-items:center; justify-content:center;
-  background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
-  color:#052024; font-weight:800; font-size:18px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.35);
-}
-.brand .title { font-weight:700; font-size:16px; color:var(--white); }
-.brand .subtitle { font-size:12px; color:var(--muted); margin-top:2px; }
-nav.topnav { display:flex; gap:22px; align-items:center; }
-nav.topnav a { color:rgba(255,255,255,0.92); text-decoration:none; font-weight:600; }
-.contact-cta { padding:10px 14px; border-radius:12px; background:linear-gradient(90deg,var(--accent-1),var(--accent-2)); color:#052024; font-weight:700; text-decoration:none; }
+  /* HEADER */
+  .header{
+    position:sticky; top:0; z-index:60;
+    background:linear-gradient(180deg, rgba(3,10,14,0.6), rgba(3,10,14,0.45));
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid rgba(255,255,255,0.03);
+  }
+  .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;}
+  .brand{display:flex;gap:12px;align-items:center;}
+  .logo-box{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent1),#2b6cb0);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--bg);font-size:18px;}
+  .brand h1{margin:0;font-size:16px;font-weight:700;}
+  nav a{color:rgba(255,255,255,0.85);margin-left:20px;text-decoration:none;font-weight:600}
+  .cta-contact{background:linear-gradient(90deg,var(--accent1),var(--accent2));padding:8px 14px;border-radius:12px;color:var(--bg);font-weight:700;margin-left:18px}
 
-/* hero */
-.hero{ position:relative; padding:56px 16px 72px; overflow:hidden; }
-.hero-inner{ max-width:var(--content-max); margin:0 auto; display:grid; grid-template-columns: 1fr 520px; gap:40px; align-items:center; position:relative; z-index:2; }
-.hero .left{ padding-right:8px; }
-.hero h1{ font-size:3.2rem; margin:0 0 18px; font-weight:800; line-height:1.02; max-width:760px; word-wrap:break-word; }
-.hero p.lead{ color:var(--muted); font-size:1.02rem; margin:0 0 26px; max-width:720px; }
-.actions { display:flex; gap:16px; align-items:center; margin-top:6px; }
-.btn { display:inline-block; padding:12px 18px; border-radius:12px; font-weight:700; text-decoration:none; cursor:pointer; }
-.btn-primary { background:linear-gradient(90deg,var(--accent-1),var(--accent-2)); color:#052024; box-shadow:0 8px 22px rgba(10,60,90,0.25); }
-.btn-ghost { background:transparent; color:var(--white); border:1px solid rgba(255,255,255,0.06); padding:12px 18px; border-radius:12px; text-decoration:none; }
+  /* HERO */
+  .hero{position:relative;min-height:74vh;display:flex;align-items:center;padding:56px 20px;max-width:1200px;margin:0 auto;gap:40px;}
+  .hero-left{flex:1;min-width:320px;max-width:680px;padding-right:6vw;}
+  .kicker{color:var(--muted);font-weight:600;margin-bottom:10px}
+  .hero-title{font-size:64px;line-height:0.95;margin:0 0 20px 0;font-weight:800;letter-spacing:-1px}
+  .hero-sub{color:var(--muted);font-size:18px;max-width:56ch;margin-bottom:24px}
+  .hero-ctas{display:flex;gap:16px;align-items:center}
+  .btn-primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:var(--bg);padding:12px 22px;border-radius:12px;font-weight:800;border:none;cursor:pointer}
+  .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px 20px;border-radius:12px;color:var(--muted);cursor:pointer}
 
-/* hero card */
-.hero .right{ display:flex; justify-content:center; }
-.hero-card { width:100%; max-width:520px; height:auto; border-radius:18px; overflow:hidden;
-  background:linear-gradient(180deg, rgba(2,14,18,0.55), rgba(3,24,28,0.6)); border:1px solid rgba(255,255,255,0.02);
-  box-shadow: 0 10px 30px rgba(0,0,0,.45); padding:20px; display:flex; align-items:center; justify-content:center;
-}
-.hero-card img{ width:100%; height:auto; display:block; object-fit:cover; border-radius:12px; }
+  .hero-right{flex:0 0 480px;display:flex;align-items:center;justify-content:center;position:relative}
+  .hero-card{width:100%;max-width:520px;border-radius:18px;padding:22px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 12px 40px rgba(2,6,10,0.6);border:1px solid rgba(255,255,255,0.03);overflow:hidden}
+  .hero-card img{width:100%;height:auto;display:block;border-radius:12px}
 
-/* 3D-like neural network overlay (hero-only). pointer-events none so it won't block anything */
-.network { position:absolute; inset:0; pointer-events:none; z-index:1; opacity:0.96; }
+  /* Canvas overlay for neural network (in hero only) */
+  #nn-canvas{position:absolute; left:0; right:auto; top:0; bottom:0; width:100%; height:100%; z-index:0; pointer-events:none;}
+  .hero-left,.hero-card{position:relative; z-index:4}
 
-/* layered effects to give depth */
-.net-layer { transform-style:preserve-3d; }
-.net-lines { stroke:rgba(60,170,230,0.08); stroke-width:1.4; mix-blend-mode:screen; filter: drop-shadow(0 8px 20px rgba(0,120,170,0.08)); }
-.net-nodes { fill:rgba(40,170,220,0.95); filter:drop-shadow(0 6px 18px rgba(0,120,170,0.12)); }
+  /* SECTIONS */
+  section{max-width:1200px;margin:48px auto;padding:26px 20px}
+  h2.section-title{text-align:center;font-size:28px;margin-bottom:26px;font-weight:800}
 
-/* Node pulsation + slow drift for depth */
-.node-pulse { animation: pulse 2.8s ease-in-out infinite; transform-origin:center; }
-.node-pulse.slow { animation-duration:4.4s; }
-@keyframes pulse { 0%{ transform:scale(1); opacity:0.95 } 50%{ transform:scale(1.28); opacity:1 } 100%{ transform:scale(1); opacity:0.95 } }
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .card{background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));padding:22px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 10px 30px rgba(0,0,0,0.35)}
+  .card h3{margin:0 0 10px 0;font-size:20px}
+  .muted{color:var(--muted)}
 
-/* Gentle path wave movement (3D drift) */
-.path-drift { animation: drift 10s linear infinite; transform-origin:center; }
-@keyframes drift { 0%{ transform:translateZ(-6px) translateY(0) } 50%{ transform:translateZ(6px) translateY(-8px) } 100%{ transform:translateZ(-6px) translateY(0) } }
+  /* Testimonials */
+  .swiper { padding: 18px 0; }
+  .testimonial-card{background:rgba(255,255,255,0.02);padding:30px;border-radius:14px;max-width:900px;margin:0 auto;color:var(--muted)}
 
-/* thin foreground animated connections for parallax */
-.net-foreground { stroke: rgba(95,190,255,0.22); stroke-width:1.6; opacity:0.85; animation: slowMove 18s ease-in-out infinite; filter: drop-shadow(0 12px 26px rgba(0,120,170,0.06)); }
-@keyframes slowMove { 0%{ transform:translateY(0) } 50%{ transform:translateY(-6px) } 100%{ transform:translateY(0) } }
+  /* FAQ */
+  .faq-list{max-width:900px;margin:0 auto}
+  .faq-item{background:var(--card);border-radius:12px;padding:14px;margin-bottom:12px;border:1px solid rgba(255,255,255,0.02);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+  .faq-q{font-weight:700}
+  .faq-a{display:none;color:var(--muted);margin-top:10px;padding-left:2px}
 
-/* content sections */
-main.content{ max-width:var(--content-max); margin:40px auto; padding:0 20px 80px; }
-.section { margin:36px 0; scroll-margin-top:96px; } .section h2 { text-align:center; margin:18px 0 28px; font-size:1.8rem; color:var(--white); }
-.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-.card { background:linear-gradient(180deg, rgba(2,10,14,0.45), rgba(2,10,14,0.6)); border-radius:14px; padding:20px; border:1px solid rgba(255,255,255,0.02); box-shadow:0 10px 24px rgba(2,10,12,0.45); }
-.card h3{ margin:0 0 10px; color:var(--white); } .card p{ margin:0; color:var(--muted); }
+  /* CONTACT */
+  .contact-card{max-width:860px;margin:0 auto;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));padding:24px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 20px 40px rgba(0,0,0,0.45)}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  input,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:rgba(0,0,0,0.06);color:var(--white);outline:none;resize:vertical}
+  textarea{min-height:140px}
+  .form-actions{display:flex;gap:12px;align-items:center;margin-top:12px}
 
-/* testimonials */
-.testimonials { max-width:860px; margin:0 auto; }
+  /* fallback panel (tidy) */
+  .fallback-card{margin-top:16px;border-radius:12px;padding:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 28px rgba(0,0,0,0.45)}
+  .fallback-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .fallback-title{font-weight:700;color:#ffd1a8;margin-bottom:4px}
+  .fallback-sub{color:var(--muted);font-size:0.95rem}
+  .fallback-actions{display:flex;gap:10px;align-items:center}
+  .fallback-actions .copy-btn{padding:8px 10px;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04);color:var(--white);cursor:pointer}
+  .fallback-email-row{display:flex;align-items:center;gap:8px;padding:10px;border-radius:10px;background:rgba(0,0,0,0.12);border:1px solid rgba(255,255,255,0.02)}
+  .fallback-email a{color:var(--white);font-weight:700;text-decoration:none}
+  .fallback-preview{background:rgba(0,0,0,0.06);border-radius:10px;padding:12px;border:1px solid rgba(255,255,255,0.02)}
+  .preview-label{font-size:0.9rem;color:var(--muted);margin-bottom:8px}
+  .preview-text{margin:0;background:transparent;color:var(--muted);white-space:pre-wrap;font-family:inherit;font-size:0.95rem;line-height:1.4;padding:0}
 
-/* FAQ */
-.faq-list { max-width:860px; margin:0 auto; } .faq-item { background:transparent; border-radius:12px; margin-bottom:12px; padding:14px 16px; border:1px solid rgba(255,255,255,0.03); display:flex; align-items:flex-start; justify-content:space-between; cursor:pointer; }
-.faq-q { font-weight:700; color:var(--white); margin:0; } .faq-a { margin-top:10px; color:var(--muted); display:none; } .faq-item.open .faq-a { display:block; }
+  /* FOOTER */
+  footer{padding:40px 20px;text-align:center;color:var(--muted);font-size:14px}
 
-/* contact */
-.contact-wrap { max-width:820px; margin:40px auto 20px; padding:26px; border-radius:12px; background:linear-gradient(180deg, rgba(2,12,15,0.55), rgba(2,12,15,0.65)); border:1px solid rgba(255,255,255,0.03); box-shadow:0 12px 40px rgba(0,0,0,0.45); }
-.contact-wrap label { display:block; font-weight:700; margin-bottom:8px; color:var(--white); }
-.contact-wrap input, .contact-wrap textarea { width:100%; padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.03); background:rgba(0,0,0,0.12); color:var(--white); margin-bottom:14px; outline:none; }
-.contact-wrap textarea { min-height:140px; resize:vertical; }
-.status { text-align:center; margin-top:8px; color:var(--muted); min-height:22px; }
-
-/* footer */
-footer.sitefoot { padding:36px 16px; text-align:center; color:var(--muted); font-size:14px; border-top:1px solid rgba(255,255,255,0.02); }
-
-/* responsive */
-@media (max-width:1024px){ .hero-inner { grid-template-columns: 1fr 420px; gap:30px; } .hero h1 { font-size:2.8rem; } }
-@media (max-width:820px){ .hero-inner { grid-template-columns: 1fr; gap:28px; padding-bottom:0; } .hero .right { order:2; } .hero-card { max-width:100%; } .hero h1{ font-size:2.2rem; } .grid-3 { grid-template-columns:repeat(2,1fr); } }
-@media (max-width:520px){
-  nav.topnav{display:none}
-  .hero{padding:28px 12px 38px}
-  .hero h1{ font-size:1.95rem; }
-  .hero p.lead{ font-size:0.97rem; }
-  .actions{flex-direction:column; align-items:flex-start}
-  .grid-3 { grid-template-columns:1fr; }
-}
-.btn:focus, .contact-wrap input:focus, .contact-wrap textarea:focus { box-shadow:0 6px 18px rgba(14,165,233,0.12); border-color: rgba(14,165,233,0.24); }
-.copy-btn { padding:8px 12px; border-radius:8px; background:rgba(255,255,255,0.06); color:var(--white); border:1px solid rgba(255,255,255,0.03); cursor:pointer; }
+  /* responsiveness */
+  @media (max-width:1000px){
+    .hero{flex-direction:column;min-height:60vh;align-items:flex-start}
+    .hero-left{padding-right:0}
+    .hero-title{font-size:44px}
+    .hero-right{width:100%;display:flex;justify-content:center;margin-top:18px}
+    .grid-3{grid-template-columns:repeat(2,1fr)}
+    .form-row{grid-template-columns:1fr}
+    nav a{margin-left:12px}
+  }
+  @media (max-width:640px){
+    .hero-title{font-size:32px}
+    .nav-inner{padding:10px}
+    .brand h1{font-size:15px}
+    nav{display:none} /* mobile: keep simple header; you can add mobile menu later */
+  }
 </style>
 </head>
 <body>
 
-<header class="nav" role="banner">
+<header class="header" role="banner">
   <div class="nav-inner">
     <div class="brand">
-      <div class="logo" aria-hidden="true">AI</div>
+      <div class="logo-box" aria-hidden="true">AI</div>
       <div>
-        <div class="title">Avios AI</div>
-        <div class="subtitle">Production AI, simply delivered</div>
+        <h1>Avios AI</h1>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px">Production AI, simply delivered</div>
       </div>
     </div>
 
-    <nav class="topnav" aria-label="Main navigation">
+    <nav aria-label="Main navigation">
       <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#testimonials">Testimonials</a>
       <a href="#faq">FAQ</a>
-      <a class="contact-cta" href="#contact">Contact</a>
+      <a href="#contact" class="cta-contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<section class="hero" aria-labelledby="hero-heading">
-  <!-- 3D-ish network SVG overlay (decorative only) -->
-  <svg class="network" viewBox="0 0 1600 600" preserveAspectRatio="none" aria-hidden="true" role="img">
-    <!-- far background faint lines -->
-    <g class="net-layer" transform="translate(0,8)">
-      <path class="net-lines path-drift" d="M80 160 C220 120, 420 100, 580 150 C760 200, 920 160, 1100 210 C1280 260, 1420 220, 1560 200" />
-      <path class="net-lines" d="M120 80 C260 40, 420 60, 620 100 C820 140, 980 120, 1180 140 C1380 160, 1500 140, 1560 120" style="opacity:0.4" />
-    </g>
+<!-- HERO: neural network canvas sits behind this hero -->
+<section class="hero" id="home" aria-labelledby="hero-heading">
+  <!-- neural network canvas (absolute, hero full) -->
+  <canvas id="nn-canvas" aria-hidden="true"></canvas>
 
-    <!-- mid nodes/lines for depth -->
-    <g class="net-layer" transform="translate(0,0)">
-      <path class="net-foreground" d="M220 140 L320 90 L480 130 L640 110 L820 160" />
-      <path class="net-foreground" d="M540 220 L660 180 L820 200 L980 180 L1200 220" />
-    </g>
-
-    <!-- nodes (pulsing; different sizes for depth) -->
-    <g class="net-layer" transform="translate(0,0)">
-      <circle class="net-nodes node-pulse slow" cx="220" cy="140" r="4.4"></circle>
-      <circle class="net-nodes node-pulse" cx="320" cy="90" r="3.8"></circle>
-      <circle class="net-nodes node-pulse slow" cx="480" cy="130" r="5.2"></circle>
-      <circle class="net-nodes node-pulse" cx="640" cy="110" r="3.6"></circle>
-      <circle class="net-nodes node-pulse" cx="820" cy="160" r="4"></circle>
-
-      <circle class="net-nodes node-pulse" cx="540" cy="220" r="3.6"></circle>
-      <circle class="net-nodes node-pulse slow" cx="660" cy="180" r="4.8"></circle>
-      <circle class="net-nodes node-pulse" cx="820" cy="200" r="3.6"></circle>
-      <circle class="net-nodes node-pulse slow" cx="980" cy="180" r="4.6"></circle>
-      <circle class="net-nodes node-pulse" cx="1200" cy="220" r="3.8"></circle>
-    </g>
-
-    <!-- faint glow layer near top for realism -->
-    <g transform="translate(0,0)" style="mix-blend-mode: screen; opacity:0.45;">
-      <circle cx="360" cy="70" r="36" fill="rgba(20,150,220,0.04)"></circle>
-      <circle cx="980" cy="40" r="24" fill="rgba(20,150,220,0.03)"></circle>
-    </g>
-  </svg>
-
-  <div class="hero-inner" role="region">
-    <div class="left content">
-      <div style="color:var(--muted); font-weight:600; margin-bottom:8px;">Practical · Production · Measurable</div>
-
-      <h1 id="hero-heading">AI that automates work, accelerates teams, and unlocks growth.</h1>
-
-      <p class="lead">We build production-ready automation, NLP copilots and multimodal systems that reduce manual work and deliver measurable impact — start with a focused PoC.</p>
-
-      <div class="actions" role="group" aria-label="Hero actions">
-        <a class="btn btn-primary" href="#contact">Request consult</a>
-        <a class="btn btn-ghost" href="#case-studies">View case studies</a>
-      </div>
+  <div class="hero-left">
+    <div class="kicker">Practical · Production · Measurable</div>
+    <h1 id="hero-heading" class="hero-title">AI that automates work, accelerates teams, and unlocks growth.</h1>
+    <p class="hero-sub">We build production-ready automation, NLP copilots and multimodal systems that reduce manual work and deliver measurable impact — start with a focused PoC.</p>
+    <div class="hero-ctas">
+      <button class="btn-primary" id="cta-request">Request consult</button>
+      <button class="btn-ghost" id="cta-case">View case studies</button>
     </div>
+  </div>
 
-    <div class="right">
-      <div class="hero-card" aria-hidden="false" role="img" aria-label="Avios AI hero visual">
-        <img src="assets/hero-image.png" alt="Avios AI futuristic hero visual" decoding="async">
-      </div>
+  <div class="hero-right" aria-hidden="false">
+    <div class="hero-card" role="img" aria-label="Avios AI hero visual">
+      <img src="assets/hero-image.png" alt="Avios AI futuristic hero visual">
     </div>
   </div>
 </section>
 
-<main class="content" id="main">
+<!-- ABOUT -->
+<section id="about" class="fade-up">
+  <h2 class="section-title">About Avios AI</h2>
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr;gap:20px;">
+    <div class="card">
+      <h3>About Avios AI</h3>
+      <p class="muted">We help teams replace manual work with reliable AI systems: practical automation, domain-aware assistants and multimodal tools that deliver measurable outcomes — not demos.</p>
 
-  <section id="about" class="section" aria-labelledby="about-title">
-    <h2 id="about-title">About Avios AI</h2>
-
-    <div class="grid-3" style="margin-top:18px;">
-      <div class="card" style="grid-column:span 2">
-        <h3>What we do</h3>
-        <p>We help teams replace manual work with reliable AI systems: practical automation, domain-aware assistants, and multimodal tools that deliver measurable ROI — not demos.</p>
-
-        <h4 style="margin-top:14px;color:var(--muted)">How we work</h4>
-        <ul style="color:var(--muted); margin-top:8px; line-height:1.6;">
-          <li><strong>Discovery</strong> — define a measurable outcome</li>
-          <li><strong>Prototype</strong> — focused PoC with clear acceptance criteria</li>
-          <li><strong>Production</strong> — rollout, monitoring & iterative improvement</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Why Avios</h3>
-        <p style="color:var(--muted)">Business-first: measurable KPIs. Production-ready: reliable & monitored systems. Privacy-aware: secure integrations.</p>
-      </div>
+      <h4 style="margin-top:18px">How we work</h4>
+      <ul class="muted" style="margin-top:8px;line-height:1.6">
+        <li><strong>Discovery</strong> — identify one high-impact metric.</li>
+        <li><strong>Prototype</strong> — focused PoC with clear acceptance criteria.</li>
+        <li><strong>Production</strong> — rollout, monitoring & iterative improvement.</li>
+      </ul>
     </div>
-  </section>
 
-  <section id="services" class="section" aria-labelledby="services-title">
-    <h2 id="services-title">Services</h2>
-    <div class="grid-3" style="margin-top:18px;">
-      <div class="card text-center"><h3>AI Automation</h3><p>Automate workflows, document processing and reporting with auditable pipelines.</p></div>
-      <div class="card text-center"><h3>NLP Copilots</h3><p>Assistants for support, summarization, and knowledge work tailored to your data.</p></div>
-      <div class="card text-center"><h3>Multimodal Systems</h3><p>Combine text, images and audio to build smarter experiences.</p></div>
+    <div class="card">
+      <h3>Why Avios</h3>
+      <ul style="margin-top:12px;color:var(--muted);line-height:1.6">
+        <li>Business-first: measurable KPIs</li>
+        <li>Production-ready: reliable & monitored systems</li>
+        <li>Privacy-aware: secure integrations</li>
+      </ul>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="case-studies" class="section" aria-labelledby="case-title">
-    <h2 id="case-title">Case studies</h2>
-    <div class="grid-3" style="margin-top:18px;">
-      <div class="card"><h3>Support Copilot — FinTech</h3><p>35% faster triage and 30% fewer escalations using a domain-aware assistant.</p></div>
-      <div class="card"><h3>Reporting Automation — Logistics</h3><p>Saved 20+ hours/week with scheduled ETL + reporting.</p></div>
-      <div class="card"><h3>Document Extraction — Enterprise</h3><p>96% accurate extraction with human-in-loop validation.</p></div>
+<!-- SERVICES -->
+<section id="services">
+  <h2 class="section-title">Services</h2>
+  <div class="grid-3">
+    <div class="card">
+      <h3>AI Automation</h3>
+      <p class="muted">Automate workflows, document processing and reporting with auditable pipelines.</p>
     </div>
-  </section>
-
-  <section class="section" style="margin-top:34px;">
-    <div class="card" style="display:flex;align-items:center;justify-content:space-between; gap:20px;">
-      <div>
-        <h3 style="margin:0 0 6px;">Curious how AI fits your workflow?</h3>
-        <p style="margin:0;color:var(--muted)">Tell us one pain point — we'll propose a focused experiment.</p>
-      </div>
-      <div>
-        <a class="btn btn-primary" href="#contact">Start conversation</a>
-      </div>
+    <div class="card">
+      <h3>NLP Copilots</h3>
+      <p class="muted">Assistants for support, summarization, knowledge work and internal search — tailored to your data.</p>
     </div>
-  </section>
-
-  <section id="testimonials" class="section" aria-labelledby="testimonials-title">
-    <h2 id="testimonials-title">What clients say</h2>
-    <div class="testimonials" style="margin-top:18px;">
-      <div class="card" style="text-align:center;">
-        <p style="font-style:italic; color:var(--muted); margin:18px 0;">"They automated reporting workflows and reduced manual effort by 40%."</p>
-        <p style="margin:0; font-weight:700;">— Head of Ops, Logistics</p>
-      </div>
+    <div class="card">
+      <h3>Multimodal Systems</h3>
+      <p class="muted">Combine text, images and audio to build smarter experiences.</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="faq" class="section" aria-labelledby="faq-title">
-    <h2 id="faq-title">FAQ</h2>
-    <div class="faq-list" style="margin-top:18px;">
-      <div class="faq-item" data-id="q1" role="button" tabindex="0">
-        <div>
-          <div class="faq-q">How quickly can we see results?</div>
-          <div class="faq-a">Most teams see measurable outcomes from a focused PoC within 1–2 weeks when scope and success metric are clear.</div>
-        </div>
-        <div aria-hidden="true" style="align-self:center; color:var(--muted)">▸</div>
-      </div>
-
-      <div class="faq-item" data-id="q2" role="button" tabindex="0">
-        <div>
-          <div class="faq-q">Which deployment options do you support?</div>
-          <div class="faq-a">Cloud-hosted, private cloud, and on-prem integrations with secure connectors and privacy controls.</div>
-        </div>
-        <div aria-hidden="true" style="align-self:center; color:var(--muted)">▸</div>
-      </div>
-
-      <div class="faq-item" data-id="q3" role="button" tabindex="0">
-        <div>
-          <div class="faq-q">How do you ensure reliability?</div>
-          <div class="faq-a">Monitoring, human-in-loop validation, model performance tracking and safe fallback behaviors keep systems reliable in production.</div>
-        </div>
-        <div aria-hidden="true" style="align-self:center; color:var(--muted)">▸</div>
-      </div>
-
-      <div class="faq-item" data-id="q4" role="button" tabindex="0">
-        <div>
-          <div class="faq-q">Do you handle data privacy?</div>
-          <div class="faq-a">Yes — role-based access, encryption, and options to keep sensitive data on-prem or within your VPC.</div>
-        </div>
-        <div aria-hidden="true" style="align-self:center; color:var(--muted)">▸</div>
-      </div>
-
-      <div class="faq-item" data-id="q5" role="button" tabindex="0">
-        <div>
-          <div class="faq-q">What industries do you work with?</div>
-          <div class="faq-a">FinTech, logistics, enterprise document workflows, support automation and more — we adapt to domain data and constraints.</div>
-        </div>
-        <div aria-hidden="true" style="align-self:center; color:var(--muted)">▸</div>
-      </div>
+<!-- CASE STUDIES (compact) -->
+<section id="case-studies">
+  <h2 class="section-title">Case studies</h2>
+  <div class="grid-3">
+    <div class="card">
+      <h3>Support Copilot — FinTech</h3>
+      <p class="muted">35% faster triage and 30% fewer escalations with a domain-aware assistant.</p>
     </div>
-  </section>
+    <div class="card">
+      <h3>Reporting Automation — Logistics</h3>
+      <p class="muted">Saved 20+ hours/week using scheduled ETL & automated reporting.</p>
+    </div>
+    <div class="card">
+      <h3>Document Extraction — Enterprise</h3>
+      <p class="muted">96% accurate extraction with human-in-loop validation.</p>
+    </div>
+  </div>
+</section>
 
-  <section id="contact" class="section" aria-labelledby="contact-title">
-    <h2 id="contact-title">Contact</h2>
+<!-- CTA BANNER -->
+<section style="padding:26px 20px;">
+  <div style="max-width:1100px;margin:0 auto;background:linear-gradient(90deg, rgba(14,49,58,0.12), rgba(10,30,35,0.04));padding:20px;border-radius:12px;display:flex;align-items:center;justify-content:space-between;gap:12px">
+    <div>
+      <strong style="font-size:18px">Curious how AI fits your workflow?</strong>
+      <div class="muted" style="margin-top:6px">Tell us one pain point — we'll propose a focused experiment.</div>
+    </div>
+    <div>
+      <button class="btn-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Start conversation</button>
+    </div>
+  </div>
+</section>
 
-    <div class="contact-wrap" role="form" aria-labelledby="contact-title">
-      <form id="contact-form" autocomplete="on">
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" placeholder="Your name" required>
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <h2 class="section-title">What clients say</h2>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><div class="testimonial-card">"Clear communication, fast delivery and production-grade reliability."<br><em style="color:var(--muted)">— CTO, SaaS</em></div></div>
+      <div class="swiper-slide"><div class="testimonial-card">"Avios delivered a production-ready NLP assistant in 2 weeks — saved our team hours every day."<br><em style="color:var(--muted)">— Product Lead, FinTech</em></div></div>
+      <div class="swiper-slide"><div class="testimonial-card">"They automated reporting workflows and reduced manual effort by 40%."<br><em style="color:var(--muted)">— Head of Ops, Logistics</em></div></div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
 
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" placeholder="Your email" required>
+<!-- FAQ -->
+<section id="faq">
+  <h2 class="section-title">FAQ</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="faq-q">How quickly can we see results?</div>
+      </div>
+      <div class="faq-a">Most teams see measurable improvements from a focused PoC within 1–2 weeks depending on data readiness and scope.</div>
+    </div>
 
-        <label for="company">Company</label>
-        <input id="company" name="company" type="text" placeholder="Company (optional)">
+    <div class="faq-item">
+      <div class="faq-q">Which deployment options do you support?</div>
+      <div class="faq-a">Cloud or on-prem. We use secure connectors, containerized deployments, and privacy-first architectures tailored to your requirements.</div>
+    </div>
 
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
+    <div class="faq-item">
+      <div class="faq-q">How do you ensure reliability?</div>
+      <div class="faq-a">Monitoring, human-in-loop validation, retraining pipelines, and performance tracking are part of our standard MLOps playbook.</div>
+    </div>
 
-        <div style="display:flex;gap:12px;align-items:center;">
-          <button id="contact-submit" class="btn btn-primary" type="submit">Send Message</button>
-          <button id="contact-reset" type="reset" class="btn btn-ghost">Reset</button>
-        </div>
+    <div class="faq-item">
+      <div class="faq-q">How do you measure ROI?</div>
+      <div class="faq-a">We define key metrics (time saved, accuracy, throughput) during discovery and instrument dashboards to track before/after changes.</div>
+    </div>
 
-        <div id="form-status" class="status" role="status" aria-live="polite"></div>
+    <div class="faq-item">
+      <div class="faq-q">Do you provide ongoing support?</div>
+      <div class="faq-a">Yes — model updates, monitoring, and optional SLAs for production systems.</div>
+    </div>
+  </div>
+</section>
 
-        <!-- fallback panel (hidden by default) -->
-        <div id="fallback-panel" style="display:none; margin-top:16px; padding:14px; border-radius:10px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03);">
-          <div style="color:var(--muted); margin-bottom:8px;">We couldn't send via the contact form. You can contact us directly:</div>
-          <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-            <a id="fallback-mailto" href="mailto:aviosplatform@gmail.com" class="btn btn-ghost" style="padding:10px 14px;">Email aviosplatform@gmail.com</a>
-            <button id="copy-email" class="copy-btn">Copy email</button>
-            <button id="open-mail-client" class="btn btn-primary">Open mail client (prefill)</button>
-            <button id="copy-body" class="copy-btn" title="Copy message body">Copy message text</button>
+<!-- CONTACT -->
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+  <div class="contact-card" role="region" aria-label="Contact form">
+    <form id="contact-form" novalidate>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <input name="name" placeholder="Name" required style="flex:1 1 240px" />
+        <input name="email" type="email" placeholder="Email" required style="flex:1 1 240px" />
+      </div>
+
+      <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+        <input name="company" placeholder="Company (optional)" style="flex:1 1 240px" />
+        <input name="subject" placeholder="Subject" style="flex:1 1 240px" />
+      </div>
+
+      <div style="margin-top:12px">
+        <textarea name="message" placeholder="How can we help?" required></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button id="contact-submit" type="submit" class="btn-primary">Send Message</button>
+        <button type="reset" class="btn-ghost">Reset</button>
+        <div id="form-status" style="margin-left:14px;color:var(--muted)"></div>
+      </div>
+
+      <!-- fallback panel will show if send fails -->
+      <div id="fallback-panel" class="fallback-card" style="display:none" aria-live="polite">
+        <div class="fallback-top">
+          <div>
+            <div class="fallback-title">We couldn't send your message.</div>
+            <div class="fallback-sub">You can still contact us directly or copy the message below.</div>
           </div>
-          <div id="fallback-preserve" style="margin-top:10px; color:var(--muted); font-size:0.95rem;"></div>
+          <div class="fallback-actions">
+            <button id="copy-email" class="copy-btn">Copy email</button>
+            <button id="open-mail-client" class="btn-primary">Open mail client (prefill)</button>
+          </div>
         </div>
-      </form>
-    </div>
-  </section>
-</main>
 
-<footer class="sitefoot">
-  <div>&copy; 2025 Avios AI. All rights reserved.</div>
+        <div class="fallback-body" style="margin-top:12px">
+          <div class="fallback-email-row">
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" style="margin-right:8px;opacity:.9">
+              <path d="M3 8.5L12 13L21 8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <div class="fallback-email"><a id="fallback-mailto" href="mailto:aviosplatform@gmail.com">aviosplatform@gmail.com</a></div>
+          </div>
+
+          <div class="fallback-preview" style="margin-top:12px">
+            <div class="preview-label">Message preview</div>
+            <pre id="fallback-preserve" class="preview-text">—</pre>
+            <div style="margin-top:10px;display:flex;gap:8px">
+              <button id="copy-body" class="copy-btn">Copy message</button>
+              <a id="mailto-open-long" class="btn-ghost" href="#" target="_blank" rel="noopener">Open with mail client</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Avios AI · All rights reserved.
 </footer>
 
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
 <script>
-/* FAQ toggle */
-document.querySelectorAll('.faq-item').forEach(item => {
-  const toggle = () => item.classList.toggle('open');
-  item.addEventListener('click', toggle);
-  item.addEventListener('keydown', (ev) => { if(ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); toggle(); }});
+/* ------------------------
+  EmailJS settings (use your keys if available)
+  ------------------------ */
+const PUBLIC_KEY  = "gf3Q5jLBYPf1ZOUko";   // replace if you refresh
+const SERVICE_ID  = "service_4ytq1ph";     // replace if changed
+const TEMPLATE_ID = "template_71vcpfp";    // replace if changed
+
+try { emailjs.init(PUBLIC_KEY); } catch(e){ console.warn('EmailJS init failed', e) }
+
+/* ------------------------
+  Swiper (testimonials)
+  ------------------------ */
+const swiper = new Swiper('.swiper', {
+  loop: true,
+  centeredSlides: true,
+  slidesPerView: 1,
+  spaceBetween: 24,
+  autoplay: { delay: 3500, disableOnInteraction: false },
+  pagination: { el: '.swiper-pagination', clickable: true },
+  speed: 700
 });
 
-/* Contact form behavior with robust fallback */
-const APPSCRIPT_EXEC = "https://script.google.com/macros/s/AKfycbye6WBe-sERGIk_PvApsCFrS46Dq0t0s2rvic0mduAn1iZY_q5J49jinkaHPneqXxY18Q/exec";
+/* ------------------------
+  FAQ toggles
+  ------------------------ */
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.addEventListener('click', ()=>{
+    const a = item.querySelector('.faq-a');
+    if(!a) return;
+    const isOpen = a.style.display === 'block';
+    a.style.display = isOpen ? 'none' : 'block';
+  });
+});
+
+/* ------------------------
+  Contact form handling: try EmailJS -> fallback UI on fail
+  ------------------------ */
 const form = document.getElementById('contact-form');
 const statusEl = document.getElementById('form-status');
 const submitBtn = document.getElementById('contact-submit');
-const fallbackPanel = document.getElementById('fallback-panel');
-const fallbackMailto = document.getElementById('fallback-mailto');
-const copyEmail = document.getElementById('copy-email');
-const openMailClient = document.getElementById('open-mail-client');
-const copyBody = document.getElementById('copy-body');
-const fallbackPreserve = document.getElementById('fallback-preserve');
 
-function buildEmailBody(data){
-  return `Name: ${data.name}\nEmail: ${data.email}\nCompany: ${data.company}\n\nMessage:\n${data.message}`;
+function buildEmailBody(formData){
+  const name = formData.get('name') || '';
+  const email = formData.get('email') || '';
+  const company = formData.get('company') || '';
+  const subject = formData.get('subject') || '';
+  const message = formData.get('message') || '';
+  return `Name: ${name}\nEmail: ${email}\nCompany: ${company}\nSubject: ${subject}\n\nMessage:\n${message}`;
 }
-
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  statusEl.style.color = 'var(--muted)';
-  statusEl.textContent = "Sending…";
-  submitBtn.disabled = true;
-  fallbackPanel.style.display = 'none';
-
-  const data = {
-    name: form.name.value.trim(),
-    email: form.email.value.trim(),
-    company: form.company.value.trim(),
-    message: form.message.value.trim()
-  };
-
-  if(!data.name || !data.email || !data.message) {
-    statusEl.style.color = '#ffcccb';
-    statusEl.textContent = "Please fill name, email and message.";
-    submitBtn.disabled = false;
-    return;
-  }
-
-  const params = new URLSearchParams();
-  for (const k in data) params.append(k, data[k]);
-
-  try {
-    const resp = await fetch(APPSCRIPT_EXEC, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: params.toString()
-    });
-
-    let json = null;
-    try { json = await resp.json(); } catch (err) { json = null; }
-
-    if (resp.ok && json && (json.success === true || json.success === "true")) {
-      statusEl.style.color = '#9be7b7';
-      statusEl.textContent = "Message sent — we will reply within one business day.";
-      form.reset();
-      fallbackPanel.style.display = 'none';
-      fallbackPreserve.textContent = '';
-    } else {
-      // show graceful fallback panel with explicit email and options (no automatic navigation)
-      statusEl.style.color = '#ffd1a8';
-      statusEl.textContent = "Error sending — please use the fallback options below.";
-      showFallback(data);
-      console.warn('Apps Script response:', await resp.text().catch(()=>'(no text)'));
-    }
-  } catch (err) {
-    statusEl.style.color = '#ffd1a8';
-    statusEl.textContent = "Network/livetime error — use fallback options below.";
-    showFallback(data);
-    console.error("Contact send error:", err);
-  } finally {
-    submitBtn.disabled = false;
-  }
-});
 
 function showFallback(data){
-  fallbackPanel.style.display = 'block';
+  const panel = document.getElementById('fallback-panel');
+  const fallbackPreserve = document.getElementById('fallback-preserve');
+  const mailtoOpenLong = document.getElementById('mailto-open-long');
+  const fallbackMailto = document.getElementById('fallback-mailto');
+
   const email = 'aviosplatform@gmail.com';
-  const subject = encodeURIComponent("Website contact: " + (data.name || 'Website user'));
-  const body = encodeURIComponent(buildEmailBody(data));
-  fallbackMailto.href = `mailto:${email}?subject=${subject}&body=${body}`;
-  openMailClient.onclick = () => { window.location.href = fallbackMailto.href; };
-  fallbackPreserve.textContent = `Message preview — please copy if needed:\n\n${buildEmailBody(data)}`;
-  // set accessible text
-  document.getElementById('fallback-preserve').setAttribute('aria-live','polite');
+  const subject = encodeURIComponent((data.subject || 'Website contact'));
+  const bodyPlain = buildEmailBody(data);
+
+  fallbackPreserve.textContent = bodyPlain;
+  mailtoOpenLong.href = `mailto:${email}?subject=${subject}&body=${encodeURIComponent(bodyPlain)}`;
+  fallbackMailto.href = `mailto:${email}`;
+
+  panel.style.display = 'block';
+  panel.scrollIntoView({behavior:'smooth', block:'center'});
 }
 
-/* copy helpers */
-copyEmail.addEventListener('click', async () => {
-  const email = 'aviosplatform@gmail.com';
-  try {
-    await navigator.clipboard.writeText(email);
-    copyEmail.textContent = 'Copied ✓';
-    setTimeout(()=> copyEmail.textContent = 'Copy email', 1400);
-  } catch (err) {
-    copyEmail.textContent = 'Copy failed';
-    console.error(err);
-  }
+/* copy/click handlers for fallback UI - defined below so elements exist */
+document.addEventListener('DOMContentLoaded', ()=>{
+  document.getElementById('copy-email').addEventListener('click', async ()=>{
+    const email = 'aviosplatform@gmail.com';
+    try { await navigator.clipboard.writeText(email); document.getElementById('copy-email').textContent = 'Copied ✓'; setTimeout(()=>document.getElementById('copy-email').textContent='Copy email',1200); } catch { alert('Copy failed — select and copy manually'); }
+  });
+
+  document.getElementById('open-mail-client').addEventListener('click', (ev)=>{
+    ev.preventDefault();
+    const link = document.getElementById('mailto-open-long').href;
+    if(link && link !== '#') window.location.href = link;
+    else window.location.href = 'mailto:aviosplatform@gmail.com';
+  });
+
+  document.getElementById('copy-body').addEventListener('click', async ()=>{
+    const text = document.getElementById('fallback-preserve').textContent || '';
+    try { await navigator.clipboard.writeText(text); document.getElementById('copy-body').textContent='Copied ✓'; setTimeout(()=>document.getElementById('copy-body').textContent='Copy message',1200); } catch { alert('Copy failed — select and copy manually'); }
+  });
 });
-copyBody.addEventListener('click', async () => {
-  const text = fallbackPreserve.textContent || '';
-  try {
-    await navigator.clipboard.writeText(text);
-    copyBody.textContent = 'Copied ✓';
-    setTimeout(()=> copyBody.textContent = 'Copy message text', 1400);
-  } catch (err) {
-    copyBody.textContent = 'Copy failed';
-    console.error(err);
+
+/* Submit handler: try EmailJS; on failure show fallback */
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  statusEl.textContent = 'Sending...';
+  submitBtn.disabled = true;
+
+  const formData = new FormData(form);
+  // Try EmailJS if available
+  if(window.emailjs){
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form)
+      .then(()=> {
+        statusEl.textContent = "Message sent — we will reply within one business day.";
+        form.reset();
+      })
+      .catch((err)=>{
+        console.warn('EmailJS error', err);
+        statusEl.textContent = "Error sending — opening mail client as fallback…";
+        // show tidy fallback UI with prefilled message
+        const d = new FormData(form);
+        const data = {
+          name: d.get('name'), email:d.get('email'), company:d.get('company'),
+          subject:d.get('subject'), message:d.get('message')
+        };
+        showFallback(data);
+      })
+      .finally(()=> { submitBtn.disabled = false; });
+  } else {
+    // No EmailJS library available - show fallback immediately
+    statusEl.textContent = "No email provider configured — opening fallback.";
+    const d = new FormData(form);
+    const data = {
+      name: d.get('name'), email:d.get('email'), company:d.get('company'),
+      subject:d.get('subject'), message:d.get('message')
+    };
+    showFallback(data);
+    submitBtn.disabled = false;
   }
 });
 
-/* Hero image check - graceful placeholder */
-(function checkHero(){
-  const img = document.querySelector('.hero-card img');
-  if(!img) return;
-  img.addEventListener('error', () => {
-    console.warn("Hero image missing at assets/hero-image.png. Please upload that file to your repo.");
-    const card = document.querySelector('.hero-card');
-    card.innerHTML = '<div style="color:var(--muted);text-align:center;padding:44px">Hero visual missing — upload <code>assets/hero-image.png</code>.</div>';
-  });
+/*  ------------------------
+    Neural-network canvas (hero only)
+    - nodes with depth, lines connecting nearby nodes
+    - subtle parallax on mouse move
+    ------------------------ */
+(function neuralCanvas(){
+  const canvas = document.getElementById('nn-canvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d', {alpha:true});
+  let w=0,h=0, DPR = Math.min(window.devicePixelRatio || 1.0, 2);
+  const NODE_COUNT = 28; // adjust density
+  const nodes = [];
+  let mouse = {x:-9999,y:-9999};
+
+  function resize(){
+    w = canvas.clientWidth || canvas.offsetWidth || window.innerWidth;
+    h = canvas.clientHeight || canvas.offsetHeight || 400;
+    canvas.width = Math.floor(w * DPR);
+    canvas.height = Math.floor(h * DPR);
+    canvas.style.width = w+'px';
+    canvas.style.height = h+'px';
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+  }
+
+  function rand(min,max){ return Math.random()*(max-min)+min; }
+
+  function initNodes(){
+    nodes.length=0;
+    for(let i=0;i<NODE_COUNT;i++){
+      const depth = rand(0.25,1.2); // depth creates parallax scaling
+      nodes.push({
+        x: rand(w*0.05, w*0.9),
+        y: rand(h*0.05, h*0.85),
+        vx: rand(-0.2,0.2),
+        vy: rand(-0.15,0.15),
+        r: rand(2.2,4.5)*depth,
+        depth:depth,
+        hue: rand(185,215),
+      });
+    }
+  }
+
+  function update(){
+    for(const n of nodes){
+      n.x += n.vx * n.depth;
+      n.y += n.vy * n.depth;
+
+      // gentle bounds
+      if(n.x < 0 || n.x > w) n.vx *= -1;
+      if(n.y < 0 || n.y > h) n.vy *= -1;
+    }
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+
+    // subtle vignette background (darker edges)
+    const lg = ctx.createLinearGradient(0,0,w,0);
+    lg.addColorStop(0, 'rgba(2,8,11,0.85)');
+    lg.addColorStop(0.5, 'rgba(4,14,20,0.92)');
+    lg.addColorStop(1, 'rgba(2,8,11,0.88)');
+    ctx.fillStyle = lg;
+    ctx.fillRect(0,0,w,h);
+
+    // compute connections: draw lines between close nodes with depth blend
+    for(let i=0;i<nodes.length;i++){
+      const a = nodes[i];
+      for(let j=i+1;j<nodes.length;j++){
+        const b = nodes[j];
+        const dx = a.x - b.x;
+        const dy = a.y - b.y;
+        const d = Math.hypot(dx,dy);
+        if(d < 160){
+          const alpha = (1 - d/160) * 0.18 * ( (a.depth+b.depth)/2 );
+          ctx.beginPath();
+          ctx.moveTo(a.x + (mouse.x - w/2)*0.0005*a.depth, a.y + (mouse.y - h/2)*0.0005*a.depth);
+          ctx.lineTo(b.x + (mouse.x - w/2)*0.00035*b.depth, b.y + (mouse.y - h/2)*0.00035*b.depth);
+          ctx.strokeStyle = `rgba(80,180,220,${alpha})`;
+          ctx.lineWidth = 1 * ((a.depth+b.depth)/2);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // draw nodes on top with glowing halo
+    for(const n of nodes){
+      const gradient = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r*6);
+      gradient.addColorStop(0, `rgba(140,230,255,0.95)`);
+      gradient.addColorStop(0.2, `rgba(80,200,230,0.55)`);
+      gradient.addColorStop(0.6, `rgba(20,40,60,0.08)`);
+      gradient.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(n.x + (mouse.x - w/2)*0.0007*n.depth, n.y + (mouse.y - h/2)*0.0007*n.depth, n.r*6, 0, Math.PI*2);
+      ctx.fill();
+
+      // center dot
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(180,240,255,${0.9 * n.depth})`;
+      ctx.arc(n.x + (mouse.x - w/2)*0.0007*n.depth, n.y + (mouse.y - h/2)*0.0007*n.depth, n.r, 0, Math.PI*2);
+      ctx.fill();
+    }
+  }
+
+  let raf = null;
+  function loop(){
+    update(); draw();
+    raf = requestAnimationFrame(loop);
+  }
+
+  function start(){
+    resize();
+    initNodes();
+    if(raf) cancelAnimationFrame(raf);
+    loop();
+  }
+
+  window.addEventListener('resize', ()=> { resize(); });
+  // gentle parallax from mouse
+  window.addEventListener('mousemove', (e)=>{ mouse.x = e.clientX; mouse.y = e.clientY; });
+  window.addEventListener('mouseleave', ()=>{ mouse.x=-9999; mouse.y=-9999 });
+
+  start();
 })();
 
-/* Smooth anchor scrolling that accounts for sticky header */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', (e) => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if(target){
-      e.preventDefault();
-      const y = target.getBoundingClientRect().top + window.pageYOffset - 86;
-      window.scrollTo({top:y, behavior:'smooth'});
-    }
-  });
-});
+/* small helper: CTAs */
+document.getElementById('cta-request').addEventListener('click', ()=> document.querySelector('#contact').scrollIntoView({behavior:'smooth'}));
+document.getElementById('cta-case').addEventListener('click', ()=> document.querySelector('#case-studies').scrollIntoView({behavior:'smooth'}));
+
 </script>
 
 </body>

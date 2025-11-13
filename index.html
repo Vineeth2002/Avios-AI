@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Avios AI — Intelligent AI Solutions</title>
-  <meta name="description" content="Avios AI delivers production-ready automation, NLP copilots and multimodal systems that replace manual work and deliver measurable ROI." />
+  <meta name="description" content="Avios AI delivers production-ready automation, NLP copilots and multimodal systems that reduce manual work and deliver measurable ROI." />
   <meta name="keywords" content="AI, chatbot, NLP, automation, multimodal, machine learning, Avios AI" />
   <meta name="author" content="Vineeth Reddy" />
 
@@ -12,22 +12,39 @@
   <link rel="canonical" href="https://vineeth2002.github.io/Avios-AI/">
   <meta name="robots" content="index, follow">
 
-  <!-- Social preview images (absolute URLs are best) -->
+  <!-- Social preview images (absolute URLs) -->
   <meta property="og:title" content="Avios AI — Intelligent AI Solutions" />
   <meta property="og:description" content="Production-ready automation, NLP copilots and multimodal systems that deliver measurable ROI." />
-  <!-- prefer webp if present, otherwise PNG -->
   <meta property="og:image" content="https://vineeth2002.github.io/Avios-AI/assets/hero-avios-visual-1600.webp" />
   <meta property="og:image:alt" content="Avios AI futuristic neural visual" />
+  <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://vineeth2002.github.io/Avios-AI/assets/hero-avios-visual-1600.webp" />
 
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
 
-  <!-- fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Preload hero webp for LCP -->
+  <link rel="preload" href="assets/hero-avios-visual-1600.webp" as="image" type="image/webp">
 
-  <!-- swiper (testimonials) -->
+  <!-- Fonts & Swiper -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Avios AI",
+    "url": "https://vineeth2002.github.io/Avios-AI/",
+    "logo": "https://vineeth2002.github.io/Avios-AI/assets/favicon.ico",
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "aviosplatform@gmail.com"
+    }]
+  }
+  </script>
 
   <style>
     :root{
@@ -45,7 +62,6 @@
     a{color:inherit;text-decoration:none}
     .page{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
 
-    /* header */
     header{position:sticky;top:0;background:linear-gradient(180deg, rgba(2,6,12,0.75), rgba(2,6,12,0.3));backdrop-filter:blur(6px);z-index:60;border-bottom:1px solid rgba(255,255,255,0.02)}
     .nav{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad)}
     .brand{display:flex;align-items:center;gap:12px}
@@ -54,7 +70,6 @@
     .nav-links a{color:var(--muted);font-weight:600;padding:8px;border-radius:8px}
     .nav-links a.active, .nav-links a:hover{color:var(--text);background:rgba(255,255,255,0.02)}
 
-    /* hero */
     .hero{position:relative;min-height:72vh;display:flex;align-items:center;padding:30px 0}
     .hero-inner{display:flex;gap:28px;align-items:center;width:100%;padding:0 var(--pad)}
     @media (max-width:980px){ .hero-inner{flex-direction:column-reverse;padding:0 14px} }
@@ -71,7 +86,6 @@
     @media (max-width:980px){ .hero-right{width:100%} .image-wrap{height:220px} }
     @media (max-width:480px){ .image-wrap{height:160px} }
 
-    /* sections */
     section{padding:46px 0}
     .section-heading{text-align:center;font-weight:800;font-size:1.4rem;margin-bottom:20px}
     .two-col{display:grid;grid-template-columns:1fr 340px;gap:18px;align-items:start}
@@ -82,10 +96,8 @@
     .service-card{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
     .muted{color:var(--muted)}
 
-    /* testimonials */
     .testimonial{padding:18px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
 
-    /* contact */
     .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
     @media (max-width:980px){ .contact-grid{grid-template-columns:1fr} }
     label{display:block;margin-bottom:6px;font-weight:700}
@@ -94,7 +106,6 @@
 
     footer{padding:28px 0;text-align:center;color:var(--muted);font-size:0.95rem;border-top:1px solid rgba(255,255,255,0.02)}
 
-    /* accessible focus */
     :focus{outline:3px solid rgba(34,193,255,0.12);outline-offset:3px;border-radius:6px}
   </style>
 </head>
@@ -119,7 +130,6 @@
       </div>
     </header>
 
-    <!-- HERO -->
     <main>
       <section class="hero" aria-label="Intro">
         <div class="hero-inner">
@@ -136,10 +146,8 @@
             <div class="visual">
               <div class="image-wrap" role="img" aria-label="Avios AI futuristic hero visual">
                 <picture>
-                  <!-- preferred: webp -->
                   <source srcset="assets/hero-avios-visual-1600.webp" type="image/webp">
                   <source srcset="assets/hero-avios-visual-1200.webp" type="image/webp">
-                  <!-- fallback: use existing PNG if webp not available -->
                   <img src="assets/hero-image.png"
                        srcset="assets/hero-image.png 1200w, assets/hero-image.png 800w"
                        sizes="(max-width:640px) 90vw, (max-width:1200px) 45vw, 420px"
@@ -153,7 +161,6 @@
         </div>
       </section>
 
-      <!-- ABOUT -->
       <section id="about">
         <h2 class="section-heading">About Avios AI</h2>
         <div class="two-col">
@@ -178,7 +185,6 @@
         </div>
       </section>
 
-      <!-- SERVICES -->
       <section id="services">
         <h2 class="section-heading">Services</h2>
         <div class="grid-3">
@@ -188,7 +194,6 @@
         </div>
       </section>
 
-      <!-- CASE STUDIES -->
       <section id="case-studies">
         <h2 class="section-heading">Case studies</h2>
         <div class="grid-3">
@@ -198,7 +203,6 @@
         </div>
       </section>
 
-      <!-- MICRO CTA -->
       <section>
         <div class="card micro" style="display:flex;justify-content:space-between;align-items:center">
           <div><strong>Curious how AI fits your workflow?</strong><div class="muted">Tell us one pain point — we'll propose a focused experiment.</div></div>
@@ -206,7 +210,6 @@
         </div>
       </section>
 
-      <!-- TESTIMONIALS -->
       <section id="testimonials">
         <h2 class="section-heading">What clients say</h2>
         <div style="max-width:920px;margin:0 auto">
@@ -221,7 +224,6 @@
         </div>
       </section>
 
-      <!-- FAQ -->
       <section id="faq">
         <h2 class="section-heading">FAQ</h2>
         <div class="card" style="max-width:900px;margin:0 auto">
@@ -231,7 +233,6 @@
         </div>
       </section>
 
-      <!-- CONTACT -->
       <section id="contact">
         <h2 class="section-heading">Request a free consultation</h2>
         <div class="contact-grid">
@@ -277,16 +278,13 @@
     </footer>
   </div>
 
-  <!-- scripts -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script>
-    // Swiper
     new Swiper('.swiper', {
       loop:true, centeredSlides:true, slidesPerView:1, autoplay:{delay:4200,disableOnInteraction:false},
       pagination:{el:'.swiper-pagination',clickable:true}, speed:700
     });
 
-    // FAQ toggle (simple)
     document.querySelectorAll('.faq-item').forEach(item=>{
       item.addEventListener('click', ()=>{
         const a = item.querySelector('.muted');
@@ -295,13 +293,14 @@
       });
     });
 
-    // Contact form -> Apps Script endpoint with fallback
     (function(){
+      // Apps Script webapp URL you provided earlier
       const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbye6WBe-sERGIk_PvApsCFrS46Dq0t0s2rvic0mduAn1iZY_q5J49jinkaHPneqXxY18Q/exec";
       const form = document.getElementById('contact-form');
       const status = document.getElementById('form-status');
       const fallback = document.getElementById('fallback-mailto');
       const submitBtn = document.getElementById('contact-submit');
+
       function setStatus(msg, err=false){ status.textContent = msg; status.style.color = err ? '#ff9b9b' : '#9fffe0'; }
 
       form.addEventListener('submit', async function(e){
@@ -312,9 +311,20 @@
         try{
           const res = await fetch(WEBAPP_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload), mode:'cors' });
           const json = await res.json().catch(()=>null);
-          if(res.ok && json && json.success){ setStatus('✅ Message sent. We will reply within one business day.'); form.reset(); fallback.style.display='none'; }
-          else { setStatus('❌ Unable to send via web form. Use fallback email below.', true); fallback.style.display='block'; fallback.innerHTML = 'Or email: <a href=\"mailto:aviosplatform@gmail.com\">aviosplatform@gmail.com</a>'; }
-        }catch(err){ console.error(err); setStatus('❌ Network error. Try again later.', true); fallback.style.display='block'; fallback.innerHTML = 'Or email: <a href=\"mailto:aviosplatform@gmail.com\">aviosplatform@gmail.com</a>'; }
+          if(res.ok && json && (json.success === true || json.ok === true)){
+            setStatus('✅ Message sent. We will reply within one business day.');
+            form.reset(); fallback.style.display='none';
+          } else {
+            setStatus('❌ Unable to send via web form. Use fallback email below.', true);
+            fallback.style.display='block';
+            fallback.innerHTML = 'Or email: <a href="mailto:aviosplatform@gmail.com">aviosplatform@gmail.com</a>';
+          }
+        }catch(err){
+          console.error(err);
+          setStatus('❌ Network error. Try again later.', true);
+          fallback.style.display='block';
+          fallback.innerHTML = 'Or email: <a href="mailto:aviosplatform@gmail.com">aviosplatform@gmail.com</a>';
+        }
         submitBtn.disabled = false;
       });
     })();

@@ -42,7 +42,7 @@
     .wrap { max-width:var(--maxw); margin:0 auto; padding:18px; position:relative; z-index:10; }
 
     /* HERO (with hero-only background) */
-    #hero { position:relative; padding-top:86px; padding-bottom:36px; overflow:visible; }
+    #hero { position:relative; padding-top:86px; padding-bottom:60px; overflow:visible; } /* increased bottom padding */
     .bg-hero { position:absolute; left:0; right:0; top:0; height:420px; z-index:0; pointer-events:none; overflow:hidden; mix-blend-mode:screen; opacity:1; }
     .network-svg { width:100%; height:100%; display:block; opacity:0.36; }
     .node { position:absolute; width:8px; height:8px; border-radius:50%; background:radial-gradient(circle,#9fe8ff 0%, #2fb0ff 70%); box-shadow:0 0 10px rgba(47,176,255,0.95); }
@@ -81,6 +81,11 @@
 
     footer { padding:24px 0; color:var(--muted); text-align:center; }
 
+    /* === Force hero-only background: prevents leakage below hero === */
+    #hero { position:relative; }
+    main > section:not(#hero) .bg-hero { display:none !important; }
+    #hero + section { margin-top: 0; } /* we'll add spacing on about explicitly */
+
     @media(max-width:600px){
       .wrap{ padding:12px; }
       header .container{ padding:10px 12px; }
@@ -115,7 +120,7 @@
   <main style="position:relative; z-index:10;">
 
     <!-- HERO (with hero-only animated background) -->
-    <section id="hero" aria-label="Hero">
+    <section id="hero" aria-label="Hero" style="padding-bottom:60px;">
       <!-- HERO background: only inside hero -->
       <div class="bg-hero" aria-hidden="true">
         <svg class="network-svg" viewBox="0 0 1920 420" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="presentation">
@@ -156,7 +161,15 @@
 
             <div style="margin-top:18px; display:flex; gap:12px; align-items:center; flex-wrap:wrap">
               <a href="#contact" class="btn-primary">Request consult</a>
-              <a href="#case-studies" class="btn-ghost">View case studies</a>
+
+              <!-- Replaced btn-ghost with a proper button-style that matches look -->
+              <a href="#case-studies" class="btn-primary" 
+                 style="background:rgba(255,255,255,0.08);
+                        color:#eaf6ff;
+                        border:1px solid rgba(255,255,255,0.15);
+                        font-weight:700;">
+                View case studies
+              </a>
             </div>
           </div>
 
@@ -170,8 +183,8 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about">
+    <!-- ABOUT (moved slightly down so it doesn't merge into hero) -->
+    <section id="about" style="margin-top:50px;">
       <div class="wrap">
         <h2>About Avios AI</h2>
         <div style="display:grid; grid-template-columns:1fr 320px; gap:18px; align-items:start;">

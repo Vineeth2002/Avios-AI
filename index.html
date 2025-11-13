@@ -25,6 +25,7 @@
     --page-max:1200px;
     --radius:14px;
     --section-gap:48px;
+    --section-heading-gap:18px; /* small top/bottom spacing requested */
     --header-h:72px;
   }
 
@@ -42,9 +43,18 @@
   .nav-links a{color:var(--muted);font-weight:600}
   .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:10px 14px;border-radius:12px;color:#001525;font-weight:800;box-shadow:0 10px 30px rgba(29,140,204,0.12)}
 
-  /* sections */
-  section{padding:var(--section-gap) 0}
-  h2{font-size:1.6rem;margin:0 0 12px;color:var(--text);text-align:center}
+  /* common section heading style (centered with small gaps) */
+  .section-heading {
+    margin-top: var(--section-heading-gap);
+    margin-bottom: var(--section-heading-gap);
+    text-align: center;
+    color: var(--text);
+    font-size: 1.6rem;
+    line-height:1;
+    font-weight:800;
+  }
+
+  section{padding:calc(var(--section-gap) - var(--section-heading-gap)) 0}
   p{margin:0 0 12px;color:var(--muted);line-height:1.6}
 
   /* HERO (balanced) */
@@ -53,25 +63,23 @@
   @media (max-width:1100px){ .hero-inner { gap:22px; padding:28px 18px } }
   @media (max-width:880px){ .hero-inner { flex-direction:column-reverse; padding:22px 14px } }
 
-  /* LEFT: constrain width so headline doesn't run wild */
+  /* LEFT: constrain width */
   .hero-left { flex:1 1 56%; max-width: 620px; min-width:320px; }
   .hero-left h1 {
     font-weight:800;
     line-height:1.02;
     margin:0 0 16px;
     color:#eaf8ff;
-    /* safer headline scale so it doesn't take entire screen */
     font-size: clamp(28px, 4.2vw, 44px);
   }
   .hero-left p { color:var(--muted); margin-bottom:18px; max-width:54ch; }
 
   .hero-ctas { display:flex; gap:12px; flex-wrap:wrap; margin-top:6px; }
 
-  /* KPI mini chips */
   .kpis { display:flex; gap:12px; margin-top:18px; flex-wrap:wrap; }
   .kpi { background:rgba(255,255,255,0.03); border-radius:10px; padding:8px 12px; border:1px solid rgba(255,255,255,0.02); color:#dff6ff; min-width:110px; text-align:center; font-weight:600; font-size:0.95rem; }
 
-  /* RIGHT: visual card - fixed size, center inside column and never overflow */
+  /* RIGHT: visual */
   .hero-right { flex:0 0 420px; display:flex; align-items:center; justify-content:center; }
   .visual { width:100%; max-width:420px; border-radius:14px; padding:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); box-shadow:0 22px 60px rgba(0,0,0,0.6); display:flex; flex-direction:column; gap:12px; }
   .visual .image-wrap { width:100%; height:260px; border-radius:10px; overflow:hidden; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,#2b0f4e,#0ea9d1); }
@@ -83,18 +91,25 @@
     .hero-left { max-width:760px; }
   }
 
-  /* Neural canvas sits on top but behind hero content */
   .neural-canvas { position:absolute; inset:0; z-index:1; pointer-events:none; opacity:0.6; filter:blur(0.2px); }
 
-  /* rest of page (kept compact) */
+  /* two-column about/why */
   .two-col{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
   @media (max-width:980px){ .two-col{grid-template-columns:1fr} }
   .card{background:rgba(255,255,255,0.02);border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 12px 28px rgba(0,0,0,0.35)}
   .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   @media (max-width:980px){ .grid-3{grid-template-columns:1fr} }
-  .service-card,.case-card,.testimonial{padding:20px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
+  .service-card, .case-card, .testimonial{padding:20px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
+  .service-card h3, .case-card h3{color:#eaf8ff;margin-bottom:10px}
+
+  .btn-section { display:flex; justify-content:center; margin-top:10px; }
+  .btn-secondary { background: transparent; border: 1px solid rgba(255,255,255,0.06); color:var(--text); padding:10px 14px; border-radius:10px; font-weight:700; cursor:pointer; }
+
+  .service-card .learn { margin-top:12px; display:inline-block; padding:8px 12px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#001525; border-radius:10px; font-weight:700; }
+
   .micro{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
   @media (max-width:720px){ .micro{flex-direction:column;align-items:flex-start} }
+
   .faq-list{max-width:900px;margin:0 auto}
   .faq-item{padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.03);cursor:pointer;color:var(--muted)}
   .faq-question{font-weight:700;color:#eaf8ff}
@@ -148,7 +163,7 @@
 
           <div class="hero-ctas">
             <a href="#contact" class="btn-primary">Request consult</a>
-            <a href="#case-studies" class="card small" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:10px">View case studies</a>
+            <a href="#case-studies" class="card small btn-secondary" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:10px">View case studies</a>
           </div>
 
           <div class="kpis" aria-hidden="true">
@@ -172,10 +187,12 @@
       </div>
     </section>
 
-    <!-- About -->
+    <!-- ABOUT -->
     <section id="about" class="page">
-      <h2>About Avios AI</h2>
-      <div style="margin-top:14px" class="two-col page">
+      <div class="section-heading">About Avios AI</div>
+      <div class="btn-section"><button class="btn-secondary" onclick="location.href='#contact'">Let's talk</button></div>
+
+      <div style="margin-top:10px" class="two-col page">
         <div class="card">
           <p>Avios AI helps teams replace manual work with reliable AI systems. Practical automation, domain-aware assistants and multimodal tools that deliver measurable ROI — not demos.</p>
 
@@ -199,47 +216,54 @@
       </div>
     </section>
 
-    <!-- Services -->
+    <!-- SERVICES -->
     <section id="services" class="page">
-      <h2>Services</h2>
-      <div class="grid-3" style="margin-top:18px">
+      <div class="section-heading">Services</div>
+      <div class="btn-section"><button class="btn-secondary" onclick="location.href='#services'">Explore services</button></div>
+
+      <div class="grid-3" style="margin-top:12px">
         <div class="service-card">
-          <h3 style="color:#eaf8ff">AI Automation</h3>
+          <h3>AI Automation</h3>
           <p class="muted">Automate workflows, document processing and reporting with auditable pipelines.</p>
+          <a class="learn" href="#contact">Learn more</a>
         </div>
         <div class="service-card">
-          <h3 style="color:#eaf8ff">NLP Copilots</h3>
+          <h3>NLP Copilots</h3>
           <p class="muted">Assistants for support, summarization, and knowledge work tailored to your data.</p>
+          <a class="learn" href="#contact">Learn more</a>
         </div>
         <div class="service-card">
-          <h3 style="color:#eaf8ff">Multimodal Systems</h3>
+          <h3>Multimodal Systems</h3>
           <p class="muted">Combine text, images and documents to build smarter experiences.</p>
+          <a class="learn" href="#contact">Learn more</a>
         </div>
       </div>
     </section>
 
-    <!-- Case studies -->
+    <!-- CASE STUDIES -->
     <section id="case-studies" class="page">
-      <h2>Case studies</h2>
-      <div class="case-grid" style="margin-top:18px">
+      <div class="section-heading">Case studies</div>
+      <div class="btn-section"><button class="btn-secondary" onclick="location.href='#case-studies'">View case studies</button></div>
+
+      <div class="case-grid" style="margin-top:12px">
         <article class="case-card">
-          <h3 style="color:#eaf8ff">Support Copilot — FinTech</h3>
+          <h3>Support Copilot — FinTech</h3>
           <p class="muted">Result: 35% faster triage and 30% fewer escalations through a domain-aware assistant integrated into the support flow.</p>
         </article>
 
         <article class="case-card">
-          <h3 style="color:#eaf8ff">Reporting Automation — Logistics</h3>
+          <h3>Reporting Automation — Logistics</h3>
           <p class="muted">Result: saved 20+ hours/week using ETL + scheduled reporting and alerts.</p>
         </article>
 
         <article class="case-card">
-          <h3 style="color:#eaf8ff">Document Extraction — Enterprise</h3>
+          <h3>Document Extraction — Enterprise</h3>
           <p class="muted">Result: 96% accurate extraction with human-in-loop validation for high-value docs.</p>
         </article>
       </div>
     </section>
 
-    <!-- Micro CTA -->
+    <!-- MICRO CTA -->
     <section class="page">
       <div class="micro">
         <div>
@@ -250,9 +274,11 @@
       </div>
     </section>
 
-    <!-- Testimonials -->
+    <!-- TESTIMONIALS -->
     <section id="testimonials" class="page">
-      <h2>What clients say</h2>
+      <div class="section-heading">What clients say</div>
+      <div class="btn-section"><button class="btn-secondary" onclick="location.href='#testimonials'">Read more testimonials</button></div>
+
       <div style="max-width:860px;margin:14px auto 0">
         <div class="swiper">
           <div class="swiper-wrapper">
@@ -276,8 +302,8 @@
 
     <!-- FAQ -->
     <section id="faq" class="page">
-      <h2>FAQ</h2>
-      <div class="faq-list" style="margin-top:14px">
+      <div class="section-heading">FAQ</div>
+      <div style="margin-top:10px" class="faq-list">
         <div class="card">
           <div class="faq-item"><div class="faq-question">How long does a PoC take?</div><div class="faq-answer">Typically 1–2 weeks — focused experiment with measurable KPI.</div></div>
           <div class="faq-item"><div class="faq-question">Is my data secure?</div><div class="faq-answer">Yes — privacy-first practices, can deploy on your cloud with strict controls.</div></div>
@@ -286,10 +312,12 @@
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- CONTACT -->
     <section id="contact" class="page">
-      <h2>Request a free consultation</h2>
-      <div class="contact-grid" style="margin-top:14px">
+      <div class="section-heading">Request a free consultation</div>
+      <div class="btn-section"><button class="btn-secondary" onclick="location.href='#contact'">Request consultation</button></div>
+
+      <div class="contact-grid" style="margin-top:12px">
         <div class="card">
           <form id="contact-form" novalidate>
             <label for="name">Name</label>
@@ -336,12 +364,11 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
   <script>
-  // Neural-lines background (canvas) — same effect but sized to hero container
+  // Neural-lines background (canvas) — sized to hero container
   (function(){
     const canvas = document.getElementById('neuralCanvas');
     if(!canvas) return;
     function resize(){
-      // match hero size
       const hero = document.querySelector('.hero');
       if(!hero) return;
       canvas.width = hero.clientWidth;
@@ -352,9 +379,13 @@
     const ctx = canvas.getContext('2d');
     const nodes = [];
     const N = 36;
-    for(let i=0;i<N;i++){
-      nodes.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, vx:(Math.random()-0.5)*0.35, vy:(Math.random()-0.5)*0.35, r: Math.random()*1.6+0.6 });
+    function initNodes(){
+      nodes.length = 0;
+      for(let i=0;i<N;i++){
+        nodes.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, vx:(Math.random()-0.5)*0.35, vy:(Math.random()-0.5)*0.35, r: Math.random()*1.6+0.6 });
+      }
     }
+    initNodes();
     function draw(){
       ctx.clearRect(0,0,canvas.width,canvas.height);
       for(let i=0;i<N;i++){
@@ -379,8 +410,7 @@
       }
       requestAnimationFrame(draw);
     }
-    // ensure nodes adapt to size changes
-    window.addEventListener('resize', ()=>{ nodes.length=0; for(let i=0;i<N;i++) nodes.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, vx:(Math.random()-0.5)*0.35, vy:(Math.random()-0.5)*0.35, r: Math.random()*1.6+0.6 }); });
+    window.addEventListener('resize', ()=>{ resize(); initNodes(); });
     draw();
   })();
   </script>

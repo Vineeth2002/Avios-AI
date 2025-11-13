@@ -8,7 +8,356 @@
   <!-- Primary SEO -->
   <meta name="description" content="Avios AI builds production-ready AI automation, NLP copilots, and multimodal solutions that accelerate workflows and deliver measurable business results." />
   <meta name="keywords" content="AI, AI Automation, NLP, Multimodal AI, Machine Learning, Productivity AI, AI Copilot, Predictive Analytics" />
+  <meta name="author" content="Avios AI" /><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Avios AI — AI Automation, NLP Copilots & Multimodal Intelligence</title>
+
+  <!-- Primary SEO -->
+  <meta name="description" content="Avios AI builds production-ready AI automation, NLP copilots, and multimodal solutions that accelerate workflows and deliver measurable business results." />
+  <meta name="keywords" content="AI, AI Automation, NLP, Multimodal AI, Machine Learning, Productivity AI, AI Copilot, Predictive Analytics" />
   <meta name="author" content="Avios AI" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://vineeth2002.github.io/Avios-AI/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Avios AI — Intelligent AI Automation & Multimodal Assistants" />
+  <meta property="og:description" content="Avios AI builds production-ready automation, NLP copilots, and multimodal systems that streamline workflows and boost productivity." />
+  <meta property="og:image" content="https://vineeth2002.github.io/Avios-AI/assets/hero-image_v2.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vineeth2002.github.io/Avios-AI/" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Avios AI — Intelligent AI Automation & Multimodal Assistants" />
+  <meta name="twitter:description" content="Avios AI builds production-ready automation, NLP copilots, and multimodal systems that streamline workflows and boost productivity." />
+  <meta name="twitter:image" content="https://vineeth2002.github.io/Avios-AI/assets/hero-image_v2.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+  <!-- Fonts & utilities -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+
+  <style>
+    :root{
+      --bg:#07131f;
+      --card1:rgba(15,23,42,0.7);
+      --glass-border:1px solid rgba(255,255,255,0.06);
+      --accent1:#3b82f6;
+      --accent2:#60a5fa;
+      --muted:#9ca3af;
+      --white:#ffffff;
+    }
+    html,body{height:100%;margin:0;font-family:Inter;background:#07131f;color:var(--white);}
+    a{color:inherit;}
+
+    /* Header */
+    header.site-header{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(3,7,18,0.4);backdrop-filter:blur(8px);padding:15px 0;}
+    .container{max-width:1200px;margin:auto;padding:0 20px;}
+    .nav-inner{display:flex;justify-content:space-between;align-items:center;}
+    .brand{font-weight:800;font-size:1.2rem;display:flex;gap:10px;align-items:center;}
+
+    .nav-links{display:flex;gap:20px;font-weight:600;}
+    .nav-links a:hover{color:#60a5fa;}
+
+    .btn-primary{
+      background:linear-gradient(90deg,#3b82f6,#60a5fa);
+      padding:12px 20px;
+      border-radius:12px;
+      font-weight:700;
+      color:#041023;
+      display:inline-block;
+    }
+
+    /* Hero */
+    #bg-canvas{position:absolute;inset:0;z-index:0;}
+    .hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+    .hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,0.4);z-index:1;}
+    .hero-inner{z-index:2;position:relative;text-align:center;padding:80px 20px;}
+    .hero-title{font-size:clamp(2.2rem,4vw,3.6rem);font-weight:800;margin-bottom:18px;}
+    .hero-sub{color:var(--muted);font-size:1.1rem;max-width:800px;margin:0 auto 25px;}
+
+    /* Sections */
+    .section{padding:50px 20px;}
+    .card{border:1px solid rgba(255,255,255,0.1);padding:20px;border-radius:14px;background:rgba(255,255,255,0.04);}
+    .muted{color:#9ca3af;}
+
+    /* Contact */
+    input,textarea{
+      width:100%;padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);
+      background:rgba(255,255,255,0.05);color:white;
+    }
+    textarea{resize:none;}
+    .form-btn{
+      background:linear-gradient(90deg,#3b82f6,#60a5fa);
+      color:#041023;padding:12px 20px;border:none;border-radius:10px;font-weight:700;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <div class="brand">
+        <img src="assets/favicon.png" style="width:34px;height:34px;border-radius:10px;"> Avios AI
+      </div>
+
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#features">Features</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact" class="btn-primary">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <canvas id="bg-canvas"></canvas>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-inner">
+      <h1 class="hero-title">AI Automation & NLP Copilots That Deliver Real Business Results</h1>
+      <p class="hero-sub">We build production-grade workflow automation, AI copilots, and multimodal intelligence systems that improve efficiency and reduce operational cost.</p>
+
+      <a href="#contact" class="btn-primary">Request Consultation</a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section container">
+    <h2 class="text-center text-3xl font-bold mb-6">Our Services</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card">
+        <h3 class="font-bold text-xl mb-2">AI Automation</h3>
+        <p class="muted">Automate workflows and save hundreds of hours using secure AI-powered systems.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="font-bold text-xl mb-2">NLP Copilots</h3>
+        <p class="muted">Custom-built assistants that process documents, support teams, and accelerate decisions.</p>
+      </div>
+
+      <div class="card">
+        <h3 class="font-bold text-xl mb-2">Multimodal Intelligence</h3>
+        <p class="muted">Build AI that understands text, images, audio, and context for advanced applications.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="section container">
+    <h2 class="text-center text-3xl font-bold mb-6">Why Choose Avios AI</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card"><h3 class="font-bold text-xl">Scalable</h3><p class="muted">Systems built to scale with your data & users.</p></div>
+      <div class="card"><h3 class="font-bold text-xl">Secure</h3><p class="muted">Enterprise-grade security & privacy controls.</p></div>
+      <div class="card"><h3 class="font-bold text-xl">Impact-driven</h3><p class="muted">Fast ROI — measurable results in weeks.</p></div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="section container">
+    <h2 class="text-center text-3xl font-bold mb-6">What Clients Say</h2>
+
+    <div style="max-width:800px;margin:auto">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide card">
+            <p>"Avios AI helped reduce our manual workload by 30% in the first month."</p>
+            <strong>- Product Lead</strong>
+          </div>
+          <div class="swiper-slide card">
+            <p>"Their NLP copilots changed how our support team operates."</p>
+            <strong>- SaaS Founder</strong>
+          </div>
+          <div class="swiper-slide card">
+            <p>"Reliable, fast and highly skilled. Best AI agency we’ve worked with."</p>
+            <strong>- CTO, Retail</strong>
+          </div>
+        </div>
+        <div class="swiper-pagination mt-3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section container">
+    <h2 class="text-center text-3xl font-bold mb-6">Contact Us</h2>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      
+      <!-- Form -->
+      <div class="card">
+        <form id="contact-form" novalidate>
+          <input name="name" placeholder="Your Name" required class="mb-3">
+          <input name="email" placeholder="Your Work Email" required class="mb-3">
+          <input name="company" placeholder="Company (optional)" class="mb-3">
+          <textarea name="message" rows="6" placeholder="Tell us about your project" required class="mb-3"></textarea>
+
+          <button id="contact-submit" class="form-btn">Send Message</button>
+          <p id="form-status" class="mt-2 muted"></p>
+          <div id="fallback-mailto-container" class="mt-2 muted" style="display:none"></div>
+        </form>
+      </div>
+
+      <!-- Info -->
+      <div class="card">
+        <h3 class="font-bold text-xl">What you get:</h3>
+        <ul class="muted mt-3" style="list-style:disc;margin-left:18px">
+          <li>Free consultation call</li>
+          <li>Project scope + roadmap</li>
+          <li>Transparent pricing</li>
+          <li>Fast 1–2 week PoC</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-5 text-center muted">
+    © 2025 Avios AI. Built by Vineeth.
+  </footer>
+
+  <!-- Swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- CONTACT FORM SCRIPT -->
+  <script>
+  (function(){
+    const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbye6WBe-sERGIk_PvApsCFrS46Dq0t0s2rvic0mduAn1iZY_q5J49jinkaHPneqXxY18Q/exec";
+
+    const form = document.getElementById("contact-form");
+    const statusEl = document.getElementById("form-status");
+    const fallback = document.getElementById("fallback-mailto-container");
+    const submitBtn = document.getElementById("contact-submit");
+
+    function showStatus(text, error=false){
+      statusEl.textContent = text;
+      statusEl.style.color = error ? "#ff6666" : "#60f5c2";
+    }
+
+    form.addEventListener("submit", async (e)=>{
+      e.preventDefault();
+      submitBtn.disabled = true;
+      showStatus("Sending...");
+
+      const data = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        company: form.company.value.trim(),
+        message: form.message.value.trim(),
+      };
+
+      if(!data.name || !data.email || !data.message){
+        showStatus("Please fill name, email, and message.", true);
+        submitBtn.disabled = false;
+        return;
+      }
+
+      try {
+        const res = await fetch(WEBAPP_URL, {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {"Content-Type":"application/json"},
+          mode:"cors"
+        });
+
+        let json = null;
+        try{ json = await res.json(); } catch{}
+
+        if(res.ok && json && json.success){
+          showStatus("✅ Message sent successfully!");
+          form.reset();
+          fallback.style.display = "none";
+        } else {
+          showStatus("❌ Unable to send. Try again.", true);
+          fallback.style.display = "block";
+          fallback.innerHTML = `Or email directly: 
+            <a href="mailto:aviosplatform@gmail.com">aviosplatform@gmail.com</a>`;
+        }
+
+      } catch(err){
+        showStatus("❌ Network error. Try again later.", true);
+        fallback.style.display = "block";
+        fallback.innerHTML = `Or email directly: 
+          <a href="mailto:aviosplatform@gmail.com">aviosplatform@gmail.com</a>`;
+      }
+
+      submitBtn.disabled = false;
+    });
+  })();
+  </script>
+
+  <!-- Canvas Animation -->
+  <script>
+  (function(){
+    const canvas = document.getElementById("bg-canvas");
+    if(!canvas) return;
+    const ctx = canvas.getContext("2d");
+    let w,h,particles=[];
+
+    function resize(){
+      canvas.width = w = window.innerWidth;
+      canvas.height = h = window.innerHeight;
+      particles = [];
+      for(let i=0;i<60;i++){
+        particles.push({
+          x:Math.random()*w,
+          y:Math.random()*h,
+          vx:(Math.random()-0.5)*0.5,
+          vy:(Math.random()-0.5)*0.5
+        });
+      }
+    }
+
+    function draw(){
+      ctx.clearRect(0,0,w,h);
+
+      for(let i=0;i<particles.length;i++){
+        const p=particles[i];
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if(p.x<0 || p.x>w) p.vx*=-1;
+        if(p.y<0 || p.y>h) p.vy*=-1;
+
+        ctx.fillStyle="rgba(96,165,250,0.85)";
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,2.5,0,Math.PI*2);
+        ctx.fill();
+
+        for(let j=i+1;j<particles.length;j++){
+          const q=particles[j];
+          const dx=p.x-q.x, dy=p.y-q.y;
+          const dist=dx*dx + dy*dy;
+          if(dist < 140*140){
+            ctx.strokeStyle="rgba(96,165,250,0.06)";
+            ctx.beginPath();
+            ctx.moveTo(p.x,p.y);
+            ctx.lineTo(q.x,q.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    window.addEventListener("resize", resize);
+    resize();
+    draw();
+  })();
+  </script>
+
+</body>
+</html>
+
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
   <meta http-equiv="Content-Language" content="en" />
   <link rel="canonical" href="https://vineeth2002.github.io/Avios-AI/" />

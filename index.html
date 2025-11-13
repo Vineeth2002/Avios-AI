@@ -5,182 +5,171 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Avios AI — Practical, Production-ready AI</title>
 <meta name="description" content="Avios AI builds production-ready automation, NLP copilots and multimodal systems that reduce manual work and deliver measurable ROI." />
-
-<!-- favicon (use assets/favicon.ico if present) -->
 <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 
-<!-- fonts -->
+<!-- Fonts & Swiper -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-<!-- swiper -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
 <style>
-  /* -------------------------
-     Theme variables (teal-on-cream)
-     ------------------------- */
+  /* --------- Blue / neural gradient theme --------- */
   :root{
-    --bg: #f6fbfa;            /* page background (light) */
-    --panel: #ffffff;         /* cards */
-    --muted: #6b7c80;         /* body text muted */
-    --text: #08343a;          /* main text */
-    --accent: #0ea5a4;        /* teal accent */
-    --accent-2: #0b8f86;
-    --gutter: 20px;           /* horizontal padding */
-    --page-max:1100px;
-    --radius:12px;
-    --section-gap:48px;      /* reduced gap — previously large */
+    --bg-outer: #071029;         /* very dark navy page outer */
+    --bg-inner: linear-gradient(180deg,#041628 0%, #062836 45%, #08344a 100%); /* main gradient */
+    --panel: rgba(255,255,255,0.03); /* translucent panels */
+    --muted: #9fb3c1;            /* muted light-blue */
+    --text: #e6f7ff;             /* light text */
+    --accent: #3db2ff;           /* bright blue accent */
+    --accent-2: #1d8cff;
+    --gutter: 20px;
+    --page-max:1150px;
+    --radius:14px;
+    --section-gap:48px;
+    --header-h:72px;
   }
 
-  /* Reset & base */
   *{box-sizing:border-box}
-  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;background:var(--bg-outer);color:var(--text);-webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
-  .page{max-width:var(--page-max);margin:0 auto;padding:0 var(--gutter);}
+  .page{max-width:var(--page-max);margin:0 auto;padding:0 var(--gutter)}
 
   /* Header */
-  header{position:sticky;top:0;background:rgba(255,255,255,0.75);backdrop-filter:blur(6px);z-index:60;border-bottom:1px solid rgba(10,30,30,0.04)}
-  .nav{height:66px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  header{position:sticky;top:0;z-index:80;background:linear-gradient(180deg, rgba(4,8,15,0.6), rgba(4,8,15,0.2));border-bottom:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(6px)}
+  .nav{height:var(--header-h);display:flex;align-items:center;justify-content:space-between;gap:12px}
   .brand{display:flex;align-items:center;gap:12px}
   .brand .title{font-weight:800;font-size:1rem;color:var(--text)}
-  .brand .sub{font-size:12px;color:var(--muted)}
   .nav-links{display:flex;gap:18px;align-items:center}
-  .nav-links a{font-weight:600;color:var(--text);opacity:0.9}
-  .btn-cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;padding:10px 14px;border-radius:10px;font-weight:800}
+  .nav-links a{color:var(--muted);font-weight:600}
+  .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:10px 14px;border-radius:12px;color:#001525;font-weight:800;box-shadow:0 10px 30px rgba(29,140,204,0.12)}
 
-  /* General section spacing */
+  /* Sections */
   section{padding:var(--section-gap) 0}
   h2{font-size:1.6rem;margin:0 0 12px;color:var(--text);text-align:center}
   p{margin:0 0 12px;color:var(--muted);line-height:1.6}
 
-  /* HERO (tight, visible headings and CTA) */
-  .hero { display:grid; grid-template-columns:1fr 420px; gap:28px; align-items:center; min-height:72vh; padding-top:20px; }
+  /* HERO */
+  .hero { position:relative; min-height:88vh; display:grid; grid-template-columns:1fr 460px; gap:32px; align-items:center; padding-top:20px; background: var(--bg-inner); }
   @media (max-width:980px){ .hero{ grid-template-columns:1fr; text-align:center } .hero .visual{ order:-1 } }
-  .hero-left h1{font-size:clamp(28px,5vw,44px);margin:0 0 12px;line-height:1.02;font-weight:800;color:var(--text)}
-  .hero-left p{max-width:60ch;margin-bottom:16px}
+  .neural-canvas { position:absolute; inset:0; z-index:0; pointer-events:none; opacity:0.62 }
+  .hero-inner{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+  @media (max-width:980px){ .hero-inner{grid-template-columns:1fr} }
+  .hero-left h1{font-size:clamp(30px,5vw,52px);line-height:1.02;margin:0 0 12px;font-weight:800;color:#eaf8ff}
+  .hero-left p{max-width:60ch;margin-bottom:16px;color:var(--muted)}
   .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
   .kpis{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
-  .kpi{background:var(--panel);border-radius:10px;padding:8px 12px;border:1px solid rgba(10,30,30,0.03);min-width:110px;text-align:center;color:var(--text)}
+  .kpi{background:rgba(255,255,255,0.03);border-radius:10px;padding:8px 12px;border:1px solid rgba(255,255,255,0.02);min-width:120px;text-align:center;color:var(--text);backdrop-filter:blur(4px)}
+  .kpi strong{display:block;color:#e9f9ff}
 
-  .visual{background:linear-gradient(180deg,#eaf7f6,#ffffff);border-radius:var(--radius);padding:10px;border:1px solid rgba(10,30,30,0.03);box-shadow:0 12px 30px rgba(11,30,30,0.04)}
-  .visual img{width:100%;height:240px;object-fit:cover;border-radius:8px}
+  .visual{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 18px 48px rgba(3,12,20,0.45)}
+  .visual img{width:100%;height:260px;object-fit:cover;border-radius:8px}
 
-  /* Two-column content (About + Why) with visible titles and reduced card height */
+  /* two-column about/why */
   .two-col{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
   @media (max-width:980px){ .two-col{grid-template-columns:1fr} }
-  .card{background:var(--panel);border-radius:12px;padding:18px;border:1px solid rgba(10,30,30,0.03);box-shadow:0 10px 28px rgba(11,30,30,0.03)}
+  .card{background:rgba(255,255,255,0.02);border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 12px 28px rgba(0,0,0,0.35)}
 
-  /* Services — grid with tighter spacing */
+  /* Services, case, testimonials */
   .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   @media (max-width:980px){ .grid-3{grid-template-columns:1fr} }
-  .service-card{padding:20px;border-radius:12px;background:var(--panel);border:1px solid rgba(10,30,30,0.03);box-shadow:0 10px 20px rgba(11,30,30,0.03)}
-  .service-card h3{margin:0 0 8px;color:var(--text)}
+  .service-card, .case-card, .testimonial{padding:20px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
 
-  /* Case studies — cards like services */
-  .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  @media (max-width:980px){ .case-grid{grid-template-columns:1fr} }
-  .case-card{padding:20px;border-radius:12px;background:var(--panel);border:1px solid rgba(10,30,30,0.03)}
-
-  /* Testimonials centered with clear heading */
-  .test-wrap{max-width:860px;margin:14px auto 0}
-  .testimonial{padding:20px;border-radius:12px;background:var(--panel);border:1px solid rgba(10,30,30,0.03);}
-
-  /* Micro CTA (narrower height, compact) */
-  .micro{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;border-radius:12px;background:linear-gradient(90deg,#f8fffe,#f3fffd);border:1px solid rgba(10,30,30,0.02)}
+  /* micro CTA */
+  .micro{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
   @media (max-width:720px){ .micro{flex-direction:column;align-items:flex-start} }
 
-  /* FAQ and contact */
+  /* faq and contact */
   .faq-list{max-width:900px;margin:0 auto}
-  .faq-item{padding:12px 0;border-bottom:1px solid rgba(10,30,30,0.03);cursor:pointer}
-  .faq-question{font-weight:700;color:var(--text)}
-  .faq-answer{display:none;color:var(--muted);padding-top:8px}
+  .faq-item{padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.03);cursor:pointer;color:var(--muted)}
+  .faq-question{font-weight:700;color:#eaf8ff}
+  .faq-answer{display:none;padding-top:8px;color:var(--muted)}
 
   .contact-grid{display:grid;grid-template-columns:1fr 360px;gap:22px}
   @media (max-width:980px){ .contact-grid{grid-template-columns:1fr} }
-  label{display:block;margin-bottom:8px;font-weight:700;color:var(--text)}
-  input,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(10,30,30,0.06);background:transparent;color:var(--text);outline:none}
-  textarea{min-height:140px}
+  label{display:block;margin-bottom:8px;font-weight:700;color:#eaf8ff}
+  input,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:rgba(0,0,0,0.12);color:var(--text);outline:none}
+  textarea{min-height:140px;background:rgba(0,0,0,0.12);color:#eaf8ff}
 
-  /* Footer */
-  footer{padding:28px 0;text-align:center;color:var(--muted);font-size:0.95rem;border-top:1px solid rgba(10,30,30,0.02)}
+  footer{padding:28px 0;text-align:center;color:var(--muted);font-size:0.95rem;border-top:1px solid rgba(255,255,255,0.02)}
 
-  /* Responsive typography tweaks */
-  @media (max-width:720px){
-    :root{ --section-gap:32px; }
-    h2{font-size:1.25rem}
-    .hero-left h1{font-size:26px}
-    .visual img{height:180px}
-  }
-
-  /* Utility */
+  /* small adjustments */
   .muted{color:var(--muted)}
   .center{text-align:center}
   .small{font-size:0.95rem}
+
+  /* mobile tweaks */
+  @media (max-width:720px){
+    :root{ --section-gap:32px }
+    .hero-left h1{font-size:28px}
+    .visual img{height:180px}
+  }
 </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- header -->
   <header>
     <div class="page nav">
       <div class="brand">
-        <!-- minimal SVG logo -->
-        <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="border-radius:8px">
-          <defs><linearGradient id="gA" x1="0" x2="1"><stop offset="0" stop-color="#0fe0d1"/><stop offset="1" stop-color="#0aa59a"/></linearGradient></defs>
-          <rect rx="18" width="100" height="100" fill="url(#gA)"/>
-          <text x="50" y="62" text-anchor="middle" font-family="Inter,Arial" font-weight="700" font-size="48" fill="#fff">A</text>
+        <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="border-radius:10px">
+          <defs><linearGradient id="lgB" x1="0" x2="1"><stop offset="0" stop-color="#4fd1ff"/><stop offset="1" stop-color="#1d8cff"/></linearGradient></defs>
+          <rect rx="18" width="100" height="100" fill="url(#lgB)"/>
+          <text x="50" y="60" text-anchor="middle" font-family="Inter,Arial" font-weight="700" font-size="44" fill="#02101a">A</text>
         </svg>
         <div>
           <div class="title">Avios AI</div>
-          <div class="sub muted">Production AI, simply delivered</div>
+          <div class="small muted">Production AI, simply delivered</div>
         </div>
       </div>
 
-      <nav class="nav-links" aria-label="Main">
+      <nav class="nav-links" aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#services">Services</a>
-        <a href="#case-studies">Case studies</a>
-        <a href="#contact" class="btn-cta">Contact</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact" class="btn-primary">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <main>
-    <section class="hero page" aria-label="Hero section">
-      <div class="hero-left">
-        <h1>Build AI That Drives Results</h1>
-        <p>We build focused automation, practical NLP copilots and multimodal systems that reduce manual work and deliver measurable outcomes — starting with a short PoC.</p>
+    <section class="hero" aria-label="Hero" role="region">
+      <!-- neural-lines canvas -->
+      <canvas class="neural-canvas" id="neuralCanvas" aria-hidden="true"></canvas>
 
-        <div class="hero-ctas">
-          <a href="#contact" class="btn-cta">Request consult</a>
-          <a href="#case-studies" class="card small" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:10px">View case studies</a>
+      <div class="page hero-inner">
+        <div class="hero-left">
+          <h1>Intelligent AI solutions for real-world outcomes</h1>
+          <p>Focused automation, practical NLP copilots and multimodal systems that reduce manual work and deliver measurable impact — start with a short PoC.</p>
+
+          <div class="hero-ctas">
+            <a href="#contact" class="btn-primary">Request consult</a>
+            <a href="#case-studies" class="card small" style="display:inline-flex;align-items:center;padding:8px 12px;border-radius:10px">View case studies</a>
+          </div>
+
+          <div class="kpis" aria-hidden="true">
+            <div class="kpi"><strong>1–2 weeks</strong><div class="small muted">PoC</div></div>
+            <div class="kpi"><strong>Production</strong><div class="small muted">Deployable</div></div>
+            <div class="kpi"><strong>Secure</strong><div class="small muted">Monitored</div></div>
+          </div>
         </div>
 
-        <div class="kpis">
-          <div class="kpi"><strong>1–2 weeks</strong><div class="small muted">PoC</div></div>
-          <div class="kpi"><strong>Production</strong><div class="small muted">Deployable</div></div>
-          <div class="kpi"><strong>Secure</strong><div class="small muted">Private by design</div></div>
-        </div>
+        <aside class="visual" aria-hidden="false">
+          <img src="assets/backend-hero.png" alt="Avios AI visual" onerror="this.onerror=null; this.src='assets/hero-image.png'">
+          <div style="margin-top:10px">
+            <strong style="display:block;color:#eaf8ff">Approach that converts</strong>
+            <div class="muted small">Measure impact with a focused PoC, then ship production with monitoring and support.</div>
+          </div>
+        </aside>
       </div>
-
-      <aside class="visual" aria-hidden="false">
-        <!-- use backend hero asset if present -->
-        <img src="assets/backend-hero.png" alt="Avios visual" onerror="this.onerror=null; this.src='assets/hero-image.png'">
-        <div style="margin-top:8px">
-          <strong style="display:block">Approach that converts</strong>
-          <div class="muted small">Measure impact with a focused PoC, then ship production with monitoring and support.</div>
-        </div>
-      </aside>
     </section>
 
-    <!-- About / Why (two-column with visible headings) -->
+    <!-- About -->
     <section id="about" class="page">
       <h2>About Avios AI</h2>
-      <div class="two-col" style="margin-top:14px">
+      <div style="margin-top:14px" class="two-col page">
         <div class="card">
-          <p>We help teams replace manual work with reliable AI systems. Practical automation, domain-aware assistants and multimodal tools that deliver measurable ROI — not demos.</p>
+          <p>Avios AI helps teams replace manual work with reliable AI systems. Practical automation, domain-aware assistants and multimodal tools that deliver measurable ROI — not demos.</p>
 
-          <h3 style="margin-top:14px">How we work</h3>
+          <h3 style="margin-top:12px;color:#eaf8ff">How we work</h3>
           <ul style="margin-left:18px;color:var(--muted)">
             <li>Discovery — define a measurable metric</li>
             <li>Prototype — focused PoC with clear outcomes</li>
@@ -189,13 +178,13 @@
         </div>
 
         <aside class="card">
-          <h3 style="margin-top:0">Why Avios</h3>
+          <h3 style="margin-top:0;color:#eaf8ff">Why Avios</h3>
           <ul style="margin-left:18px;color:var(--muted)">
             <li>Business-first: measurable KPIs</li>
             <li>Production-ready: reliable & monitored systems</li>
             <li>Privacy-aware: secure integrations</li>
           </ul>
-          <div style="margin-top:12px"><a href="#contact" class="btn-cta">Let's talk</a></div>
+          <div style="margin-top:12px"><a href="#contact" class="btn-primary">Let's talk</a></div>
         </aside>
       </div>
     </section>
@@ -205,15 +194,15 @@
       <h2>Services</h2>
       <div class="grid-3" style="margin-top:18px">
         <div class="service-card">
-          <h3>AI Automation</h3>
+          <h3 style="color:#eaf8ff">AI Automation</h3>
           <p class="muted">Automate workflows, document processing and reporting with auditable pipelines.</p>
         </div>
         <div class="service-card">
-          <h3>NLP Copilots</h3>
+          <h3 style="color:#eaf8ff">NLP Copilots</h3>
           <p class="muted">Assistants for support, summarization, and knowledge work tailored to your data.</p>
         </div>
         <div class="service-card">
-          <h3>Multimodal Systems</h3>
+          <h3 style="color:#eaf8ff">Multimodal Systems</h3>
           <p class="muted">Combine text, images and documents to build smarter experiences.</p>
         </div>
       </div>
@@ -224,17 +213,17 @@
       <h2>Case studies</h2>
       <div class="case-grid" style="margin-top:18px">
         <article class="case-card">
-          <h3>Support Copilot — FinTech</h3>
+          <h3 style="color:#eaf8ff">Support Copilot — FinTech</h3>
           <p class="muted">Result: 35% faster triage and 30% fewer escalations through a domain-aware assistant integrated into the support flow.</p>
         </article>
 
         <article class="case-card">
-          <h3>Reporting Automation — Logistics</h3>
+          <h3 style="color:#eaf8ff">Reporting Automation — Logistics</h3>
           <p class="muted">Result: saved 20+ hours/week using ETL + scheduled reporting and alerts.</p>
         </article>
 
         <article class="case-card">
-          <h3>Document Extraction — Enterprise</h3>
+          <h3 style="color:#eaf8ff">Document Extraction — Enterprise</h3>
           <p class="muted">Result: 96% accurate extraction with human-in-loop validation for high-value docs.</p>
         </article>
       </div>
@@ -244,17 +233,17 @@
     <section class="page">
       <div class="micro">
         <div>
-          <strong>Curious how AI fits your workflow?</strong>
+          <strong style="color:#eaf8ff">Curious how AI fits your workflow?</strong>
           <div class="muted small" style="margin-top:6px">Tell us one pain point — we'll propose a focused experiment.</div>
         </div>
-        <div><a href="#contact" class="btn-cta">Start conversation</a></div>
+        <div><a href="#contact" class="btn-primary">Start conversation</a></div>
       </div>
     </section>
 
     <!-- Testimonials -->
     <section id="testimonials" class="page">
       <h2>What clients say</h2>
-      <div class="test-wrap">
+      <div style="max-width:860px;margin:14px auto 0">
         <div class="swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide testimonial">
@@ -294,7 +283,7 @@
         <div class="card">
           <form id="contact-form" novalidate>
             <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Your name" required>
+            <input id="name" name="name" type="text" placeholder="Your full name" required>
 
             <label for="email" style="margin-top:10px">Work email</label>
             <input id="email" name="email" type="email" placeholder="you@company.com" required>
@@ -306,8 +295,8 @@
             <textarea id="message" name="message" placeholder="Brief description, goals and timeline" required></textarea>
 
             <div style="display:flex;gap:12px;align-items:center;margin-top:12px">
-              <button id="contact-submit" class="btn-cta" type="submit">Request consultation</button>
-              <div class="muted small">Or email: <a href="mailto:aviosplatform@gmail.com">aviosplatform@gmail.com</a></div>
+              <button id="contact-submit" class="btn-primary" type="submit">Request consultation</button>
+              <div class="muted small">Or email: <a href="mailto:aviosplatform@gmail.com" style="color:var(--accent)">aviosplatform@gmail.com</a></div>
             </div>
 
             <p id="form-status" style="margin-top:12px;color:var(--muted)"></p>
@@ -316,7 +305,7 @@
         </div>
 
         <aside class="card">
-          <h3 style="margin-top:0">What happens next</h3>
+          <h3 style="margin-top:0;color:#eaf8ff">What happens next</h3>
           <ul style="margin-left:18px;color:var(--muted)">
             <li>We review details and schedule a 15-min call</li>
             <li>We propose a focused PoC with measurable KPIs</li>
@@ -333,30 +322,91 @@
     </div>
   </footer>
 
-  <!-- scripts -->
+  <!-- Scripts: Swiper, neural background, contact handler -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
   <script>
-  // Swiper testimonial
+  // Neural-lines background for the hero (canvas)
+  (function(){
+    const canvas = document.getElementById('neuralCanvas');
+    if(!canvas) return;
+    const parent = canvas.parentElement || document.body;
+    function resize(){
+      canvas.width = parent.clientWidth;
+      canvas.height = Math.max(parent.clientHeight * 0.62, 420);
+    }
+    window.addEventListener('resize', resize);
+    resize();
+    const ctx = canvas.getContext('2d');
+    const nodes = [];
+    const N = 40;
+    for(let i=0;i<N;i++){
+      nodes.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        vx: (Math.random()-0.5)*0.4,
+        vy: (Math.random()-0.5)*0.4,
+        r: Math.random()*1.6+0.8
+      });
+    }
+    function draw(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      // lines
+      for(let i=0;i<N;i++){
+        for(let j=i+1;j<N;j++){
+          const a = nodes[i], b = nodes[j];
+          const dx = a.x-b.x, dy = a.y-b.y;
+          const d = Math.sqrt(dx*dx+dy*dy);
+          if(d<140){
+            const alpha = 0.12*(1 - d/140);
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(61,178,255,${alpha})`;
+            ctx.lineWidth = 1;
+            ctx.moveTo(a.x,a.y);
+            ctx.lineTo(b.x,b.y);
+            ctx.stroke();
+          }
+        }
+      }
+      // nodes
+      for(const p of nodes){
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(61,178,255,0.9)';
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fill();
+        p.x += p.vx; p.y += p.vy;
+        if(p.x < -10) p.x = canvas.width+10;
+        if(p.x > canvas.width+10) p.x = -10;
+        if(p.y < -10) p.y = canvas.height+10;
+        if(p.y > canvas.height+10) p.y = -10;
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+  </script>
+
+  <script>
+  // Swiper initialization for testimonials
   new Swiper('.swiper', {
     loop: true,
     centeredSlides: true,
     slidesPerView: 1,
-    autoplay: { delay: 3800, disableOnInteraction: false },
+    autoplay: { delay: 4200, disableOnInteraction: false },
     pagination: { el: '.swiper-pagination', clickable: true },
     speed: 700
   });
 
   // FAQ toggle
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.addEventListener('click', () => {
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    item.addEventListener('click', ()=> {
       const ans = item.querySelector('.faq-answer');
       if(!ans) return;
       ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
     });
   });
 
-  // Contact form (Apps Script endpoint) — adapt if you need email fallback
+  // Contact form (Apps Script)
   (function(){
     const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbye6WBe-sERGIk_PvApsCFrS46Dq0t0s2rvic0mduAn1iZY_q5J49jinkaHPneqXxY18Q/exec";
     const form = document.getElementById('contact-form');
@@ -366,27 +416,24 @@
 
     function setStatus(msg, isErr=false){
       status.textContent = msg;
-      status.style.color = isErr ? '#d9534f' : '#1f9d7a';
+      status.style.color = isErr ? '#ff8b8b' : '#8ff5d8';
     }
 
     form.addEventListener('submit', async function(e){
       e.preventDefault();
       submitBtn.disabled = true;
       setStatus('Sending...');
-
       const payload = {
         name: form.name.value.trim(),
         email: form.email.value.trim(),
         company: form.company.value.trim(),
         message: form.message.value.trim()
       };
-
       if(!payload.name || !payload.email || !payload.message){
         setStatus('Please complete name, email, and message.', true);
         submitBtn.disabled = false;
         return;
       }
-
       try {
         const res = await fetch(WEBAPP_URL, {
           method: 'POST',
@@ -394,10 +441,8 @@
           body: JSON.stringify(payload),
           mode: 'cors'
         });
-
         let json = null;
         try { json = await res.json(); } catch(e){}
-
         if(res.ok && json && json.success){
           setStatus('✅ Message sent — we will reply within one business day.');
           form.reset();
@@ -405,13 +450,13 @@
         } else {
           setStatus('❌ Unable to send. Try again or email directly.', true);
           fallback.style.display = 'block';
-          fallback.innerHTML = 'Or email: <a href="mailto:aviosplatform@gmail.com">aviosplatform@gmail.com</a>';
+          fallback.innerHTML = 'Or email: <a href="mailto:aviosplatform@gmail.com" style="color:var(--accent)">aviosplatform@gmail.com</a>';
         }
       } catch(err){
         console.error(err);
         setStatus('❌ Network error. Try again later.', true);
         fallback.style.display = 'block';
-        fallback.innerHTML = 'Or email: <a href="mailto:aviosplatform@gmail.com">aviosplatform@gmail.com</a>';
+        fallback.innerHTML = 'Or email: <a href="mailto:aviosplatform@gmail.com" style="color:var(--accent)">aviosplatform@gmail.com</a>';
       } finally {
         submitBtn.disabled = false;
       }

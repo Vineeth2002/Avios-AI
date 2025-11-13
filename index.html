@@ -5,147 +5,199 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Avios AI — Practical AI for Real Outcomes</title>
   <meta name="description" content="Avios AI builds production-ready automation, NLP copilots and multimodal AI systems that reduce manual work and deliver measurable impact." />
-  <link rel="canonical" href="https://vineeth2002.github.io/Avios-AI/" />
-  <meta property="og:title" content="Avios AI — Practical AI for Real Outcomes" />
-  <meta property="og:description" content="Build AI that works for your business." />
-  <meta property="og:image" content="https://vineeth2002.github.io/Avios-AI/assets/hero-image.png" />
-  <meta property="og:type" content="website" />
   <link rel="icon" href="assets/favicon.ico" />
 
-  <!-- fonts & tailwind -->
+  <!-- Google font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind for quick responsive utilities -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Swiper (testimonials) -->
+  <!-- Swiper for testimonials -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
   <style>
     :root{
-      --bg:#07131f;
+      --bg-top: #071428;    /* deep navy */
+      --bg-bottom: #052233; /* teal-blue */
       --panel: rgba(255,255,255,0.03);
-      --muted:#9aa6b1;
-      --accent:#2fb0ff;
+      --muted: #a9c2d7;
+      --accent-1: #2fb0ff;
+      --accent-2: #16a3d8;
       --glass-border: 1px solid rgba(255,255,255,0.04);
     }
-    html,body{height:100%}
+    html,body { height:100%; }
     body{
       margin:0;
-      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
-      background: linear-gradient(180deg, #04121a 0%, var(--bg) 100%);
-      color:#e6eef6;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color: #e6f3ff;
+      background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Neural network background: subtle SVG overlay + animated dots */
+    .neural-bg {
+      position: fixed;
+      inset:0;
+      z-index:0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(47,176,255,0.03) 0px, transparent 120px),
+        radial-gradient(circle at 80% 30%, rgba(22,163,216,0.02) 0px, transparent 140px);
+      overflow:hidden;
+    }
+    .neural-svg {
+      position:absolute; inset:0; width:100%; height:100%; opacity:0.14;
+      mix-blend-mode:screen;
+    }
+    /* faint moving dots */
+    .dot-layer { position:absolute; inset:0; z-index:0; opacity:0.12; }
+    .dot { position:absolute; width:4px; height:4px; border-radius:50%; background: radial-gradient(circle,#9fe0ff 0%, #2fb0ff 70%); animation: float 8s linear infinite; }
+    @keyframes float {
+      from { transform: translateY(0) translateX(0) }
+      50% { transform: translateY(-18px) translateX(12px) }
+      to { transform: translateY(0) translateX(0) }
     }
 
     /* header */
     header.site {
-      position:fixed; inset:0 0 auto 0; z-index:40;
-      background: rgba(2,12,20,0.6);
+      position:fixed; top:0; left:0; right:0; z-index:40;
+      background: linear-gradient(180deg, rgba(2,8,18,0.85), rgba(2,8,18,0.6));
       backdrop-filter: blur(8px);
       border-bottom:1px solid rgba(255,255,255,0.03);
     }
     header .container { max-width:1200px; margin:0 auto; padding:14px 22px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
 
-    nav a { color: #cfe7ff; text-decoration:none; font-weight:600 }
-    nav a:hover{opacity:.9}
+    /* basic layout container */
+    .wrap { max-width:1200px; margin:0 auto; padding:20px; position:relative; z-index:10; }
 
-    /* general container */
-    .wrap { max-width:1200px; margin:0 auto; padding:24px; }
+    /* hero */
+    #hero { padding-top:92px; padding-bottom:48px; }
+    .hero-grid { display:grid; grid-template-columns:1fr 540px; gap:36px; align-items:center; }
+    @media (max-width:1000px){ .hero-grid { grid-template-columns:1fr; } .hero-image { order:-1 } }
 
-    /* glass card */
+    .hero-title { color:#ffffff; font-weight:800; margin:0; line-height:0.98; }
+    /* clamp size: min, viewport, max */
+    .hero-title { font-size: clamp(28px,6.2vw,56px); }
+    .hero-sub { color:var(--muted); margin-top:16px; max-width:60ch; }
+
+    /* glass panel style (cards) */
     .glass {
-      background: var(--panel);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
       border: var(--glass-border);
       border-radius:14px;
       padding:18px;
-      box-shadow: 0 8px 30px rgba(2,8,12,0.5);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
     }
 
-    /* hero */
-    #hero{ padding-top:100px; padding-bottom:44px; }
-    .hero-title { font-weight:800; letter-spacing:-1px; color:#fff; margin:0; }
-    .hero-sub { color:var(--muted); margin-top:18px; max-width:56ch; }
+    /* buttons */
+    .btn-primary { background: linear-gradient(90deg,var(--accent-1),var(--accent-2)); color:#021a22; font-weight:700; padding:12px 18px; border-radius:12px; display:inline-block; text-decoration:none; }
+    .btn-ghost { border:1px solid rgba(255,255,255,0.06); padding:10px 16px; border-radius:12px; color:var(--muted); text-decoration:none; }
 
-    /* responsive font sizes controlled inline via Tailwind classes */
-
-    /* sections spacing */
+    /* sections */
     section { padding:56px 0; }
-    section h2 { font-size:28px; margin-bottom:18px; text-align:center; color:#eaf5ff; font-weight:800; }
+    section h2 { text-align:center; font-size:28px; margin-bottom:20px; color:#eaf6ff; font-weight:800; }
 
-    /* buttons on sections */
-    .section-cta { display:flex; justify-content:center; gap:12px; margin-top:12px; }
+    /* services grid */
+    .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    @media (max-width:900px){ .grid-3 { grid-template-columns:1fr; } }
 
     /* testimonials */
-    .swiper { width:100%; }
-    .testimonial-card { padding:28px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); color:#dfeeff; }
+    .testimonial-card { padding:28px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); color:#eaf6ff; }
 
-    /* footer */
-    footer { padding:28px 0; text-align:center; color:var(--muted); }
+    /* contact form */
+    input,textarea{ width:100%; padding:12px; border-radius:10px; background: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.04); color:inherit; }
+    label { font-weight:600; color:#d9eefc; }
+    .muted { color:var(--muted); }
 
-    /* form */
-    input,textarea{ background: rgba(255,255,255,0.02); color:inherit; border:1px solid rgba(255,255,255,0.04); padding:12px 14px; border-radius:10px; width:100%; }
-    button.btn-primary{ background: linear-gradient(90deg,var(--accent),#0bb1ff); color:#02121b; font-weight:700; padding:12px 18px; border-radius:12px; }
-    .muted { color:var(--muted) }
+    footer { padding:28px 0; color:var(--muted); text-align:center; }
 
-    /* small screens */
-    @media (max-width: 1024px){
-      .wrap { padding:18px; }
-      header .container { padding:12px 18px; }
-    }
   </style>
 </head>
-
 <body>
 
-  <!-- HEADER -->
-  <header class="site">
+  <!-- Neural background layers -->
+  <div class="neural-bg" aria-hidden="true">
+    <!-- SVG network lines (subtle) -->
+    <svg class="neural-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g" x1="0" x2="1">
+          <stop offset="0" stop-color="#2fb0ff" stop-opacity="0.12"/>
+          <stop offset="1" stop-color="#16a3d8" stop-opacity="0.06"/>
+        </linearGradient>
+      </defs>
+      <!-- a few abstract lines + nodes -->
+      <g stroke="url(#g)" stroke-width="1.2" fill="none" opacity="0.9">
+        <path d="M120 260 L340 210 L520 300 L780 240" />
+        <path d="M420 120 L600 190 L900 160 L1280 220" />
+        <path d="M200 520 L540 620 L960 560 L1400 640" />
+      </g>
+      <g fill="#2fb0ff" opacity="0.9">
+        <circle cx="340" cy="210" r="2.6"/>
+        <circle cx="520" cy="300" r="2.6"/>
+        <circle cx="600" cy="190" r="2.6"/>
+        <circle cx="900" cy="160" r="2.6"/>
+        <circle cx="540" cy="620" r="2.6"/>
+        <circle cx="960" cy="560" r="2.6"/>
+      </g>
+    </svg>
+
+    <!-- animated dots layer (few, positioned) -->
+    <div class="dot-layer" aria-hidden="true">
+      <div class="dot" style="left:8%;top:22%; animation-duration:9s;"></div>
+      <div class="dot" style="left:24%;top:62%; animation-duration:11s;"></div>
+      <div class="dot" style="left:46%;top:44%; animation-duration:10s;"></div>
+      <div class="dot" style="left:74%;top:28%; animation-duration:12s;"></div>
+      <div class="dot" style="left:86%;top:66%; animation-duration:8s;"></div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site" role="banner">
     <div class="container">
       <div style="display:flex;gap:12px;align-items:center">
-        <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(90deg,#2fb0ff,#2fd0b0);display:flex;align-items:center;justify-content:center;font-weight:800;color:#02121b;">AI</div>
+        <div style="width:46px;height:46px;border-radius:10px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#021a22">AI</div>
         <div>
           <div style="font-weight:800">Avios AI</div>
           <div style="font-size:12px;color:var(--muted)">Production AI, simply delivered</div>
         </div>
       </div>
 
-      <nav style="display:flex;gap:22px;align-items:center">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact" style="background:linear-gradient(90deg,#2fb0ff,#0bb1ff);padding:8px 14px;border-radius:10px;color:#02121b;font-weight:700">Contact</a>
+      <nav style="display:flex;gap:20px;align-items:center">
+        <a href="#about" class="muted hover:opacity-90">About</a>
+        <a href="#services" class="muted hover:opacity-90">Services</a>
+        <a href="#testimonials" class="muted hover:opacity-90">Testimonials</a>
+        <a href="#faq" class="muted hover:opacity-90">FAQ</a>
+        <a href="#contact" class="btn-primary">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <main id="main">
-    <section id="hero" aria-label="Hero">
-      <div class="wrap" style="display:grid;grid-template-columns:1fr 520px;gap:32px;align-items:center">
-        <!-- left text -->
-        <div>
-          <h1 class="hero-title" style="font-size:clamp(32px,6vw,56px);line-height:0.95">
-            Build AI that works for your business.
-          </h1>
+  <!-- MAIN -->
+  <main style="position:relative; z-index:10;">
 
-          <p class="hero-sub" style="font-size:16px;margin-bottom:18px">
-            We build production-ready automation, NLP copilots, and multimodal systems that reduce manual work and deliver measurable outcomes — starting with a focused PoC.
-          </p>
+    <!-- HERO -->
+    <section id="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <!-- left text -->
+          <div>
+            <h1 class="hero-title">Build AI that works for your business.</h1>
+            <p class="hero-sub">We build production-ready automation, NLP copilots, and multimodal systems that reduce manual work and deliver measurable outcomes — start with a focused PoC.</p>
 
-          <div style="display:flex;gap:12px;flex-wrap:wrap">
-            <a href="#contact" class="btn-primary" style="display:inline-block;">Request consult</a>
-            <a href="#case-studies" class="glass" style="display:inline-block;padding:10px 14px;border-radius:10px;color:var(--muted);text-decoration:none">View case studies</a>
+            <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
+              <a href="#contact" class="btn-primary">Request consult</a>
+              <a href="#case-studies" class="btn-ghost">View case studies</a>
+            </div>
           </div>
-        </div>
 
-        <!-- right image -->
-        <div>
-          <div class="glass" style="padding:0;overflow:hidden;">
-            <img src="assets/hero-image.png"
-                 alt="Avios AI futuristic hero visual"
-                 style="display:block;width:100%;height:100%;object-fit:cover;border-radius:12px"
-                 onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/vineeth2002/Avios-AI/main/assets/hero-image.png'">
+          <!-- right image -->
+          <div class="hero-image">
+            <div class="glass" style="padding:0;overflow:hidden;">
+              <img src="assets/hero-image.png" alt="Avios AI futuristic hero visual"
+                   style="width:100%; height:100%; object-fit:cover; display:block;"
+                   onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/vineeth2002/Avios-AI/main/assets/hero-image.png'">
+            </div>
           </div>
         </div>
       </div>
@@ -155,31 +207,29 @@
     <section id="about">
       <div class="wrap">
         <h2>About Avios AI</h2>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start">
+        <div style="display:grid; grid-template-columns:1fr 380px; gap:20px; align-items:start;">
           <div class="glass">
             <p class="muted">Avios AI helps teams replace manual work with reliable AI systems. Practical automation, domain-aware assistants and multimodal tools that deliver measurable ROI — not demos.</p>
 
-            <h4 style="margin-top:16px">How we work</h4>
-            <ul style="color:var(--muted);margin-top:8px;line-height:1.6">
-              <li><strong>Discovery:</strong> identify one high-impact metric</li>
+            <h4 style="margin-top:16px;color:#eaf6ff">How we work</h4>
+            <ul style="color:var(--muted); margin-top:8px; line-height:1.6;">
+              <li><strong>Discovery:</strong> define one measurable metric</li>
               <li><strong>Prototype:</strong> focused PoC with clear acceptance criteria</li>
               <li><strong>Production:</strong> rollout, monitoring & iterative improvement</li>
             </ul>
           </div>
 
           <div class="glass">
-            <h4>Why Avios</h4>
-            <ul style="color:var(--muted);line-height:1.6">
+            <h4 style="color:#eaf6ff">Why Avios</h4>
+            <ul style="color:var(--muted); line-height:1.6;">
               <li>Business-first: measurable KPIs</li>
               <li>Production-ready: reliable & monitored systems</li>
               <li>Privacy-aware: secure integrations</li>
             </ul>
+            <div style="margin-top:14px;">
+              <a href="#contact" class="btn-primary">Let's talk</a>
+            </div>
           </div>
-        </div>
-
-        <div class="section-cta" style="margin-top:18px">
-          <a href="#contact" class="btn-primary">Start conversation</a>
-          <a href="#services" class="glass" style="padding:10px 14px;color:var(--muted)">Explore services</a>
         </div>
       </div>
     </section>
@@ -188,36 +238,33 @@
     <section id="services">
       <div class="wrap">
         <h2>Services</h2>
-
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
+        <div class="grid-3">
           <div class="glass">
             <h4>AI Automation</h4>
             <p class="muted">Automate workflows, document processing and reporting with auditable pipelines.</p>
           </div>
-
           <div class="glass">
             <h4>NLP Copilots</h4>
             <p class="muted">Assistants for support, summarization and knowledge work — tailored to your data.</p>
           </div>
-
           <div class="glass">
             <h4>Multimodal Systems</h4>
-            <p class="muted">Combine text, image and audio to build smarter experiences and search.</p>
+            <p class="muted">Combine text, images and audio to build smarter experiences.</p>
           </div>
         </div>
 
-        <div class="section-cta" style="margin-top:18px">
+        <div style="display:flex;justify-content:center;margin-top:18px;gap:12px">
           <a href="#contact" class="btn-primary">Request a pilot</a>
-          <a href="#case-studies" class="glass">See case studies</a>
+          <a href="#case-studies" class="btn-ghost">See case studies</a>
         </div>
       </div>
     </section>
 
-    <!-- CASE STUDIES (small preview) -->
+    <!-- CASE STUDIES -->
     <section id="case-studies">
       <div class="wrap">
         <h2>Case studies</h2>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px">
+        <div class="grid-3" style="margin-top:10px">
           <div class="glass">
             <h4>Support Copilot — FinTech</h4>
             <p class="muted">35% faster triage and 30% fewer escalations.</p>
@@ -231,9 +278,6 @@
             <p class="muted">96% accurate extraction with human-in-loop validation.</p>
           </div>
         </div>
-        <div class="section-cta" style="margin-top:18px">
-          <a href="#contact" class="btn-primary">Book consult</a>
-        </div>
       </div>
     </section>
 
@@ -242,9 +286,8 @@
       <div class="wrap">
         <h2>What clients say</h2>
 
-        <!-- Swiper -->
-        <div class="max-w-3xl mx-auto" style="margin-top:18px">
-          <div class="swiper mySwiper">
+        <div style="max-width:900px;margin:18px auto">
+          <div class="swiper swiper-testimonials">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <div class="testimonial-card">
@@ -252,12 +295,14 @@
                   <div style="margin-top:8px;color:var(--muted)">— CTO, SaaS</div>
                 </div>
               </div>
+
               <div class="swiper-slide">
                 <div class="testimonial-card">
                   <p style="font-size:18px">“Avios delivered an NLP assistant in 2 weeks — saved our team hours every day.”</p>
                   <div style="margin-top:8px;color:var(--muted)">— Product Lead, FinTech</div>
                 </div>
               </div>
+
               <div class="swiper-slide">
                 <div class="testimonial-card">
                   <p style="font-size:18px">“They automated our reporting and reduced manual effort by 40%.”</p>
@@ -276,34 +321,34 @@
       <div class="wrap">
         <h2>FAQ</h2>
 
-        <div style="max-width:900px;margin:18px auto;display:grid;gap:12px">
+        <div style="max-width:920px;margin:18px auto;display:grid;gap:12px">
           <div class="glass">
             <h4>How quickly can we see results?</h4>
-            <p class="muted">Most teams see measurable impact from a focused PoC within 1–2 weeks when the scope and metric are defined.</p>
+            <p class="muted">Most teams see measurable impact from a focused PoC within 1–2 weeks when scope & KPI are agreed.</p>
           </div>
 
           <div class="glass">
             <h4>Which deployment options do you support?</h4>
-            <p class="muted">Cloud-first, hybrid, and on-prem integrations — with secure connectors and privacy-first design.</p>
+            <p class="muted">Cloud, hybrid and on-prem with secure connectors and a privacy-first architecture.</p>
           </div>
 
           <div class="glass">
             <h4>How do you ensure reliability in production?</h4>
-            <p class="muted">Observability, human-in-loop validation, and continuous performance tracking with alerts and rollbacks.</p>
+            <p class="muted">Monitoring, human-in-loop validation, model performance tracking, alerts and safe rollbacks.</p>
           </div>
 
           <div class="glass">
-            <h4>What industries do you work with?</h4>
-            <p class="muted">We’ve shipped solutions for FinTech, logistics, enterprise SaaS, and compliance-heavy domains — but we focus on workflows, not labels.</p>
+            <h4>What industries do you serve?</h4>
+            <p class="muted">We focus on workflows. Typical clients include FinTech, logistics, enterprise SaaS and regulated domains.</p>
           </div>
 
           <div class="glass">
             <h4>How do you measure success?</h4>
-            <p class="muted">We agree on a single KPI up-front (e.g. time saved, accuracy improvement), run a PoC, and report ROI before scaling.</p>
+            <p class="muted">We agree on a single KPI for the pilot (time saved, accuracy lift, throughput), run a PoC, and report ROI before scaling.</p>
           </div>
         </div>
 
-        <div class="section-cta">
+        <div style="display:flex;justify-content:center;margin-top:18px">
           <a href="#contact" class="btn-primary">Still have questions? Talk to us</a>
         </div>
       </div>
@@ -317,11 +362,18 @@
         <div style="max-width:760px;margin:18px auto">
           <div class="glass">
             <form id="contact-form">
-              <div style="display:grid;gap:10px">
-                <input type="text" name="name" id="name" placeholder="Your name" required />
-                <input type="email" name="email" id="email" placeholder="Your email" required />
-                <input type="text" name="company" id="company" placeholder="Company (optional)" />
-                <textarea name="message" id="message" placeholder="How can we help?" rows="6" required></textarea>
+              <div style="display:grid;gap:12px">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required>
+
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="Your email" required>
+
+                <label for="company">Company</label>
+                <input id="company" name="company" type="text" placeholder="Company (optional)">
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" placeholder="How can we help?" required></textarea>
 
                 <div style="display:flex;gap:12px;align-items:center">
                   <button type="submit" class="btn-primary">Send message</button>
@@ -330,50 +382,52 @@
               </div>
             </form>
 
-            <div id="mailto-fallback" style="display:none;margin-top:12px" class="muted">
-              If automatic send fails, email us directly:
-              <a id="mailto-link" href="#" style="color:var(--accent);text-decoration:none">aviosplatform@gmail.com</a>
+            <div id="mailto-fallback" style="display:none;margin-top:12px;color:var(--muted)">
+              If the automatic send fails, email us directly:
+              <a id="mailto-link" href="#" style="color:var(--accent-1); text-decoration:none">aviosplatform@gmail.com</a>
             </div>
           </div>
         </div>
-
       </div>
     </section>
+
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="wrap">
-      <div style="text-align:center;color:var(--muted)">© 2025 Avios AI — All rights reserved.</div>
+      <div style="text-align:center; color:var(--muted)">© 2025 Avios AI — All rights reserved.</div>
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
   <script>
-    // Testimonials swiper
-    const swiper = new Swiper('.mySwiper', {
-      loop: true, centeredSlides: true, slidesPerView: 1,
+    // Initialize testimonials swiper (centered autoplay)
+    const tSwiper = new Swiper('.swiper-testimonials', {
+      loop: true,
+      centeredSlides: true,
+      slidesPerView: 1,
+      spaceBetween: 24,
       autoplay: { delay: 3500, disableOnInteraction: false },
       pagination: { el: '.swiper-pagination', clickable: true },
       speed: 700
     });
 
-    // CONTACT FORM behaviour
+    // Contact form submission with Apps Script + mailto fallback
     (function(){
       const form = document.getElementById('contact-form');
       const statusEl = document.getElementById('form-status');
       const fallback = document.getElementById('mailto-fallback');
       const mailtoLink = document.getElementById('mailto-link');
 
-      // Your Google Apps Script URL (use the exec endpoint you deployed)
+      // Your Apps Script exec URL (replace if you have a different one)
       const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbye6WBe-sERGIk_PvApsCFrS46Dq0t0s2rvic0mduAn1iZY_q5J49jinkaHPneqXxY18Q/exec";
 
-      form.addEventListener('submit', async function (e) {
+      form.addEventListener('submit', async function(e){
         e.preventDefault();
         statusEl.textContent = "Sending…";
-        statusEl.style.color = "var(--muted)";
-        fallback.style.display = "none";
+        fallback.style.display = 'none';
 
         const data = {
           name: form.name.value.trim(),
@@ -382,65 +436,53 @@
           message: form.message.value.trim()
         };
 
-        // Basic client-side validation
         if (!data.name || !data.email || !data.message) {
           statusEl.textContent = "Please complete required fields.";
           return;
         }
 
-        try {
-          // Send as form-urlencoded to Apps Script (common pattern)
-          const formBody = new URLSearchParams();
-          Object.keys(data).forEach(k => formBody.append(k, data[k]));
+        // prepare form-urlencoded body
+        const body = new URLSearchParams();
+        Object.keys(data).forEach(k => body.append(k, data[k]));
 
+        try {
           const res = await fetch(SCRIPT_URL, {
-            method: "POST",
-            mode: "cors",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: formBody.toString()
+            method: 'POST',
+            mode: 'cors',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: body.toString()
           });
 
-          // Try parse JSON; Apps Script can return plain text sometimes
-          let json;
+          let json = null;
           try { json = await res.json(); } catch (err) { json = null; }
 
-          // Handle success shape: { success: true } or similar
-          if (res.ok && json && (json.success === true || json.result === "success")) {
+          const ok = res.ok && json && (json.success === true || json.result === 'success');
+
+          if (ok) {
             statusEl.textContent = "✅ Message sent — we'll contact you soon.";
             form.reset();
           } else {
-            // Received a 200 but script returned an error object or empty
-            const errMsg = (json && json.error) ? JSON.stringify(json.error) : ("HTTP " + res.status);
-            statusEl.textContent = "❌ Error sending message. Using fallback.";
+            statusEl.textContent = "❌ Error sending message — using mail client.";
             prepareMailto(data);
-            fallback.style.display = "block";
-            console.error("Contact form error:", errMsg, json);
+            fallback.style.display = 'block';
+            console.error('Apps Script response:', res.status, json);
           }
-
         } catch (err) {
-          console.error("Network/form error:", err);
-          statusEl.textContent = "❌ Network error — using fallback mailto.";
+          statusEl.textContent = "❌ Network error — using mail client.";
           prepareMailto(data);
-          fallback.style.display = "block";
+          fallback.style.display = 'block';
+          console.error('Network error sending contact form', err);
         }
       });
 
-      function prepareMailto(data){
-        const email = "aviosplatform@gmail.com";
-        const subject = encodeURIComponent("Website contact — " + (data.company || data.name));
-        const body = encodeURIComponent(
-`Name: ${data.name}
-Email: ${data.email}
-Company: ${data.company || ""}
-Message:
-${data.message}
-`
-        );
+      function prepareMailto(data) {
+        const email = 'aviosplatform@gmail.com';
+        const subject = encodeURIComponent('Website contact — ' + (data.company || data.name || 'Contact'));
+        const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nCompany: ${data.company || ''}\n\nMessage:\n${data.message}\n`);
         mailtoLink.href = `mailto:${email}?subject=${subject}&body=${body}`;
         mailtoLink.textContent = email;
       }
     })();
   </script>
-
 </body>
 </html>

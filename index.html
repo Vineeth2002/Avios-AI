@@ -12,7 +12,7 @@
   <link rel="canonical" href="https://vineeth2002.github.io/Avios-AI/">
   <meta name="robots" content="index, follow">
 
-  <!-- Open Graph / Social: use absolute URLs for best results -->
+  <!-- Open Graph / Social (absolute URLs) -->
   <meta property="og:title" content="Avios AI — Production AI, simply delivered" />
   <meta property="og:description" content="Production-ready automation, NLP copilots and multimodal systems that deliver measurable ROI." />
   <meta property="og:image" content="https://vineeth2002.github.io/Avios-AI/assets/hero-image.webp" />
@@ -20,53 +20,28 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://vineeth2002.github.io/Avios-AI/assets/hero-image.webp" />
 
-  <!-- Preconnect & preload (fonts + hero) -->
+  <!-- Preconnect & preload -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="https://vineeth2002.github.io/Avios-AI/assets/hero-image.webp">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" as="style">
 
-  <!-- JSON-LD structured data -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "name": "Avios AI",
-        "url": "https://vineeth2002.github.io/Avios-AI/",
-        "logo": "https://vineeth2002.github.io/Avios-AI/assets/favicon.ico",
-        "sameAs": [
-          "https://github.com/vineeth2002"
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "url": "https://vineeth2002.github.io/Avios-AI/",
-        "name": "Avios AI",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://vineeth2002.github.io/Avios-AI/?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
-      },
-      {
-        "@type": "ContactPoint",
-        "contactType": "customer support",
-        "email": "aviosplatform@gmail.com"
-      }
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"Organization","name":"Avios AI","url":"https://vineeth2002.github.io/Avios-AI/","logo":"https://vineeth2002.github.io/Avios-AI/assets/favicon.ico"},
+      {"@type":"WebSite","url":"https://vineeth2002.github.io/Avios-AI/","name":"Avios AI"},
+      {"@type":"ContactPoint","contactType":"customer support","email":"aviosplatform@gmail.com"}
     ]
   }
   </script>
 
-  <!-- Favicon (update if you provide a different one) -->
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-
-  <!-- Fonts & Swiper -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
   <style>
-    /* ===== Theme & typography (kept the blue neural look you requested) ===== */
     :root{
       --bg-outer:#041022;
       --bg-inner: linear-gradient(180deg,#031223 0%, #05293a 55%, #053f4a 100%);
@@ -84,39 +59,39 @@
       --lead-size:1.05rem;
       --hero-h1: clamp(28px, 5.0vw, 48px);
     }
-
     *{box-sizing:border-box}
     html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial;background:var(--bg-outer);color:var(--text);-webkit-font-smoothing:antialiased}
     img{max-width:100%;display:block}
 
-    /* Remove underlines everywhere, but keep visible focus states */
+    /* remove underlines while preserving focus */
     a { text-decoration: none; color: inherit; }
-    a:hover, a:focus { text-decoration: none; }
+    a:focus { outline:3px solid rgba(34,193,255,0.14); outline-offset:3px; border-radius:6px; }
 
     .page{max-width:var(--max-width);margin:0 auto;padding:0 var(--gutter)}
+    .skip{position:absolute;left:-999px}
+    .skip:focus{left:12px;top:12px;padding:8px 12px;background:#fff;color:#002;border-radius:6px;z-index:999}
 
-    /* header */
     header{position:sticky;top:0;z-index:90;background:linear-gradient(180deg, rgba(2,6,12,0.72), rgba(2,6,12,0.38));backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,0.03)}
     .nav{height:var(--header-h);display:flex;align-items:center;justify-content:space-between;padding:0 var(--gutter)}
     .brand{display:flex;align-items:center;gap:14px}
-    .brand .logo{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));box-shadow:0 8px 24px rgba(10,40,60,.18)}
-    .brand .logo strong{color:#001; font-size:22px; font-weight:800}
+    .logo{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));box-shadow:0 8px 24px rgba(10,40,60,.18)}
+    .logo strong{color:#001;font-weight:800}
     .brand .title{font-weight:800;font-size:1rem}
     .brand .subtitle{font-size:.88rem;color:var(--muted);margin-top:2px}
 
     .nav-links{display:flex;gap:20px;align-items:center}
     .nav-links a{color:var(--muted);font-weight:600;padding:8px;border-radius:8px}
-    .nav-links a:hover, .nav-links a:focus{color:var(--text);background:rgba(255,255,255,0.02);outline:none}
-    .cta-primary{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:var(--cta-text);padding:10px 14px;border-radius:12px;font-weight:800;box-shadow:0 12px 36px rgba(18,110,160,0.14);border:none;cursor:pointer}
+    .nav-links a:hover{color:var(--text);background:rgba(255,255,255,0.02)}
+    .cta-primary{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:var(--cta-text);padding:10px 14px;border-radius:12px;font-weight:800;box-shadow:0 12px 36px rgba(18,110,160,0.14);cursor:pointer;border:none}
 
     .section-heading{margin-top:var(--heading-gap);margin-bottom:var(--heading-gap);text-align:center;font-weight:800;font-size:1.6rem;color:var(--text)}
 
-    /* HERO */
+    /* HERO area: allow neural canvas to be visible behind hero visual */
     .hero{position:relative;min-height:78vh;display:flex;align-items:center;justify-content:center;background:var(--bg-inner);overflow:hidden;padding:18px}
-    .hero-inner{width:100%;max-width:var(--max-width);display:flex;gap:36px;align-items:center;padding:28px}
+    .hero-inner{width:100%;max-width:var(--max-width);display:flex;gap:36px;align-items:center;padding:28px;position:relative;z-index:2}
     @media (max-width:980px){.hero-inner{flex-direction:column-reverse;gap:18px;padding:18px}}
 
-    .hero-left{flex:1 1 58%;min-width:280px;z-index:2}
+    .hero-left{flex:1 1 58%;min-width:280px}
     h1{font-size:var(--hero-h1);line-height:1.02;margin:0 0 14px;font-weight:800;color:var(--text);letter-spacing:-0.02em}
     .lead{font-size:var(--lead-size);color:var(--muted);max-width:62ch;margin-bottom:16px}
 
@@ -128,18 +103,17 @@
 
     .hero-right{flex:0 0 420px;display:flex;align-items:center;justify-content:center}
     .visual{width:100%;max-width:420px;border-radius:16px;padding:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);box-shadow:0 28px 70px rgba(0,0,0,0.6)}
-    .image-wrap{height:280px;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#2f0d51,#0bb7e0)}
+    .image-wrap{height:280px;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center}
     .image-wrap img{width:100%;height:100%;object-fit:cover}
 
-    /* Project summary (strong, goal-focused) */
-    .project-summary { margin-top:8px; color:var(--text); font-weight:700; font-size:0.99rem; }
-    .project-summary .sub { color:var(--muted); font-weight:500; margin-top:6px; font-size:0.95rem; }
+    /* make project summary crisp and visible */
+    .project-summary { margin-top:10px; color:var(--text); font-weight:700; font-size:0.98rem; }
+    .project-summary .sub { color:var(--muted); font-weight:500; margin-top:6px; font-size:0.92rem; }
 
-    .neural-canvas{position:absolute;inset:0;z-index:1;opacity:0.6;pointer-events:none;filter:blur(.3px)}
+    .neural-canvas{position:absolute;inset:0;z-index:1;pointer-events:none}
 
     section{padding:44px 0}
     .container{max-width:var(--max-width);margin:0 auto;padding:0 var(--gutter)}
-
     .two-col{display:grid;grid-template-columns:1fr 360px;gap:22px;align-items:start}
     @media (max-width:980px){.two-col{grid-template-columns:1fr}}
 
@@ -175,14 +149,11 @@
     textarea{min-height:140px}
 
     footer{padding:28px 0;text-align:center;color:var(--muted);font-size:0.95rem;border-top:1px solid rgba(255,255,255,0.02)}
-
-    :focus { outline: 3px solid rgba(34,193,255,0.14); outline-offset: 2px; border-radius:6px; }
   </style>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <!-- HEADER -->
   <header>
     <div class="nav page" role="navigation" aria-label="Top navigation">
       <div class="brand">
@@ -203,8 +174,8 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <main id="main">
+    <!-- Neural canvas sits behind hero and is stronger/visible -->
     <section class="hero" aria-label="Hero">
       <canvas class="neural-canvas" id="neuralCanvas" aria-hidden="true"></canvas>
 
@@ -227,16 +198,14 @@
 
         <div class="hero-right" aria-hidden="true">
           <div class="visual">
-            <!-- Use picture so modern browsers load WebP, fallback to PNG if not available -->
             <div class="image-wrap" role="img" aria-label="Abstract AI design">
               <picture>
-                <!-- TODO: upload assets/hero-image.webp to your repo (recommended) -->
+                <!-- Upload assets/hero-image.webp and assets/hero-image.png -->
                 <source srcset="assets/hero-image.webp" type="image/webp">
-                <img src="assets/hero-image.png" alt="Avios AI visual">
+                <img src="assets/hero-image.png" alt="Avios AI hero visual" loading="eager">
               </picture>
             </div>
 
-            <!-- Project summary (strong & goal-focused) -->
             <div class="project-summary">Project summary: Focused proofs-of-concept that validate value and reduce risk.</div>
             <div class="project-summary sub">Goal: Prove measurable ROI quickly, then deploy with observability and secure controls.</div>
           </div>
@@ -286,7 +255,7 @@
 
         <article class="service-card" aria-labelledby="s3">
           <h3 id="s3">Multimodal Systems</h3>
-          <p class="muted">Combine text, images and audio inputs to build smarter search, classification and assistant experiences.</p>
+          <p class="muted">Combine text, image and audio inputs to build smarter search, classification and assistant experiences.</p>
         </article>
       </div>
     </section>
@@ -420,13 +389,15 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
   <script>
-  /* ===== Neural-lines canvas (subtle) ===== */
+  /* ===== Neural canvas: brighter, glowing, slower motion for premium look ===== */
   (function(){
     const canvas = document.getElementById('neuralCanvas');
     if(!canvas) return;
-    const ctx = canvas.getContext('2d');
-    const N = 34;
+    const ctx = canvas.getContext('2d',{alpha:true});
+    const N = 40;
     let nodes = [];
+    const maxDist = 160;
+
     function resize(){
       const hero = document.querySelector('.hero');
       if(!hero) return;
@@ -434,39 +405,63 @@
       canvas.height = hero.clientHeight;
       nodes = [];
       for(let i=0;i<N;i++){
-        nodes.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-0.5)*0.35,vy:(Math.random()-0.5)*0.35,r:Math.random()*1.6+0.6});
+        nodes.push({
+          x: Math.random()*canvas.width,
+          y: Math.random()*canvas.height,
+          vx: (Math.random()-0.5)*0.25,
+          vy: (Math.random()-0.5)*0.25,
+          r: Math.random()*1.6+0.6,
+          glow: Math.random()*0.6+0.4
+        });
       }
     }
     window.addEventListener('resize', resize);
     resize();
-    function frame(){
+
+    function draw(){
       ctx.clearRect(0,0,canvas.width,canvas.height);
+      // subtle radial gradient overlay to give depth
+      const g = ctx.createRadialGradient(canvas.width*0.75, canvas.height*0.15, 0, canvas.width*0.7, canvas.height*0.4, Math.max(canvas.width,canvas.height));
+      g.addColorStop(0, 'rgba(8,24,32,0.06)');
+      g.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = g; ctx.fillRect(0,0,canvas.width,canvas.height);
+
+      // draw lines
       for(let i=0;i<N;i++){
         for(let j=i+1;j<N;j++){
-          const a=nodes[i], b=nodes[j];
-          const dx=a.x-b.x, dy=a.y-b.y, d=Math.hypot(dx,dy);
-          if(d<140){
+          const a = nodes[i], b = nodes[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const d = Math.hypot(dx,dy);
+          if(d < maxDist){
+            const alpha = 0.08 * (1 - d / maxDist);
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(34,193,255,${0.06*(1-d/140)})`;
+            ctx.strokeStyle = `rgba(34,193,255,${alpha})`;
             ctx.lineWidth = 1;
             ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
           }
         }
       }
+      // draw nodes with glow
       for(const p of nodes){
-        ctx.beginPath();
-        ctx.fillStyle='rgba(34,193,255,0.9)';
-        ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
-        p.x+=p.vx; p.y+=p.vy;
-        if(p.x<-10)p.x=canvas.width+10; if(p.x>canvas.width+10)p.x=-10;
-        if(p.y<-10)p.y=canvas.height+10; if(p.y>canvas.height+10)p.y=-10;
+        const grd = ctx.createRadialGradient(p.x,p.y,p.r*0.2,p.x,p.y,p.r*8);
+        grd.addColorStop(0, `rgba(34,193,255,${0.55*p.glow})`);
+        grd.addColorStop(1, 'rgba(34,193,255,0)');
+        ctx.fillStyle = grd;
+        ctx.beginPath(); ctx.arc(p.x,p.y,p.r*3,0,Math.PI*2); ctx.fill();
+        // core dot
+        ctx.beginPath(); ctx.fillStyle = 'rgba(34,193,255,0.95)'; ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
+        p.x += p.vx; p.y += p.vy;
+        if(p.x < -10) p.x = canvas.width + 10;
+        if(p.x > canvas.width + 10) p.x = -10;
+        if(p.y < -10) p.y = canvas.height + 10;
+        if(p.y > canvas.height + 10) p.y = -10;
       }
-      requestAnimationFrame(frame);
+      requestAnimationFrame(draw);
     }
-    frame();
+    draw();
   })();
 
-  /* Swiper testimonials */
+  /* Swiper (testimonials) */
   new Swiper('.swiper', {
     loop:true,
     centeredSlides:true,
@@ -476,20 +471,19 @@
     speed:700
   });
 
-  /* FAQ toggle */
+  /* FAQ toggle (one open at a time) */
   document.querySelectorAll('.faq-item').forEach(item=>{
     item.addEventListener('click', ()=>{
-      const a = item.querySelector('.faq-answer');
-      if(!a) return;
-      document.querySelectorAll('.faq-answer').forEach(x=>{ if(x!==a) x.style.display='none' });
-      a.style.display = a.style.display === 'block' ? 'none' : 'block';
-      if(window.innerWidth < 720){ item.scrollIntoView({behavior:'smooth', block:'center'}) }
+      const ans = item.querySelector('.faq-answer');
+      if(!ans) return;
+      document.querySelectorAll('.faq-answer').forEach(x=>{ if(x!==ans) x.style.display='none' });
+      ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
+      if(window.innerWidth < 720) item.scrollIntoView({behavior:'smooth', block:'center'});
     });
   });
 
-  /* Contact form -> Apps Script */
+  /* Contact form with retry & mailto fallback */
   (function(){
-    // TODO: confirm this Apps Script endpoint is deployed and returns JSON like { success: true }
     const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbye6WBe-sERGIk_PvApsCFrS46Dq0t0s2rvic0mduAn1iZY_q5J49jinkaHPneqXxY18Q/exec";
     const form = document.getElementById('contact-form');
     const status = document.getElementById('form-status');
@@ -499,6 +493,25 @@
     function setStatus(msg, err=false){
       status.textContent = msg;
       status.style.color = err ? '#ff9b9b' : '#9fffe0';
+    }
+
+    async function trySend(payload, attempts=2){
+      for(let i=0;i<attempts;i++){
+        try{
+          const res = await fetch(WEBAPP_URL, {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify(payload),
+            mode:'cors'
+          });
+          const json = await res.json().catch(()=>null);
+          if(res.ok && json && json.success) return { ok:true };
+        }catch(e){
+          // continue to retry
+        }
+        await new Promise(r=>setTimeout(r, 700));
+      }
+      return { ok:false };
     }
 
     form.addEventListener('submit', async function(e){
@@ -515,22 +528,18 @@
         setStatus('Please fill name, email and message.', true);
         submitBtn.disabled = false; return;
       }
-      try{
-        const res = await fetch(WEBAPP_URL, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),mode:'cors'});
-        let data = null;
-        try{ data = await res.json(); }catch(e){}
-        if(res.ok && data && data.success){
-          setStatus('✅ Message sent — we will reply within one business day.');
-          form.reset(); fallback.style.display='none';
-        } else {
-          setStatus('❌ Unable to send. Use the fallback email below.', true);
-          fallback.style.display='block'; fallback.innerHTML = 'Or email: <a href="mailto:aviosplatform@gmail.com" style="color:var(--accent-1)">aviosplatform@gmail.com</a>';
-        }
-      }catch(err){
-        console.error(err);
-        setStatus('❌ Network error. Try again later.', true);
-        fallback.style.display='block'; fallback.innerHTML = 'Or email: <a href="mailto:aviosplatform@gmail.com" style="color:var(--accent-1)">aviosplatform@gmail.com</a>';
-      }finally{ submitBtn.disabled=false; }
+
+      const result = await trySend(payload, 2);
+      if(result.ok){
+        setStatus('✅ Message sent — we will reply within one business day.');
+        form.reset();
+        fallback.style.display='none';
+      } else {
+        setStatus('❌ Unable to send via web form. Use fallback email below.', true);
+        fallback.style.display='block';
+        fallback.innerHTML = 'Or email: <a href="mailto:aviosplatform@gmail.com" style="color:var(--accent-1)">aviosplatform@gmail.com</a>';
+      }
+      submitBtn.disabled = false;
     });
   })();
   </script>

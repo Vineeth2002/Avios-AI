@@ -1,43 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>Avios AI — Intelligent Automation & AI Systems</title>
-  <meta name="description" content="Avios AI builds production-ready automation, NLP copilots and multimodal AI systems that reduce manual work, accelerate teams and unlock growth." />
-
-  <!-- SEO -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Avios AI — Practical AI for Real Outcomes</title>
+  <meta name="description" content="Avios AI builds production-ready automation, NLP copilots and multimodal AI systems that reduce manual work and deliver measurable impact." />
   <link rel="canonical" href="https://vineeth2002.github.io/Avios-AI/" />
-  <meta property="og:title" content="Avios AI — Practical AI for Real-World Outcomes" />
-  <meta property="og:description" content="AI that automates work, accelerates teams, and unlocks growth." />
+  <meta property="og:title" content="Avios AI — Practical AI for Real Outcomes" />
+  <meta property="og:description" content="Build AI that works for your business." />
   <meta property="og:image" content="https://vineeth2002.github.io/Avios-AI/assets/hero-image.png" />
   <meta property="og:type" content="website" />
+  <link rel="icon" href="assets/favicon.ico" />
 
-  <!-- Fonts + Tailwind -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <!-- fonts & tailwind -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Swiper (testimonials) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+
   <style>
-    body {
-      font-family: "Inter", sans-serif;
-      background: #07131f;
-      color: white;
-      margin: 0;
+    :root{
+      --bg:#07131f;
+      --panel: rgba(255,255,255,0.03);
+      --muted:#9aa6b1;
+      --accent:#2fb0ff;
+      --glass-border: 1px solid rgba(255,255,255,0.04);
+    }
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg, #04121a 0%, var(--bg) 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
     }
 
-    /* Glass panel */
+    /* header */
+    header.site {
+      position:fixed; inset:0 0 auto 0; z-index:40;
+      background: rgba(2,12,20,0.6);
+      backdrop-filter: blur(8px);
+      border-bottom:1px solid rgba(255,255,255,0.03);
+    }
+    header .container { max-width:1200px; margin:0 auto; padding:14px 22px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+
+    nav a { color: #cfe7ff; text-decoration:none; font-weight:600 }
+    nav a:hover{opacity:.9}
+
+    /* general container */
+    .wrap { max-width:1200px; margin:0 auto; padding:24px; }
+
+    /* glass card */
     .glass {
-      background: rgba(255,255,255,0.04);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+      background: var(--panel);
+      border: var(--glass-border);
+      border-radius:14px;
+      padding:18px;
+      box-shadow: 0 8px 30px rgba(2,8,12,0.5);
     }
 
-    nav a:hover {
-      opacity: 0.8;
+    /* hero */
+    #hero{ padding-top:100px; padding-bottom:44px; }
+    .hero-title { font-weight:800; letter-spacing:-1px; color:#fff; margin:0; }
+    .hero-sub { color:var(--muted); margin-top:18px; max-width:56ch; }
+
+    /* responsive font sizes controlled inline via Tailwind classes */
+
+    /* sections spacing */
+    section { padding:56px 0; }
+    section h2 { font-size:28px; margin-bottom:18px; text-align:center; color:#eaf5ff; font-weight:800; }
+
+    /* buttons on sections */
+    .section-cta { display:flex; justify-content:center; gap:12px; margin-top:12px; }
+
+    /* testimonials */
+    .swiper { width:100%; }
+    .testimonial-card { padding:28px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); color:#dfeeff; }
+
+    /* footer */
+    footer { padding:28px 0; text-align:center; color:var(--muted); }
+
+    /* form */
+    input,textarea{ background: rgba(255,255,255,0.02); color:inherit; border:1px solid rgba(255,255,255,0.04); padding:12px 14px; border-radius:10px; width:100%; }
+    button.btn-primary{ background: linear-gradient(90deg,var(--accent),#0bb1ff); color:#02121b; font-weight:700; padding:12px 18px; border-radius:12px; }
+    .muted { color:var(--muted) }
+
+    /* small screens */
+    @media (max-width: 1024px){
+      .wrap { padding:18px; }
+      header .container { padding:12px 18px; }
     }
   </style>
 </head>
@@ -45,203 +99,348 @@
 <body>
 
   <!-- HEADER -->
-  <header class="w-full fixed top-0 z-30 backdrop-blur bg-black/40 border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-xl font-bold">
-          AI
-        </div>
+  <header class="site">
+    <div class="container">
+      <div style="display:flex;gap:12px;align-items:center">
+        <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(90deg,#2fb0ff,#2fd0b0);display:flex;align-items:center;justify-content:center;font-weight:800;color:#02121b;">AI</div>
         <div>
-          <div class="font-extrabold text-lg">Avios AI</div>
-          <div class="text-xs text-gray-300">Production AI, simply delivered</div>
+          <div style="font-weight:800">Avios AI</div>
+          <div style="font-size:12px;color:var(--muted)">Production AI, simply delivered</div>
         </div>
       </div>
 
-      <nav class="hidden md:flex gap-8 text-gray-200 font-medium">
+      <nav style="display:flex;gap:22px;align-items:center">
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#faq">FAQ</a>
+        <a href="#contact" style="background:linear-gradient(90deg,#2fb0ff,#0bb1ff);padding:8px 14px;border-radius:10px;color:#02121b;font-weight:700">Contact</a>
       </nav>
-
-      <a href="#contact"
-        class="px-4 py-2 rounded-xl bg-blue-500 hover:bg-blue-600 font-semibold text-sm">
-        Contact
-      </a>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section id="hero" class="pt-32 pb-20 relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center">
+  <!-- HERO -->
+  <main id="main">
+    <section id="hero" aria-label="Hero">
+      <div class="wrap" style="display:grid;grid-template-columns:1fr 520px;gap:32px;align-items:center">
+        <!-- left text -->
+        <div>
+          <h1 class="hero-title" style="font-size:clamp(32px,6vw,56px);line-height:0.95">
+            Build AI that works for your business.
+          </h1>
 
-      <!-- LEFT TEXT -->
-      <div class="z-10">
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
-          AI that automates work,<br />
-          accelerates teams,<br />
-          and unlocks growth.
-        </h1>
+          <p class="hero-sub" style="font-size:16px;margin-bottom:18px">
+            We build production-ready automation, NLP copilots, and multimodal systems that reduce manual work and deliver measurable outcomes — starting with a focused PoC.
+          </p>
 
-        <p class="mt-6 text-lg text-gray-300 max-w-xl">
-          We build production-ready automation, NLP copilots and multimodal systems
-          that reduce manual work and deliver measurable impact — starting with a focused PoC.
-        </p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a href="#contact" class="btn-primary" style="display:inline-block;">Request consult</a>
+            <a href="#case-studies" class="glass" style="display:inline-block;padding:10px 14px;border-radius:10px;color:var(--muted);text-decoration:none">View case studies</a>
+          </div>
+        </div>
 
-        <div class="mt-10 flex flex-wrap gap-4">
-          <a href="#contact"
-             class="px-6 py-3 rounded-xl font-semibold text-white bg-blue-500 hover:bg-blue-600 transition">
-            Request consult
-          </a>
-
-          <a href="#case-studies"
-             class="px-6 py-3 rounded-xl font-semibold border border-gray-600 hover:bg-gray-800 transition">
-            View case studies
-          </a>
+        <!-- right image -->
+        <div>
+          <div class="glass" style="padding:0;overflow:hidden;">
+            <img src="assets/hero-image.png"
+                 alt="Avios AI futuristic hero visual"
+                 style="display:block;width:100%;height:100%;object-fit:cover;border-radius:12px"
+                 onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/vineeth2002/Avios-AI/main/assets/hero-image.png'">
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- RIGHT — HERO IMAGE -->
-      <div class="relative">
-        <img
-          src="assets/hero-image.png"
-          alt="Avios AI futuristic hero visual"
-          class="rounded-2xl shadow-2xl w-full object-cover"
-          onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/vineeth2002/Avios-AI/main/assets/hero-image.png';"
-        />
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap">
+        <h2>About Avios AI</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start">
+          <div class="glass">
+            <p class="muted">Avios AI helps teams replace manual work with reliable AI systems. Practical automation, domain-aware assistants and multimodal tools that deliver measurable ROI — not demos.</p>
+
+            <h4 style="margin-top:16px">How we work</h4>
+            <ul style="color:var(--muted);margin-top:8px;line-height:1.6">
+              <li><strong>Discovery:</strong> identify one high-impact metric</li>
+              <li><strong>Prototype:</strong> focused PoC with clear acceptance criteria</li>
+              <li><strong>Production:</strong> rollout, monitoring & iterative improvement</li>
+            </ul>
+          </div>
+
+          <div class="glass">
+            <h4>Why Avios</h4>
+            <ul style="color:var(--muted);line-height:1.6">
+              <li>Business-first: measurable KPIs</li>
+              <li>Production-ready: reliable & monitored systems</li>
+              <li>Privacy-aware: secure integrations</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section-cta" style="margin-top:18px">
+          <a href="#contact" class="btn-primary">Start conversation</a>
+          <a href="#services" class="glass" style="padding:10px 14px;color:var(--muted)">Explore services</a>
+        </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="wrap">
+        <h2>Services</h2>
 
-  <!-- ABOUT -->
-  <section id="about" class="py-20">
-    <h2 class="text-center text-3xl md:text-4xl font-extrabold mb-12">About Avios AI</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
+          <div class="glass">
+            <h4>AI Automation</h4>
+            <p class="muted">Automate workflows, document processing and reporting with auditable pipelines.</p>
+          </div>
 
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8">
+          <div class="glass">
+            <h4>NLP Copilots</h4>
+            <p class="muted">Assistants for support, summarization and knowledge work — tailored to your data.</p>
+          </div>
 
-      <div class="glass">
-        <p class="text-gray-300 leading-relaxed">
-          Avios AI helps teams replace manual work with reliable AI systems.
-          We build practical automation, domain-aware assistants and multimodal tools
-          that deliver measurable ROI — not demos.
-        </p>
+          <div class="glass">
+            <h4>Multimodal Systems</h4>
+            <p class="muted">Combine text, image and audio to build smarter experiences and search.</p>
+          </div>
+        </div>
 
-        <h3 class="font-bold mt-6 mb-2 text-lg">How we work</h3>
-        <ul class="text-gray-300 leading-relaxed list-disc pl-6">
-          <li><strong>Discovery:</strong> identify one high-impact metric</li>
-          <li><strong>Prototype:</strong> focused PoC with clear acceptance criteria</li>
-          <li><strong>Production:</strong> rollout, monitoring & iterative improvement</li>
-        </ul>
+        <div class="section-cta" style="margin-top:18px">
+          <a href="#contact" class="btn-primary">Request a pilot</a>
+          <a href="#case-studies" class="glass">See case studies</a>
+        </div>
       </div>
+    </section>
 
-      <div class="glass">
-        <h3 class="font-bold text-xl mb-3">Why companies choose Avios</h3>
-        <ul class="text-gray-300 leading-relaxed list-disc pl-6">
-          <li>Measurable business-first KPIs</li>
-          <li>Production-ready systems with monitoring</li>
-          <li>Secure, privacy-aware deployment</li>
-        </ul>
+    <!-- CASE STUDIES (small preview) -->
+    <section id="case-studies">
+      <div class="wrap">
+        <h2>Case studies</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px">
+          <div class="glass">
+            <h4>Support Copilot — FinTech</h4>
+            <p class="muted">35% faster triage and 30% fewer escalations.</p>
+          </div>
+          <div class="glass">
+            <h4>Reporting Automation — Logistics</h4>
+            <p class="muted">Saved 20+ hours/week using scheduled ETL + reporting.</p>
+          </div>
+          <div class="glass">
+            <h4>Document Extraction — Enterprise</h4>
+            <p class="muted">96% accurate extraction with human-in-loop validation.</p>
+          </div>
+        </div>
+        <div class="section-cta" style="margin-top:18px">
+          <a href="#contact" class="btn-primary">Book consult</a>
+        </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- TESTIMONIALS -->
+    <section id="testimonials">
+      <div class="wrap">
+        <h2>What clients say</h2>
 
-  <!-- SERVICES -->
-  <section id="services" class="py-20">
-    <h2 class="text-center text-3xl md:text-4xl font-extrabold mb-12">Services</h2>
-
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-      <div class="glass">
-        <h3 class="font-bold text-xl">AI Automation</h3>
-        <p class="text-gray-300 mt-2">
-          Automate workflows, document processing and reporting with auditable pipelines.
-        </p>
+        <!-- Swiper -->
+        <div class="max-w-3xl mx-auto" style="margin-top:18px">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <p style="font-size:18px">“Clear communication, fast delivery and production-grade reliability.”</p>
+                  <div style="margin-top:8px;color:var(--muted)">— CTO, SaaS</div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <p style="font-size:18px">“Avios delivered an NLP assistant in 2 weeks — saved our team hours every day.”</p>
+                  <div style="margin-top:8px;color:var(--muted)">— Product Lead, FinTech</div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="testimonial-card">
+                  <p style="font-size:18px">“They automated our reporting and reduced manual effort by 40%.”</p>
+                  <div style="margin-top:8px;color:var(--muted)">— Head of Ops, Logistics</div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination" style="margin-top:12px"></div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="glass">
-        <h3 class="font-bold text-xl">NLP Copilots</h3>
-        <p class="text-gray-300 mt-2">
-          Assistants for support, summarization and knowledge work — trained on your data.
-        </p>
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="wrap">
+        <h2>FAQ</h2>
+
+        <div style="max-width:900px;margin:18px auto;display:grid;gap:12px">
+          <div class="glass">
+            <h4>How quickly can we see results?</h4>
+            <p class="muted">Most teams see measurable impact from a focused PoC within 1–2 weeks when the scope and metric are defined.</p>
+          </div>
+
+          <div class="glass">
+            <h4>Which deployment options do you support?</h4>
+            <p class="muted">Cloud-first, hybrid, and on-prem integrations — with secure connectors and privacy-first design.</p>
+          </div>
+
+          <div class="glass">
+            <h4>How do you ensure reliability in production?</h4>
+            <p class="muted">Observability, human-in-loop validation, and continuous performance tracking with alerts and rollbacks.</p>
+          </div>
+
+          <div class="glass">
+            <h4>What industries do you work with?</h4>
+            <p class="muted">We’ve shipped solutions for FinTech, logistics, enterprise SaaS, and compliance-heavy domains — but we focus on workflows, not labels.</p>
+          </div>
+
+          <div class="glass">
+            <h4>How do you measure success?</h4>
+            <p class="muted">We agree on a single KPI up-front (e.g. time saved, accuracy improvement), run a PoC, and report ROI before scaling.</p>
+          </div>
+        </div>
+
+        <div class="section-cta">
+          <a href="#contact" class="btn-primary">Still have questions? Talk to us</a>
+        </div>
       </div>
+    </section>
 
-      <div class="glass">
-        <h3 class="font-bold text-xl">Multimodal AI</h3>
-        <p class="text-gray-300 mt-2">
-          Combine text, images and documents to build smarter AI systems.
-        </p>
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <h2>Contact</h2>
+
+        <div style="max-width:760px;margin:18px auto">
+          <div class="glass">
+            <form id="contact-form">
+              <div style="display:grid;gap:10px">
+                <input type="text" name="name" id="name" placeholder="Your name" required />
+                <input type="email" name="email" id="email" placeholder="Your email" required />
+                <input type="text" name="company" id="company" placeholder="Company (optional)" />
+                <textarea name="message" id="message" placeholder="How can we help?" rows="6" required></textarea>
+
+                <div style="display:flex;gap:12px;align-items:center">
+                  <button type="submit" class="btn-primary">Send message</button>
+                  <div id="form-status" class="muted" aria-live="polite"></div>
+                </div>
+              </div>
+            </form>
+
+            <div id="mailto-fallback" style="display:none;margin-top:12px" class="muted">
+              If automatic send fails, email us directly:
+              <a id="mailto-link" href="#" style="color:var(--accent);text-decoration:none">aviosplatform@gmail.com</a>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section id="testimonials" class="py-20">
-    <h2 class="text-center text-3xl md:text-4xl font-extrabold mb-12">What clients say</h2>
-
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="glass text-gray-200 text-lg leading-relaxed">
-        “Clear communication, fast delivery and production-grade reliability.”
-        <br /><span class="text-gray-400 text-sm">— CTO, SaaS</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="py-20">
-    <h2 class="text-center text-3xl md:text-4xl font-extrabold mb-12">FAQ</h2>
-
-    <div class="max-w-4xl mx-auto px-6 space-y-6">
-
-      <div class="glass">
-        <h3 class="font-bold text-lg mb-2">How quickly can we see results?</h3>
-        <p class="text-gray-300">Most teams see measurable results within a focused 1–2 week Proof-of-Concept.</p>
-      </div>
-
-      <div class="glass">
-        <h3 class="font-bold text-lg mb-2">Which deployment options do you support?</h3>
-        <p class="text-gray-300">Cloud, hybrid or on-prem — all with secure connectors and privacy-first architecture.</p>
-      </div>
-
-      <div class="glass">
-        <h3 class="font-bold text-lg mb-2">How do you ensure reliability?</h3>
-        <p class="text-gray-300">
-          Continuous monitoring, human-in-loop validation and performance tracking ensure dependable results.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="py-20">
-    <h2 class="text-center text-3xl md:text-4xl font-extrabold mb-12">Contact</h2>
-
-    <div class="max-w-xl mx-auto px-6 glass">
-      <form action="https://script.google.com/macros/s/AKfycbye6WBe-sERGIk_PvApsCFrS46Dq0t0s2rvic0mduAn1iZY_q5J49jinkaHPneqXxY18Q/exec"
-            method="POST" class="space-y-4">
-
-        <input required name="name" placeholder="Your Name"
-          class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10"/>
-
-        <input required name="email" type="email" placeholder="Your Email"
-          class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10"/>
-
-        <textarea required name="message" placeholder="Your Message" rows="4"
-          class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10"></textarea>
-
-        <button class="w-full px-6 py-3 rounded-xl bg-blue-500 hover:bg-blue-600 font-bold">
-          Send Message
-        </button>
-      </form>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- FOOTER -->
-  <footer class="py-10 text-center text-gray-400">
-    © 2025 Avios AI — All rights reserved.
+  <footer>
+    <div class="wrap">
+      <div style="text-align:center;color:var(--muted)">© 2025 Avios AI — All rights reserved.</div>
+    </div>
   </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    // Testimonials swiper
+    const swiper = new Swiper('.mySwiper', {
+      loop: true, centeredSlides: true, slidesPerView: 1,
+      autoplay: { delay: 3500, disableOnInteraction: false },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      speed: 700
+    });
+
+    // CONTACT FORM behaviour
+    (function(){
+      const form = document.getElementById('contact-form');
+      const statusEl = document.getElementById('form-status');
+      const fallback = document.getElementById('mailto-fallback');
+      const mailtoLink = document.getElementById('mailto-link');
+
+      // Your Google Apps Script URL (use the exec endpoint you deployed)
+      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbye6WBe-sERGIk_PvApsCFrS46Dq0t0s2rvic0mduAn1iZY_q5J49jinkaHPneqXxY18Q/exec";
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        statusEl.textContent = "Sending…";
+        statusEl.style.color = "var(--muted)";
+        fallback.style.display = "none";
+
+        const data = {
+          name: form.name.value.trim(),
+          email: form.email.value.trim(),
+          company: form.company.value.trim(),
+          message: form.message.value.trim()
+        };
+
+        // Basic client-side validation
+        if (!data.name || !data.email || !data.message) {
+          statusEl.textContent = "Please complete required fields.";
+          return;
+        }
+
+        try {
+          // Send as form-urlencoded to Apps Script (common pattern)
+          const formBody = new URLSearchParams();
+          Object.keys(data).forEach(k => formBody.append(k, data[k]));
+
+          const res = await fetch(SCRIPT_URL, {
+            method: "POST",
+            mode: "cors",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: formBody.toString()
+          });
+
+          // Try parse JSON; Apps Script can return plain text sometimes
+          let json;
+          try { json = await res.json(); } catch (err) { json = null; }
+
+          // Handle success shape: { success: true } or similar
+          if (res.ok && json && (json.success === true || json.result === "success")) {
+            statusEl.textContent = "✅ Message sent — we'll contact you soon.";
+            form.reset();
+          } else {
+            // Received a 200 but script returned an error object or empty
+            const errMsg = (json && json.error) ? JSON.stringify(json.error) : ("HTTP " + res.status);
+            statusEl.textContent = "❌ Error sending message. Using fallback.";
+            prepareMailto(data);
+            fallback.style.display = "block";
+            console.error("Contact form error:", errMsg, json);
+          }
+
+        } catch (err) {
+          console.error("Network/form error:", err);
+          statusEl.textContent = "❌ Network error — using fallback mailto.";
+          prepareMailto(data);
+          fallback.style.display = "block";
+        }
+      });
+
+      function prepareMailto(data){
+        const email = "aviosplatform@gmail.com";
+        const subject = encodeURIComponent("Website contact — " + (data.company || data.name));
+        const body = encodeURIComponent(
+`Name: ${data.name}
+Email: ${data.email}
+Company: ${data.company || ""}
+Message:
+${data.message}
+`
+        );
+        mailtoLink.href = `mailto:${email}?subject=${subject}&body=${body}`;
+        mailtoLink.textContent = email;
+      }
+    })();
+  </script>
 
 </body>
 </html>

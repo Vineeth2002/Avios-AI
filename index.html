@@ -15,7 +15,6 @@
 
 <link rel="icon" href="/favicon.ico" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
 <style>
 :root{
@@ -155,19 +154,16 @@ footer.sitefoot { padding:36px 16px; text-align:center; color:var(--muted); font
 <section class="hero" aria-labelledby="hero-heading">
   <!-- 3D-ish network SVG overlay (decorative only) -->
   <svg class="network" viewBox="0 0 1600 600" preserveAspectRatio="none" aria-hidden="true" role="img">
-    <!-- far background faint lines -->
     <g class="net-layer" transform="translate(0,8)">
       <path class="net-lines path-drift" d="M80 160 C220 120, 420 100, 580 150 C760 200, 920 160, 1100 210 C1280 260, 1420 220, 1560 200" />
       <path class="net-lines" d="M120 80 C260 40, 420 60, 620 100 C820 140, 980 120, 1180 140 C1380 160, 1500 140, 1560 120" style="opacity:0.4" />
     </g>
 
-    <!-- mid nodes/lines for depth -->
     <g class="net-layer" transform="translate(0,0)">
       <path class="net-foreground" d="M220 140 L320 90 L480 130 L640 110 L820 160" />
       <path class="net-foreground" d="M540 220 L660 180 L820 200 L980 180 L1200 220" />
     </g>
 
-    <!-- nodes (pulsing; different sizes for depth) -->
     <g class="net-layer" transform="translate(0,0)">
       <circle class="net-nodes node-pulse slow" cx="220" cy="140" r="4.4"></circle>
       <circle class="net-nodes node-pulse" cx="320" cy="90" r="3.8"></circle>
@@ -182,7 +178,6 @@ footer.sitefoot { padding:36px 16px; text-align:center; color:var(--muted); font
       <circle class="net-nodes node-pulse" cx="1200" cy="220" r="3.8"></circle>
     </g>
 
-    <!-- faint glow layer near top for realism -->
     <g transform="translate(0,0)" style="mix-blend-mode: screen; opacity:0.45;">
       <circle cx="360" cy="70" r="36" fill="rgba(20,150,220,0.04)"></circle>
       <circle cx="980" cy="40" r="24" fill="rgba(20,150,220,0.03)"></circle>
@@ -212,15 +207,13 @@ footer.sitefoot { padding:36px 16px; text-align:center; color:var(--muted); font
 </section>
 
 <main class="content" id="main">
-
+  <!-- ABOUT, SERVICES, CASE STUDIES, TESTIMONIALS, FAQ (unchanged) -->
   <section id="about" class="section" aria-labelledby="about-title">
     <h2 id="about-title">About Avios AI</h2>
-
     <div class="grid-3" style="margin-top:18px;">
       <div class="card" style="grid-column:span 2">
         <h3>What we do</h3>
         <p>We help teams replace manual work with reliable AI systems: practical automation, domain-aware assistants, and multimodal tools that deliver measurable ROI — not demos.</p>
-
         <h4 style="margin-top:14px;color:var(--muted)">How we work</h4>
         <ul style="color:var(--muted); margin-top:8px; line-height:1.6;">
           <li><strong>Discovery</strong> — define a measurable outcome</li>
@@ -228,7 +221,6 @@ footer.sitefoot { padding:36px 16px; text-align:center; color:var(--muted); font
           <li><strong>Production</strong> — rollout, monitoring & iterative improvement</li>
         </ul>
       </div>
-
       <div class="card">
         <h3>Why Avios</h3>
         <p style="color:var(--muted)">Business-first: measurable KPIs. Production-ready: reliable & monitored systems. Privacy-aware: secure integrations.</p>
@@ -286,7 +278,6 @@ footer.sitefoot { padding:36px 16px; text-align:center; color:var(--muted); font
         </div>
         <div aria-hidden="true" style="align-self:center; color:var(--muted)">▸</div>
       </div>
-
       <div class="faq-item" data-id="q2" role="button" tabindex="0">
         <div>
           <div class="faq-q">Which deployment options do you support?</div>
@@ -294,7 +285,6 @@ footer.sitefoot { padding:36px 16px; text-align:center; color:var(--muted); font
         </div>
         <div aria-hidden="true" style="align-self:center; color:var(--muted)">▸</div>
       </div>
-
       <div class="faq-item" data-id="q3" role="button" tabindex="0">
         <div>
           <div class="faq-q">How do you ensure reliability?</div>
@@ -302,7 +292,6 @@ footer.sitefoot { padding:36px 16px; text-align:center; color:var(--muted); font
         </div>
         <div aria-hidden="true" style="align-self:center; color:var(--muted)">▸</div>
       </div>
-
       <div class="faq-item" data-id="q4" role="button" tabindex="0">
         <div>
           <div class="faq-q">Do you handle data privacy?</div>
@@ -310,7 +299,6 @@ footer.sitefoot { padding:36px 16px; text-align:center; color:var(--muted); font
         </div>
         <div aria-hidden="true" style="align-self:center; color:var(--muted)">▸</div>
       </div>
-
       <div class="faq-item" data-id="q5" role="button" tabindex="0">
         <div>
           <div class="faq-q">What industries do you work with?</div>
@@ -349,8 +337,7 @@ footer.sitefoot { padding:36px 16px; text-align:center; color:var(--muted); font
         <div id="fallback-panel" style="display:none; margin-top:16px; padding:14px; border-radius:10px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03);">
           <div style="color:var(--muted); margin-bottom:8px;">We couldn't send via the contact form. You can contact us directly:</div>
           <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-            <a id="fallback-mailto" href="mailto:aviosplatform@gmail.com" class="btn btn-ghost" style="padding:10px 14px;" target="_blank" rel="noopener">Email aviosplatform@gmail.com</a>
-            <button id="copy-email" class="copy-btn" type="button">Copy email</button>
+            <button id="copy-email" class="copy-btn" type="button">Copy email (aviosplatform@gmail.com)</button>
             <button id="open-mail-client" class="btn btn-primary" type="button">Open mail client (prefill)</button>
             <button id="copy-body" class="copy-btn" type="button" title="Copy message body">Copy message text</button>
           </div>
@@ -366,10 +353,9 @@ footer.sitefoot { padding:36px 16px; text-align:center; color:var(--muted); font
 </footer>
 
 <script>
-/* ====== IMPORTANT: set to your Apps Script exec URL (final) ======
-   Provided final /exec URL:
-*/
+/* ===================== USER CONFIG - set your Apps Script exec URL here ===================== */
 const APPSCRIPT_EXEC = "https://script.google.com/macros/s/AKfycby6km1jYMcIRZbdfLI0T-QSydWZ9um-2rjijJxtu3GPu6Bf7zQdmZMe9MgT1ItAAnM6ig/exec";
+/* ========================================================================================== */
 
 /* FAQ toggle */
 document.querySelectorAll('.faq-item').forEach(item => {
@@ -378,25 +364,155 @@ document.querySelectorAll('.faq-item').forEach(item => {
   item.addEventListener('keydown', (ev) => { if(ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); toggle(); }});
 });
 
-/* Contact form behavior */
+/* Contact form, with robust fallbacks:
+   1) Try fetch() POST to APPSCRIPT_EXEC (modern, preferred)
+   2) If fetch fails -> create hidden iframe + POST form to APPSCRIPT_EXEC (bypass many JS/CORS blocks)
+   3) If that fails -> show fallback panel with email/copy options and mailto (prefill)
+*/
 const form = document.getElementById('contact-form');
 const statusEl = document.getElementById('form-status');
 const submitBtn = document.getElementById('contact-submit');
 const fallbackPanel = document.getElementById('fallback-panel');
-const fallbackMailto = document.getElementById('fallback-mailto');
-const copyEmail = document.getElementById('copy-email');
-const openMailClient = document.getElementById('open-mail-client');
-const copyBody = document.getElementById('copy-body');
+const copyEmailBtn = document.getElementById('copy-email');
+const openMailClientBtn = document.getElementById('open-mail-client');
+const copyBodyBtn = document.getElementById('copy-body');
 const fallbackPreserve = document.getElementById('fallback-preserve');
 
 function buildEmailBody(data){
   return `Name: ${data.name}\nEmail: ${data.email}\nCompany: ${data.company}\n\nMessage:\n${data.message}`;
 }
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
+/* helper: hidden iframe + form POST fallback */
+function postViaHiddenForm(url, data) {
+  return new Promise((resolve, reject) => {
+    try {
+      const iframeName = "hidden_iframe_" + Math.random().toString(36).slice(2);
+      const iframe = document.createElement('iframe');
+      iframe.name = iframeName;
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+
+      // monitor load to detect a response (can't access cross-origin response content, but can know it loaded)
+      let loaded = false;
+      const timeout = setTimeout(() => {
+        if(!loaded) {
+          cleanup();
+          reject(new Error('iframe POST timed out'));
+        }
+      }, 8000);
+
+      iframe.addEventListener('load', function () {
+        loaded = true;
+        clearTimeout(timeout);
+        cleanup();
+        // We can't read the iframe response cross-origin; treat load as success.
+        resolve({ ok: true, message: 'Posted via hidden form (iframe) - loaded' });
+      });
+
+      function cleanup() {
+        try { iframe.remove(); } catch(e){}
+        try { formNode.remove(); } catch(e){}
+      }
+
+      // build form
+      const formNode = document.createElement('form');
+      formNode.action = url;
+      formNode.method = 'POST';
+      formNode.target = iframeName;
+      formNode.style.display = 'none';
+
+      for (const k in data) {
+        const inp = document.createElement('input');
+        inp.type = 'hidden';
+        inp.name = k;
+        inp.value = data[k] || '';
+        formNode.appendChild(inp);
+      }
+      document.body.appendChild(formNode);
+      formNode.submit();
+    } catch (err) {
+      reject(err);
+    }
+  });
+}
+
+async function trySend(data) {
+  // Try fetch first
+  const params = new URLSearchParams(data).toString();
+  try {
+    const resp = await fetch(APPSCRIPT_EXEC, {
+      method:'POST',
+      headers:{ 'Content-Type':'application/x-www-form-urlencoded' },
+      body: params,
+      mode: 'cors' // prefer CORS; if blocked, catch below
+    });
+    // attempt parse json - if server returns valid JSON then we can check success
+    let json = null;
+    try { json = await resp.json(); } catch(e){ json = null; }
+    if (resp.ok && json && (json.success === true || json.success === "true")) {
+      return { ok:true, via:'fetch', json };
+    }
+    // not OK but server responded; still return non-ok
+    return { ok:false, via:'fetch', code: resp.status, text: await resp.text().catch(()=>'') };
+  } catch (err) {
+    // network/CORS or blocked - continue to iframe fallback
+    console.warn('fetch failed, will try iframe fallback:', err);
+    try {
+      const result = await postViaHiddenForm(APPSCRIPT_EXEC, data);
+      return { ok:true, via:'iframe', info: result };
+    } catch (err2) {
+      console.error('iframe fallback failed:', err2);
+      return { ok:false, via:'both', error: err2 };
+    }
+  }
+}
+
+function showFallback(data){
+  fallbackPanel.style.display = 'block';
+  fallbackPreserve.textContent = `Message preview — please copy if needed:\n\n${buildEmailBody(data)}`;
+  // copy email handler will set clipboard when clicked
+  copyEmailBtn.onclick = async () => {
+    try {
+      await navigator.clipboard.writeText('aviosplatform@gmail.com');
+      copyEmailBtn.textContent = 'Copied ✓';
+      setTimeout(()=> copyEmailBtn.textContent = 'Copy email (aviosplatform@gmail.com)', 1400);
+    } catch(e){ copyEmailBtn.textContent = 'Copy failed'; setTimeout(()=> copyEmailBtn.textContent = 'Copy email (aviosplatform@gmail.com)', 1400); }
+  };
+
+  copyBodyBtn.onclick = async () => {
+    try {
+      await navigator.clipboard.writeText(buildEmailBody(data));
+      copyBodyBtn.textContent = 'Copied ✓';
+      setTimeout(()=> copyBodyBtn.textContent = 'Copy message text', 1400);
+    } catch(e){ copyBodyBtn.textContent = 'Copy failed'; setTimeout(()=> copyBodyBtn.textContent = 'Copy message text', 1400); }
+  };
+
+  openMailClientBtn.onclick = async () => {
+    const email = 'aviosplatform@gmail.com';
+    const subject = encodeURIComponent('Website contact: ' + (data.name || 'Website user'));
+    const body = encodeURIComponent(buildEmailBody(data));
+    const mailto = `mailto:${email}?subject=${subject}&body=${body}`;
+
+    try {
+      // Primary: try to navigate current page (many browsers will open default mail app)
+      window.location.href = mailto;
+      // Secondary: open in new tab/window (some browsers will block one of these but not both)
+      setTimeout(()=> {
+        try { window.open(mailto, '_blank', 'noopener'); } catch(e) {}
+      }, 350);
+      // Also copy body so if the client blocked the mailto, user still has the body
+      try { await navigator.clipboard.writeText(buildEmailBody(data)); } catch(e){}
+    } catch (err) {
+      try { await navigator.clipboard.writeText(buildEmailBody(data)); } catch(e){}
+      alert("Your browser blocked opening the mail client. The message body has been copied — please paste into an email to aviosplatform@gmail.com.");
+    }
+  };
+}
+
+form.addEventListener('submit', async (ev) => {
+  ev.preventDefault();
   statusEl.style.color = 'var(--muted)';
-  statusEl.textContent = "Sending…";
+  statusEl.textContent = 'Sending…';
   submitBtn.disabled = true;
   fallbackPanel.style.display = 'none';
 
@@ -409,103 +525,29 @@ form.addEventListener('submit', async (e) => {
 
   if(!data.name || !data.email || !data.message) {
     statusEl.style.color = '#ffcccb';
-    statusEl.textContent = "Please fill name, email and message.";
+    statusEl.textContent = 'Please fill name, email and message.';
     submitBtn.disabled = false;
     return;
   }
 
-  const params = new URLSearchParams();
-  for (const k in data) params.append(k, data[k]);
+  const res = await trySend(data);
 
-  try {
-    const resp = await fetch(APPSCRIPT_EXEC, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: params.toString(),
-      mode: 'cors'
-    });
-
-    let json = null;
-    try { json = await resp.json(); } catch (err) { json = null; }
-
-    if (resp.ok && json && (json.success === true || json.success === "true")) {
-      statusEl.style.color = '#9be7b7';
-      statusEl.textContent = "Message sent — we will reply within one business day.";
-      form.reset();
-      fallbackPanel.style.display = 'none';
-      fallbackPreserve.textContent = '';
-    } else {
-      statusEl.style.color = '#ffd1a8';
-      statusEl.textContent = "Error sending — please use the fallback options below.";
-      showFallback(data);
-      console.warn('Apps Script response:', await resp.text().catch(()=>'(no text)'));
-    }
-  } catch (err) {
+  if(res.ok) {
+    statusEl.style.color = '#9be7b7';
+    statusEl.textContent = 'Message sent — we will reply within one business day.';
+    form.reset();
+    fallbackPanel.style.display = 'none';
+  } else {
+    // show fallback options
     statusEl.style.color = '#ffd1a8';
-    statusEl.textContent = "Network/livetime error — use fallback options below.";
+    statusEl.textContent = 'Network error — use fallback options below.';
     showFallback(data);
-    console.error("Contact send error:", err);
-  } finally {
-    submitBtn.disabled = false;
+    // provide console details for debugging
+    console.warn('send result:', res);
   }
+
+  submitBtn.disabled = false;
 });
-
-function showFallback(data){
-  fallbackPanel.style.display = 'block';
-  const email = 'aviosplatform@gmail.com';
-  const subject = encodeURIComponent("Website contact: " + (data.name || 'Website user'));
-  const body = encodeURIComponent(buildEmailBody(data));
-  const mailto = `mailto:${email}?subject=${subject}&body=${body}`;
-  fallbackMailto.href = mailto;
-  openMailClient.onclick = async () => {
-    try {
-      // attempt to open mail client; also open as new window as fallback
-      window.location.href = mailto;
-      setTimeout(()=> window.open(mailto, '_blank', 'noopener'), 350);
-    } catch (err) {
-      try { await navigator.clipboard.writeText(buildEmailBody(data)); } catch(e){}
-      alert("Your browser blocked opening the mail client. The message body has been copied — please paste into an email to aviosplatform@gmail.com.");
-    }
-  };
-
-  fallbackPreserve.textContent = `Message preview — please copy if needed:\n\n${buildEmailBody(data)}`;
-  document.getElementById('fallback-preserve').setAttribute('aria-live','polite');
-}
-
-/* copy helpers */
-copyEmail.addEventListener('click', async () => {
-  const email = 'aviosplatform@gmail.com';
-  try {
-    await navigator.clipboard.writeText(email);
-    copyEmail.textContent = 'Copied ✓';
-    setTimeout(()=> copyEmail.textContent = 'Copy email', 1400);
-  } catch (err) {
-    copyEmail.textContent = 'Copy failed';
-    console.error(err);
-  }
-});
-copyBody.addEventListener('click', async () => {
-  const text = fallbackPreserve.textContent || '';
-  try {
-    await navigator.clipboard.writeText(text);
-    copyBody.textContent = 'Copied ✓';
-    setTimeout(()=> copyBody.textContent = 'Copy message text', 1400);
-  } catch (err) {
-    copyBody.textContent = 'Copy failed';
-    console.error(err);
-  }
-});
-
-/* Hero image check - graceful placeholder */
-(function checkHero(){
-  const img = document.querySelector('.hero-card img');
-  if(!img) return;
-  img.addEventListener('error', () => {
-    console.warn("Hero image missing at assets/hero-image.png. Please upload that file to your repo.");
-    const card = document.querySelector('.hero-card');
-    card.innerHTML = '<div style="color:var(--muted);text-align:center;padding:44px">Hero visual missing — upload <code>assets/hero-image.png</code>.</div>';
-  });
-})();
 
 /* Smooth anchor scrolling that accounts for sticky header */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -518,6 +560,17 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 });
+
+/* Hero image graceful fallback */
+(function checkHero(){
+  const img = document.querySelector('.hero-card img');
+  if(!img) return;
+  img.addEventListener('error', () => {
+    console.warn("Hero image missing at assets/hero-image.png. Please upload that file to your repo.");
+    const card = document.querySelector('.hero-card');
+    card.innerHTML = '<div style="color:var(--muted);text-align:center;padding:44px">Hero visual missing — upload <code>assets/hero-image.png</code>.</div>';
+  });
+})();
 </script>
 
 </body>

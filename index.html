@@ -78,13 +78,16 @@ nav.topnav a { color:rgba(255,255,255,0.92); text-decoration:none; font-weight:6
 .net-lines { stroke:rgba(60,170,230,0.08); stroke-width:1.4; mix-blend-mode:screen; filter: drop-shadow(0 8px 20px rgba(0,120,170,0.08)); }
 .net-nodes { fill:rgba(40,170,220,0.95); filter:drop-shadow(0 6px 18px rgba(0,120,170,0.12)); }
 
+/* Node pulsation + slow drift for depth */
 .node-pulse { animation: pulse 2.8s ease-in-out infinite; transform-origin:center; }
 .node-pulse.slow { animation-duration:4.4s; }
 @keyframes pulse { 0%{ transform:scale(1); opacity:0.95 } 50%{ transform:scale(1.28); opacity:1 } 100%{ transform:scale(1); opacity:0.95 } }
 
+/* Gentle path wave movement (3D drift) */
 .path-drift { animation: drift 10s linear infinite; transform-origin:center; }
 @keyframes drift { 0%{ transform:translateZ(-6px) translateY(0) } 50%{ transform:translateZ(6px) translateY(-8px) } 100%{ transform:translateZ(-6px) translateY(0) } }
 
+/* thin foreground animated connections for parallax */
 .net-foreground { stroke: rgba(95,190,255,0.22); stroke-width:1.6; opacity:0.85; animation: slowMove 18s ease-in-out infinite; filter: drop-shadow(0 12px 26px rgba(0,120,170,0.06)); }
 @keyframes slowMove { 0%{ transform:translateY(0) } 50%{ transform:translateY(-6px) } 100%{ transform:translateY(0) } }
 
@@ -152,16 +155,19 @@ footer.sitefoot { padding:36px 16px; text-align:center; color:var(--muted); font
 <section class="hero" aria-labelledby="hero-heading">
   <!-- 3D-ish network SVG overlay (decorative only) -->
   <svg class="network" viewBox="0 0 1600 600" preserveAspectRatio="none" aria-hidden="true" role="img">
+    <!-- far background faint lines -->
     <g class="net-layer" transform="translate(0,8)">
       <path class="net-lines path-drift" d="M80 160 C220 120, 420 100, 580 150 C760 200, 920 160, 1100 210 C1280 260, 1420 220, 1560 200" />
       <path class="net-lines" d="M120 80 C260 40, 420 60, 620 100 C820 140, 980 120, 1180 140 C1380 160, 1500 140, 1560 120" style="opacity:0.4" />
     </g>
 
+    <!-- mid nodes/lines for depth -->
     <g class="net-layer" transform="translate(0,0)">
       <path class="net-foreground" d="M220 140 L320 90 L480 130 L640 110 L820 160" />
       <path class="net-foreground" d="M540 220 L660 180 L820 200 L980 180 L1200 220" />
     </g>
 
+    <!-- nodes (pulsing; different sizes for depth) -->
     <g class="net-layer" transform="translate(0,0)">
       <circle class="net-nodes node-pulse slow" cx="220" cy="140" r="4.4"></circle>
       <circle class="net-nodes node-pulse" cx="320" cy="90" r="3.8"></circle>
@@ -176,6 +182,7 @@ footer.sitefoot { padding:36px 16px; text-align:center; color:var(--muted); font
       <circle class="net-nodes node-pulse" cx="1200" cy="220" r="3.8"></circle>
     </g>
 
+    <!-- faint glow layer near top for realism -->
     <g transform="translate(0,0)" style="mix-blend-mode: screen; opacity:0.45;">
       <circle cx="360" cy="70" r="36" fill="rgba(20,150,220,0.04)"></circle>
       <circle cx="980" cy="40" r="24" fill="rgba(20,150,220,0.03)"></circle>
@@ -359,9 +366,10 @@ footer.sitefoot { padding:36px 16px; text-align:center; color:var(--muted); font
 </footer>
 
 <script>
-/* ====== IMPORTANT: point to your Apps Script web app URL (use the /dev or /exec URL you deployed) ====== */
-// I set this to the /dev URL you provided earlier (works for POST). If you re-deploy change this value.
-const APPSCRIPT_EXEC = "https://script.google.com/macros/s/AKfycbxSwcwJm3KIXdRxqcnymm06TZCaHdo0pMWOyYk8vHCf/dev";
+/* ====== IMPORTANT: set to your Apps Script exec URL (final) ======
+   Provided final /exec URL:
+*/
+const APPSCRIPT_EXEC = "https://script.google.com/macros/s/AKfycby6km1jYMcIRZbdfLI0T-QSydWZ9um-2rjijJxtu3GPu6Bf7zQdmZMe9MgT1ItAAnM6ig/exec";
 
 /* FAQ toggle */
 document.querySelectorAll('.faq-item').forEach(item => {
@@ -370,7 +378,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
   item.addEventListener('keydown', (ev) => { if(ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); toggle(); }});
 });
 
-/* Contact form behavior with robust fallback */
+/* Contact form behavior */
 const form = document.getElementById('contact-form');
 const statusEl = document.getElementById('form-status');
 const submitBtn = document.getElementById('contact-submit');
@@ -406,7 +414,6 @@ form.addEventListener('submit', async (e) => {
     return;
   }
 
-  // Send as application/x-www-form-urlencoded (Apps Script handles form & json)
   const params = new URLSearchParams();
   for (const k in data) params.append(k, data[k]);
 
@@ -428,7 +435,6 @@ form.addEventListener('submit', async (e) => {
       fallbackPanel.style.display = 'none';
       fallbackPreserve.textContent = '';
     } else {
-      // show graceful fallback panel
       statusEl.style.color = '#ffd1a8';
       statusEl.textContent = "Error sending — please use the fallback options below.";
       showFallback(data);
@@ -451,15 +457,12 @@ function showFallback(data){
   const body = encodeURIComponent(buildEmailBody(data));
   const mailto = `mailto:${email}?subject=${subject}&body=${body}`;
   fallbackMailto.href = mailto;
-  // openMailClient will try multiple open strategies, fallback to copying if browsers block
   openMailClient.onclick = async () => {
     try {
-      // first try to open default handler in same tab (works in many browsers)
+      // attempt to open mail client; also open as new window as fallback
       window.location.href = mailto;
-      // as a secondary attempt (some browsers handle mailto via new window)
       setTimeout(()=> window.open(mailto, '_blank', 'noopener'), 350);
     } catch (err) {
-      // fallback: copy body and show instructions
       try { await navigator.clipboard.writeText(buildEmailBody(data)); } catch(e){}
       alert("Your browser blocked opening the mail client. The message body has been copied — please paste into an email to aviosplatform@gmail.com.");
     }

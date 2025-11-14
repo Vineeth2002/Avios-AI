@@ -78,16 +78,13 @@ nav.topnav a { color:rgba(255,255,255,0.92); text-decoration:none; font-weight:6
 .net-lines { stroke:rgba(60,170,230,0.08); stroke-width:1.4; mix-blend-mode:screen; filter: drop-shadow(0 8px 20px rgba(0,120,170,0.08)); }
 .net-nodes { fill:rgba(40,170,220,0.95); filter:drop-shadow(0 6px 18px rgba(0,120,170,0.12)); }
 
-/* Node pulsation + slow drift for depth */
 .node-pulse { animation: pulse 2.8s ease-in-out infinite; transform-origin:center; }
 .node-pulse.slow { animation-duration:4.4s; }
 @keyframes pulse { 0%{ transform:scale(1); opacity:0.95 } 50%{ transform:scale(1.28); opacity:1 } 100%{ transform:scale(1); opacity:0.95 } }
 
-/* Gentle path wave movement (3D drift) */
 .path-drift { animation: drift 10s linear infinite; transform-origin:center; }
 @keyframes drift { 0%{ transform:translateZ(-6px) translateY(0) } 50%{ transform:translateZ(6px) translateY(-8px) } 100%{ transform:translateZ(-6px) translateY(0) } }
 
-/* thin foreground animated connections for parallax */
 .net-foreground { stroke: rgba(95,190,255,0.22); stroke-width:1.6; opacity:0.85; animation: slowMove 18s ease-in-out infinite; filter: drop-shadow(0 12px 26px rgba(0,120,170,0.06)); }
 @keyframes slowMove { 0%{ transform:translateY(0) } 50%{ transform:translateY(-6px) } 100%{ transform:translateY(0) } }
 
@@ -111,6 +108,10 @@ main.content{ max-width:var(--content-max); margin:40px auto; padding:0 20px 80p
 .contact-wrap input, .contact-wrap textarea { width:100%; padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.03); background:rgba(0,0,0,0.12); color:var(--white); margin-bottom:14px; outline:none; }
 .contact-wrap textarea { min-height:140px; resize:vertical; }
 .status { text-align:center; margin-top:8px; color:var(--muted); min-height:22px; }
+
+/* fallback box styling */
+.fallback-box { margin-top:16px; padding:16px; border-radius:10px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03); }
+.fallback-row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:10px; }
 
 /* footer */
 footer.sitefoot { padding:36px 16px; text-align:center; color:var(--muted); font-size:14px; border-top:1px solid rgba(255,255,255,0.02); }
@@ -155,19 +156,16 @@ footer.sitefoot { padding:36px 16px; text-align:center; color:var(--muted); font
 <section class="hero" aria-labelledby="hero-heading">
   <!-- 3D-ish network SVG overlay (decorative only) -->
   <svg class="network" viewBox="0 0 1600 600" preserveAspectRatio="none" aria-hidden="true" role="img">
-    <!-- far background faint lines -->
     <g class="net-layer" transform="translate(0,8)">
       <path class="net-lines path-drift" d="M80 160 C220 120, 420 100, 580 150 C760 200, 920 160, 1100 210 C1280 260, 1420 220, 1560 200" />
       <path class="net-lines" d="M120 80 C260 40, 420 60, 620 100 C820 140, 980 120, 1180 140 C1380 160, 1500 140, 1560 120" style="opacity:0.4" />
     </g>
 
-    <!-- mid nodes/lines for depth -->
     <g class="net-layer" transform="translate(0,0)">
       <path class="net-foreground" d="M220 140 L320 90 L480 130 L640 110 L820 160" />
       <path class="net-foreground" d="M540 220 L660 180 L820 200 L980 180 L1200 220" />
     </g>
 
-    <!-- nodes (pulsing; different sizes for depth) -->
     <g class="net-layer" transform="translate(0,0)">
       <circle class="net-nodes node-pulse slow" cx="220" cy="140" r="4.4"></circle>
       <circle class="net-nodes node-pulse" cx="320" cy="90" r="3.8"></circle>
@@ -182,7 +180,6 @@ footer.sitefoot { padding:36px 16px; text-align:center; color:var(--muted); font
       <circle class="net-nodes node-pulse" cx="1200" cy="220" r="3.8"></circle>
     </g>
 
-    <!-- faint glow layer near top for realism -->
     <g transform="translate(0,0)" style="mix-blend-mode: screen; opacity:0.45;">
       <circle cx="360" cy="70" r="36" fill="rgba(20,150,220,0.04)"></circle>
       <circle cx="980" cy="40" r="24" fill="rgba(20,150,220,0.03)"></circle>
@@ -346,15 +343,16 @@ footer.sitefoot { padding:36px 16px; text-align:center; color:var(--muted); font
         <div id="form-status" class="status" role="status" aria-live="polite"></div>
 
         <!-- fallback panel (hidden by default) -->
-        <div id="fallback-panel" style="display:none; margin-top:16px; padding:14px; border-radius:10px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03);">
+        <div id="fallback-panel" class="fallback-box" style="display:none;">
           <div style="color:var(--muted); margin-bottom:8px;">We couldn't send via the contact form. You can contact us directly:</div>
-          <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-            <a id="fallback-mailto" href="mailto:aviosplatform@gmail.com" class="btn btn-ghost" style="padding:10px 14px;">Email aviosplatform@gmail.com</a>
-            <button id="copy-email" class="copy-btn">Copy email</button>
-            <button id="open-mail-client" class="btn btn-primary">Open mail client (prefill)</button>
-            <button id="copy-body" class="copy-btn" title="Copy message body">Copy message text</button>
+
+          <div class="fallback-row">
+            <button id="fallback-copy-email" class="copy-btn" type="button">Copy email (aviosplatform@gmail.com)</button>
+            <button id="open-mail-client" class="btn btn-primary" type="button">Open mail client (prefill)</button>
+            <button id="fallback-copy-body" class="copy-btn" type="button">Copy message text</button>
           </div>
-          <div id="fallback-preserve" style="margin-top:10px; color:var(--muted); font-size:0.95rem;"></div>
+
+          <div id="fallback-preserve" style="margin-top:10px; color:var(--muted); font-size:0.95rem; white-space:pre-wrap;"></div>
         </div>
       </form>
     </div>
@@ -366,6 +364,9 @@ footer.sitefoot { padding:36px 16px; text-align:center; color:var(--muted); font
 </footer>
 
 <script>
+/* ========== CONFIG: paste your Apps Script web app URL here ========== */
+const APPSCRIPT_EXEC = "https://script.google.com/macros/s/AKfycby6km1jYMcIRZbdfLI0T-QSydWZ9um-2rjijJxtu3GPu6Bf7zQdmZMe9MgT1ItAAnM6ig/exec";
+
 /* FAQ toggle */
 document.querySelectorAll('.faq-item').forEach(item => {
   const toggle = () => item.classList.toggle('open');
@@ -374,16 +375,14 @@ document.querySelectorAll('.faq-item').forEach(item => {
 });
 
 /* Contact form behavior with robust fallback */
-const APPSCRIPT_EXEC = "https://script.google.com/macros/s/AKfycbye6WBe-sERGIk_PvApsCFrS46Dq0t0s2rvic0mduAn1iZY_q5J49jinkaHPneqXxY18Q/exec";
 const form = document.getElementById('contact-form');
 const statusEl = document.getElementById('form-status');
 const submitBtn = document.getElementById('contact-submit');
 const fallbackPanel = document.getElementById('fallback-panel');
-const fallbackMailto = document.getElementById('fallback-mailto');
-const copyEmail = document.getElementById('copy-email');
-const openMailClient = document.getElementById('open-mail-client');
-const copyBody = document.getElementById('copy-body');
 const fallbackPreserve = document.getElementById('fallback-preserve');
+const fallbackCopyEmail = document.getElementById('fallback-copy-email');
+const fallbackCopyBody = document.getElementById('fallback-copy-body');
+const openMailClientBtn = document.getElementById('open-mail-client');
 
 function buildEmailBody(data){
   return `Name: ${data.name}\nEmail: ${data.email}\nCompany: ${data.company}\n\nMessage:\n${data.message}`;
@@ -404,20 +403,19 @@ form.addEventListener('submit', async (e) => {
   };
 
   if(!data.name || !data.email || !data.message) {
-    statusEl.style.color = '#ffcccb';
+    statusEl.style.color = '#ffb4a6';
     statusEl.textContent = "Please fill name, email and message.";
     submitBtn.disabled = false;
     return;
   }
 
-  const params = new URLSearchParams();
-  for (const k in data) params.append(k, data[k]);
-
   try {
+    // Send JSON POST to the Apps Script web app
     const resp = await fetch(APPSCRIPT_EXEC, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: params.toString()
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+      mode: 'cors'
     });
 
     let json = null;
@@ -430,7 +428,6 @@ form.addEventListener('submit', async (e) => {
       fallbackPanel.style.display = 'none';
       fallbackPreserve.textContent = '';
     } else {
-      // show graceful fallback panel with explicit email and options (no automatic navigation)
       statusEl.style.color = '#ffd1a8';
       statusEl.textContent = "Error sending — please use the fallback options below.";
       showFallback(data);
@@ -438,7 +435,7 @@ form.addEventListener('submit', async (e) => {
     }
   } catch (err) {
     statusEl.style.color = '#ffd1a8';
-    statusEl.textContent = "Network/livetime error — use fallback options below.";
+    statusEl.textContent = "Network error — use fallback options below.";
     showFallback(data);
     console.error("Contact send error:", err);
   } finally {
@@ -451,86 +448,40 @@ function showFallback(data){
   const email = 'aviosplatform@gmail.com';
   const subject = encodeURIComponent("Website contact: " + (data.name || 'Website user'));
   const body = encodeURIComponent(buildEmailBody(data));
-  fallbackMailto.href = `mailto:${email}?subject=${subject}&body=${body}`;
-  // openMailClient handler is set below
+  const mailto = `mailto:${email}?subject=${subject}&body=${body}`;
+
+  // prepare fallback content and buttons
   fallbackPreserve.textContent = `Message preview — please copy if needed:\n\n${buildEmailBody(data)}`;
-  // set accessible text
-  document.getElementById('fallback-preserve').setAttribute('aria-live','polite');
+
+  openMailClientBtn.onclick = () => {
+    // Use window.open to trigger mail client / webmail prefill in a new tab/window.
+    // On desktop this will open mailto: so OS/chrome will use user's default mail app or webmail handler.
+    window.open(mailto, '_blank');
+  };
+
+  fallbackCopyEmail.onclick = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      fallbackCopyEmail.textContent = 'Copied ✓';
+      setTimeout(()=> fallbackCopyEmail.textContent = 'Copy email (aviosplatform@gmail.com)', 1400);
+    } catch (err) {
+      fallbackCopyEmail.textContent = 'Copy failed';
+      console.error(err);
+    }
+  };
+
+  fallbackCopyBody.onclick = async () => {
+    const text = fallbackPreserve.textContent || '';
+    try {
+      await navigator.clipboard.writeText(text);
+      fallbackCopyBody.textContent = 'Copied ✓';
+      setTimeout(()=> fallbackCopyBody.textContent = 'Copy message text', 1400);
+    } catch (err) {
+      fallbackCopyBody.textContent = 'Copy failed';
+      console.error(err);
+    }
+  };
 }
-
-/* copy helpers */
-copyEmail.addEventListener('click', async () => {
-  const email = 'aviosplatform@gmail.com';
-  try {
-    await navigator.clipboard.writeText(email);
-    copyEmail.textContent = 'Copied ✓';
-    setTimeout(()=> copyEmail.textContent = 'Copy email', 1400);
-  } catch (err) {
-    copyEmail.textContent = 'Copy failed';
-    console.error(err);
-  }
-});
-copyBody.addEventListener('click', async () => {
-  const text = fallbackPreserve.textContent || '';
-  try {
-    await navigator.clipboard.writeText(text);
-    copyBody.textContent = 'Copied ✓';
-    setTimeout(()=> copyBody.textContent = 'Copy message text', 1400);
-  } catch (err) {
-    copyBody.textContent = 'Copy failed';
-    console.error(err);
-  }
-});
-
-/* ----- Robust "Open mail client (prefill)" handler (multi-attempt) ----- */
-openMailClient.addEventListener('click', function (e) {
-  e.preventDefault();
-
-  // mailto href (already set when showing fallback)
-  const mailHref = fallbackMailto.href;
-
-  // 1) Try direct location change (works in many browsers)
-  try {
-    window.location.href = mailHref;
-    // Give browser a tick — if it successfully handled mailto it will switch away
-    setTimeout(() => {
-      // no-op: allow further attempts if it didn't open
-    }, 400);
-  } catch (err) {
-    // ignore and continue to other attempts
-  }
-
-  // 2) Try window.open('_self') then window.open('_blank') as fallback
-  try {
-    const win = window.open(mailHref, '_self');
-    if (win) return; // opened successfully
-  } catch (err) { /* continue */ }
-
-  try {
-    const win2 = window.open(mailHref, '_blank');
-    if (win2) return;
-  } catch (err) { /* continue */ }
-
-  // 3) Create and click an ephemeral anchor element (works in many browsers)
-  try {
-    const a = document.createElement('a');
-    a.href = mailHref;
-    a.style.display = 'none';
-    a.target = '_self';
-    document.body.appendChild(a);
-    a.click();
-    setTimeout(() => {
-      try { document.body.removeChild(a); } catch (e) {}
-    }, 800);
-    return;
-  } catch (err) {
-    console.error('Programmatic anchor mailto attempt failed:', err);
-  }
-
-  // 4) Final fallback — tell the user to copy & paste the mailto into their mail client.
-  alert('Unable to open your mail app directly. Please copy the address and paste it into your email client: aviosplatform@gmail.com');
-});
-/* --------------------------------------------------------------------- */
 
 /* Hero image check - graceful placeholder */
 (function checkHero(){
